@@ -1,0 +1,12 @@
+services:
+    proxyFactory: 
+        class: Poser\Proxy\ProxyFactory
+        
+    poserCore:
+        class: Poser\PoserCore
+        arguments: 
+            - @proxyFactory
+    
+
+
+    
