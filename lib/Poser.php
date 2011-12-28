@@ -27,6 +27,10 @@ class Poser {
 		return static::build($class)->mcok();
 	}
 	
+	public static function mockSingleton($class, MockOptions $options){
+		return static::build($class)->mockSingleton();
+	}
+	
 	/**
 	 * Used to build a more advanced or custom mock object
 	 *

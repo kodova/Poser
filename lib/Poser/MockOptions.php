@@ -29,7 +29,7 @@ class MockOptions {
 	 * @return void
 	 */
 	public function getDefaultAnswer() {
-		return $this->defaultAnswer();
+		return $this->defaultAnswer;
 	}
 		
 	/**
@@ -49,7 +49,7 @@ class MockOptions {
 	 * @return string the name of the mock or null if the name has not be set.
 	 */
 	public function getName() {
-		return $this->name();
+		return $this->name;
 	}
 
 	/**
@@ -69,7 +69,7 @@ class MockOptions {
 	 * @return bool
 	 */
 	public function canMockStatic() {
-		return $this->mockStatic();
+		return $this->mockStatic;
 	}
 		
 	/**

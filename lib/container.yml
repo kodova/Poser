@@ -1,11 +1,16 @@
 services:
     proxyFactory: 
         class: Poser\Proxy\ProxyFactory
+        arguments:
+            - @objectCache
         
     poserCore:
         class: Poser\PoserCore
         arguments: 
             - @proxyFactory
+            
+    objectCache:
+        class: Poser\Proxy\ObjectCache
     
 
 
