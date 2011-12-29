@@ -1,6 +1,6 @@
 <?php
 
-namespace Helpers;
+namespace Helpers\Test;
 
 
 abstract class AbstractClass {

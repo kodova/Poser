@@ -1,6 +1,6 @@
 <?php
 
-namespace Helpers;
+namespace Helpers\Test;
 
 final class FinalClass {
 	//this is just a final class to test with

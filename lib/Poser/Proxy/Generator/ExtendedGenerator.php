@@ -30,10 +30,11 @@ class ExtendedGenerator extends AbstractGenerator {
 		if ($this->getToMock()->isInterface()) {
 			throw new GeneratorException(sprintf('Unable to create proxy for %s because its not instantiable or abstract', $toMock));
 		}
-		//need a empty contstructor in order to extend
-		/*
-			TODO Need to create a check for this
-		*/
+		
+		$constructor = $this->getToMock()->getConstructor();
+		if ($constructor != null && $constructor->getNumberOfParameters() > 0) {
+			throw new GeneratorException('An empty contructor is required to create a proxy for ' . $toMock);
+		}
 	}
 	
 	public function getClassDeclaration() {
@@ -44,9 +45,14 @@ class ExtendedGenerator extends AbstractGenerator {
 	}
 	
 	public function getMethodsToProxy() {
-		$constructor = $this->getToMock()->getConstructor();
+		$remove = array();
 		$methods = $this->getToMock()->getMethods(\ReflectionMethod::IS_PUBLIC);
-		return array_diff($methods, array($constructor));
+		foreach ($methods as $method) {
+			if ($method->isConstructor() || $method->isFinal() || $method->isStatic() || $method->getName() == '__call') {
+				$remove[] = $method;
+			}
+		}
+		return array_diff($methods, $remove);
 	}
 }
 

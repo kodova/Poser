@@ -11,12 +11,19 @@ abstract class AbstractGenerator {
 	 * @var \ReflectionClass
 	 */
 	private $toMock;
+	
+	/**
+	 * The type of class to generate
+	 *
+	 * @var string
+	 */
+	protected $mockType;
 
 	/**
 	 * @param string $toMock The class that needs to be mocked
 	 */
 	function __construct($toMock) {
-		$this->toMock = new \ReflectionClass($toMock);
+		$this->mockType = $toMock;
 	}
 	
 	/**
@@ -37,12 +44,14 @@ abstract class AbstractGenerator {
 	public function generate() {
 		$proxiedMethods = $this->generateProxyMethdos();
 		$proxyHandler = $this->generateProxyHandler();
-		$declaration = $this->getClassDeclaration()->getDeclaration();
-		$constructor = $this->generateConstructor();
+		$classDeclaration = $this->getClassDeclaration();
+		$declaration = $classDeclaration->getDeclaration();
+		$namepace = (null != $classDeclaration->getNamespace()) ? "namespace {$classDeclaration->getNamespace()};" : '';
+		
 		return "
+			$namepace
+		
 			$declaration {
-				$constructor
-				
 				$proxyHandler
 				
 				$proxiedMethods
@@ -64,35 +73,20 @@ abstract class AbstractGenerator {
 	}
 	
 	private function generateMethodParameters(\ReflectionMethod $method) {
-		$params = $method->getParameters();
-		$output = array();
-		foreach($params as $param){
-			try {
-				$class = $param->getClass();
-				$type = ( $class == null ) ? '' : $class->getName();
-			} catch (ReflectionException $e) {
-				$type = '';
+		$params = array();
+		foreach($method->getParameters() as $param){
+			$passByRef = ($param->isPassedByReference()) ? '&' : '';
+			$typeClass = $param->getClass();
+			$typeHint = (null != $typeClass) ? $typeClass->getName() : '';
+			$name = $param->getName();
+			$default = '';
+			if ($param->isDefaultValueAvailable()) {
+				$defaultValue = ($param->getDefaultValue() == null) ? 'null' : $param->getDefaultValue();
+				$default = "= $defaultValue";
 			}
-			$name = $param->name;
-			$output[] = ($param->isOptional()) ? "$type \$$name = null" : "$type \$$name";
+			$params[] = "$typeHint $passByRef\$$name $default";
 		}
-		return implode(', ', $output);
-	}
-	
-	private function generateConstructor() {
-		$constructor = $this->toMock->getConstructor();
-		if ($constructor == null) {
-			return;
-		}
-		if ($constructor->getNumberOfParameters() > 0) {
-			throw new GeneratorException('An empty contructor is required to create a proxy that extends an existing class.');
-		}
-		
-		return "
-				function __construct() {
-					parent::__construct();
-				}
-		";
+		return implode(', ', $params);
 	}
 	
 	private function generateProxyHandler(){
@@ -105,6 +99,11 @@ abstract class AbstractGenerator {
 	}
 		
 	protected function getToMock(){
+		//need to lazy load this. when creating new classes we need not to laod the existing class
+		if($this->toMock == null){
+			$this->toMock = new \ReflectionClass($this->mockType);
+		}
+		
 		return $this->toMock;
 	}
 }
