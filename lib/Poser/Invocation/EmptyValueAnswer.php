@@ -2,7 +2,7 @@
 
 namespace Poser\Invocation;
 
-use Poser\Invocation\Answer as Answer
+use Poser\Invocation\Answer as Answer;
 
 
 class EmptyValueAnswer implements Answer {

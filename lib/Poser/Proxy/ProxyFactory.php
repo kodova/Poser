@@ -37,67 +37,6 @@ class ProxyFactory {
 		return $this->buildExtendedClass($toMock);
 	}
 	
-	public function buildExtendedClass($type) {	
-		$name = $this->getProxyName($type);
-		$proxy = $this->buildProxyHandler($type);
-		$methods = $this->buildPublicMethods($type);
-		
-		$class =  <<<CLASS
-			class $name extends $type {
-				$proxy
-				$methods
-			}
-CLASS;
-		
-		eval($class);
-		return new $name();
-		
-	}
-	
-	public function buildNewClass($type){
-		$name = $type;
-		$proxy = $this->buildProxyHandler();
-		
-		return <<<CLASS
-			class $name{
-				$proxy
-			}
-CLASS;
-		eval($class);
-		return new $name();
-	}
-	
-	public function buildPublicMethods($type) {
-		$class = new \ReflectionClass($type);
-		foreach($class->getMethods(\ReflectionMethod::IS_PUBLIC) as $method){
-			$name = $method->getName();
-			return <<<METHOD
-				public function $name() {
-					\$this->__call('$name', func_get_args());
-				}
-METHOD;
-			
-		}
-	}
-	
-	public function buildProxyHandler($type) {
-		return <<<PROXY
-			private \$proxy;
-
-			function __construct() {
-				\$this->proxy = new \Poser\Proxy\MethodProxy(new \$type());
-			}
-
-			public function __call(\$name, \$args){
-				\$this->proxy->handle(\$name, \$args);
-			}
-
-			public static function __callStatic(\$name, \$args){
-				\$this->proxy->handle(\$name, \$args);
-			}
-PROXY;
-	}
-	
 	public function getProxyName($type) {
 		return $type . 'Proxy_' . uniqid();
 	}

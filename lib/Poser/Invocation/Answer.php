@@ -2,7 +2,7 @@
 
 namespace Poser\Invocation;
 
-public interface Answer{
+interface Answer{
 
 	/**
 	 * A interface that will used to answer to invoked mehtods stubbed calls

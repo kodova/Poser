@@ -1,9 +1,9 @@
 <?php
 
-namespace Poser/Reflection;
+namespace Poser\Reflection;
 
 
-class TypedParameter extends ReflectionParameter {
+class TypedParameter extends \ReflectionParameter {
 	
 	function __construct($class, $method, $parameter) {
 		parent::__construct(array($class, $method), $parent);

@@ -55,8 +55,7 @@ class MockBuilder {
 	 * @return void
 	 */
 	public function mockSingleton($method = 'getInstance') {
-		$mock = $this->mock()
-		
+		$mock = $this->mock();		
 		return $mock;
 	}
 	

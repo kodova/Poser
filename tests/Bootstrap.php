@@ -14,12 +14,14 @@ $root =	dirname(__FILE__) . "/..";
 $paths = array(
     "$root/lib",
     "$root/tests",
+	"$root/tests/Helpers"
 );
 
 $loader = new Symfony\Component\ClassLoader\UniversalClassLoader();
 $loader->registerNamespaces(array(
 	'Symfony' => explode(PATH_SEPARATOR, get_include_path()),
-	'Poser' => $paths
+	'Poser' => $paths,
+	'Helpers' => $paths
 ));
 $loader->register();
 

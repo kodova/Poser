@@ -5,7 +5,7 @@ namespace Poser\Stubbing;
 use \Poser\Stubbing\Stubbable as Stubbable;
 
 
-class OngoingStubbing extends Stubbable {
+class OngoingStubbing implements Stubbable {
 
 	public function thenReturn($args){
 		if (is_array($args)) {
