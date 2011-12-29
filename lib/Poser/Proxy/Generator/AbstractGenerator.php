@@ -3,7 +3,7 @@
 namespace Poser\Proxy\Generator;
 
 
-abstract class AbstractGenerator {
+abstract class AbstractGenerator implements Generator{
 	
 	/**
 	 * The class to be mocked
