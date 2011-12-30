@@ -19,7 +19,6 @@ class ExtendedGeneratorTest extends PHPUnit_Framework_TestCase
 		$generator = new ExtendedGenerator($toMock, $name);
 		$classDec = $generator->getClassDeclaration();
 		
-		$this->assertEquals($name, $classDec->getClassName(), "Class names do not match");
 		$this->assertEquals($toMock, $classDec->getExtends(), 'The class to extend does not match');
 	}
 	
@@ -44,9 +43,7 @@ class ExtendedGeneratorTest extends PHPUnit_Framework_TestCase
 		$name = \Helpers\ClassName::getName('Generator');
 		
 		$generator = new ExtendedGenerator($toMock, $name);
-		$classDef = $generator->generate();
-		eval($classDef);
-		$obj = new $name();
+		$obj = $generator->generate();
 
 		$this->assertTrue(is_a($obj, $toMock), "The generated object is not of type $toMock");
 	}
@@ -56,9 +53,7 @@ class ExtendedGeneratorTest extends PHPUnit_Framework_TestCase
 		$name = \Helpers\ClassName::getName('Generator');
 		
 		$generator = new ExtendedGenerator($toMock, $name);
-		$classDef = $generator->generate();
-		eval($classDef);
-		$obj = new $name();
+		$obj = $generator->generate();
 	
 		$this->assertTrue(is_a($obj, $toMock), "The generated object is not of type $toMock");
 	}
@@ -68,9 +63,7 @@ class ExtendedGeneratorTest extends PHPUnit_Framework_TestCase
 		$name = \Helpers\ClassName::getName('Generator');
 		
 		$generator = new ExtendedGenerator($toMock, $name);	
-		$classDef = $generator->generate();
-		eval($classDef);
-		$obj = new $name();
+		$obj = $generator->generate();
 		
 		$this->assertTrue(is_a($obj, $toMock), "The generated object is not of type $toMock");
 	}

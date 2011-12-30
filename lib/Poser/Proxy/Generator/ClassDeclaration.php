@@ -50,4 +50,8 @@ class ClassDeclaration {
 		}
 		return $dec;
 	}
+	
+	public function getType() {
+		return $this->namespace . '\\' . $this->className;
+	}
 }

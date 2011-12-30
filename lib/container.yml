@@ -3,15 +3,15 @@ services:
         class: Poser\Proxy\ProxyFactory
         arguments:
             - @objectCache
-        
+            - @generatorFactory
+
     poserCore:
         class: Poser\PoserCore
         arguments: 
             - @proxyFactory
-            
+
     objectCache:
         class: Poser\Proxy\ObjectCache
-    
 
-
-    
+    generatorFactory:
+        class: Poser\Proxy\Generator\GeneratorFactory

@@ -47,8 +47,9 @@ abstract class AbstractGenerator implements Generator{
 		$classDeclaration = $this->getClassDeclaration();
 		$declaration = $classDeclaration->getDeclaration();
 		$namepace = (null != $classDeclaration->getNamespace()) ? "namespace {$classDeclaration->getNamespace()};" : '';
+		$classType = $classDeclaration->getType();
 		
-		return "
+		$classDef = "
 			$namepace
 		
 			$declaration {
@@ -56,6 +57,8 @@ abstract class AbstractGenerator implements Generator{
 				
 				$proxiedMethods
 			}";
+		eval($classDef);
+		return new $classType();
 	}
 	
 	private function generateProxyMethdos(){
@@ -66,7 +69,7 @@ abstract class AbstractGenerator implements Generator{
 			$params = $this->generateMethodParameters($method);
 			$output .= "
 				public function $name($params) {
-					\$this->__call('$name', func_get_args());
+					return \$this->__call('$name', func_get_args());
 				}\n";
 		}
 		return $output;
@@ -105,5 +108,10 @@ abstract class AbstractGenerator implements Generator{
 		}
 		
 		return $this->toMock;
+	}
+	
+	protected function getProxyName($type) {
+		$parts = explode('\\', $type);
+		return end($parts) . '_Poser' . uniqid();
 	}
 }

@@ -2,7 +2,9 @@
 
 namespace Poser\Proxy;
 
-
+/**
+ * 
+ */
 class ObjectCache {
 	
 	private $type = array();
@@ -23,7 +25,7 @@ class ObjectCache {
 	}
 	
 	public function add($name, $obj){
-		$class = new ReflectionClass($obj);
+		$class = new \ReflectionClass($obj);
 		$type = $class->getName();
 		$this->type[$type] = $obj;
 		$this->name[$name] = $obj;

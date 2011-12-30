@@ -11,12 +11,9 @@ namespace Poser\Proxy\Generator;
  * @package default
  */
 class InterfaceGenerator extends AbstractGenerator {
-	
-	private $name;
 
-	function __construct($toMock, $name) {
+	function __construct($toMock) {
 		parent::__construct($toMock);
-		$this->name = $name;
 		
 		//ensure the given mock is an interface
 		if (!$this->getToMock()->isInterface()) {
@@ -26,7 +23,7 @@ class InterfaceGenerator extends AbstractGenerator {
 
 	public function getClassDeclaration(){
 		$classDec = new ClassDeclaration();
-		$classDec->setClassName($this->name);
+		$classDec->setClassName($this->getProxyName($this->getToMock()->getShortName()));
 		$classDec->setImplements(array($this->getToMock()->getName()));
 		return $classDec;
 	}

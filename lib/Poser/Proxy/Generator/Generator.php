@@ -11,9 +11,9 @@ namespace Poser\Proxy\Generator;
 interface Generator{
 	
 	/**
-	 * Returns a class definition that can be evaled into real class
+	 * Returns a object that is a proxy for a type
 	 *
-	 * @return String
+	 * @return mixed
 	 */
 	public function generate();
 }

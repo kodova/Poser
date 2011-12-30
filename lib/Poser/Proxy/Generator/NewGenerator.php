@@ -13,6 +13,7 @@ class NewGenerator extends AbstractGenerator {
 		$dec = new ClassDeclaration($class);
 		$dec->setClassName($this->getClassName($this->mockType));
 		$dec->setNamespace($this->getNamespace($this->mockType));
+		$dec->setImplements(array('\Poser\Proxy\SubstituteProxy'));
 		return $dec;
 	}
 	

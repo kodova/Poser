@@ -14,7 +14,7 @@ class NewGeneratorTest extends PHPUnit_Framework_TestCase  {
 		$class = $generator->getClassDeclaration();
 		
 		$this->assertEquals($name, $class->getClassName(), 'The class names to not match');
-		$this->assertEmpty($class->getImplements(), 'Mock should not implement anything');
+		$this->assertEquals(array('\Poser\Proxy\SubstituteProxy'), $class->getImplements());
 		$this->assertNull($class->getExtends(), 'The class should not extend anything');
 	}
 	
@@ -25,7 +25,7 @@ class NewGeneratorTest extends PHPUnit_Framework_TestCase  {
 		$class = $generator->getClassDeclaration();
 		
 		$this->assertEquals($toMock, $class->getClassName(), 'The class names to not match');
-		$this->assertEmpty($class->getImplements(), 'Mock should not implement anything');
+		$this->assertEquals(array('\Poser\Proxy\SubstituteProxy'), $class->getImplements());
 		$this->assertNull($class->getExtends(), 'The class should not extend anything');
 	}
 
@@ -40,11 +40,8 @@ class NewGeneratorTest extends PHPUnit_Framework_TestCase  {
 	
 	public function testGenerate() {
 		$toMock = 'Helpers\Test\DoNotUseClass';
-		
 		$generator = new NewGenerator($toMock);
-		$classDef = $generator->generate();
-		eval($classDef);
-		$obj = new $toMock();
+		$obj = $generator->generate();
 		
 		$this->assertTrue(is_a($obj, $toMock));
 	}

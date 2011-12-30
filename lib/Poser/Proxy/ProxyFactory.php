@@ -2,43 +2,59 @@
 
 namespace Poser\Proxy;
 
-use Poser\MockOptions as MockOptions;
-use Poser\Proxy\ObjectCache as ObjectCache;
+use \Poser\MockOptions;
+use \Poser\Proxy\ObjectCache;
+use \Poser\Proxy\Generator\GeneratorFactory;
+use \Poser\Proxy\SubstituteProxy;
 
 class ProxyFactory {
+	/**
+	 * @var ObjectCache
+	 */
 	private $objectCache;
 	
-	function __construct(ObjectCache $objectCache) {
+	/**
+	 * @var GeneratorFactory
+	 */
+	private $generatorFactory;
+	
+	
+	function __construct(ObjectCache $objectCache, GeneratorFactory $generatorFactory) {
 		$this->objectCache = $objectCache;
+		$this->generatorFactory = $generatorFactory;
 	}
 
 	public function createProxy($toMock, MockOptions $options) {
-		$mock = $toMock;
+		//set the name in the options if needed
+ 		$name = $options->getName();
+		if ($name == null) {
+			$name = $toMock;
+			$options->setName($name);
+		}
 	
-		//has a mock that has already been generated been requested?
-		if($options->getName() != null){
-			$obj = $this->objectCache->lookupByName($options->getName());
-			if($obj != null){
-				return $obj;
-			}
+		//are they requesting a mock that has alredy been built
+		$obj = $this->objectCache->lookupByName($options->getName());
+		if($obj != null){
+			return $obj;
 		}
 		
-		//are we playing with static methods?
-		if($options->canMockStatic()){
-			//has it already been defined?
+		//are they requesting a mock that uses static that has already been defined
+		if ($options->canMockStatic()) {
 			$obj = $this->objectCache->lookupByType($toMock);
-			if($obj != null){
+			if ($obj != null && is_a('SubstituteProxy')) {
 				return $obj;
-			}else{
-				return $this->buildNewClass($toMock);
+			} elseif ($obj != null && !is_a('SubstituteProxy')) {
+				throw new \Poser\Exception\PoserException("Unable to create a mock that can stub static calls for $toMock as it has been previously mocked without static stubbing.");
+			} elseif (class_exists($toMock)) {
+				throw new \Poser\Exception\PoserException("Unable to create a mock that can stub static calls for $toMock as it has already been loaded someplace else");
 			}
 		}
 		
-		return $this->buildExtendedClass($toMock);
-	}
-	
-	public function getProxyName($type) {
-		return $type . 'Proxy_' . uniqid();
+		//build a new mock since we can't reuse
+		$generator = $this->generatorFactory->getGenerator($toMock, $options);
+		$mock = $generator->generate();
+		$this->objectCache->add($name, $mock);
+		return $mock;
 	}
 }
 

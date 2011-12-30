@@ -10,17 +10,14 @@ namespace Poser\Proxy\Generator;
  */
 class ExtendedGenerator extends AbstractGenerator {
 	
-	private $name;
-	
 	/**
 	 * Creates instance of geneartor
 	 *
 	 * @param string $toMock The type of object that needs to be extended
 	 * @param string $name Then name of the of the generated class
 	 */
-	function __construct($toMock, $name) {
+	function __construct($toMock) {
 		parent::__construct($toMock);
-		$this->name = $name;
 		
 		//ensure the class is not final
 		if ($this->getToMock()->isFinal()) {
@@ -40,7 +37,7 @@ class ExtendedGenerator extends AbstractGenerator {
 	public function getClassDeclaration() {
 		$class = new ClassDeclaration();
 		$class->setExtends($this->getToMock()->getName());
-		$class->setClassName($this->name);
+		$class->setClassName($this->getProxyName($this->getToMock()->getShortName()));
 		return $class;
 	}
 	

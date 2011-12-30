@@ -18,7 +18,6 @@ class InterfaceGeneratorTest extends PHPUnit_Framework_TestCase
 		
 		$classDec = $generator->getClassDeclaration();
 		
-		$this->assertEquals($name, $classDec->getClassName(), "Class name does not match");
 		$this->assertContains($toMock, $classDec->getImplements(), false, "Does not implement the given interface");
 	}
 	
@@ -42,11 +41,10 @@ class InterfaceGeneratorTest extends PHPUnit_Framework_TestCase
 		$generator = new InterfaceGenerator($toMock, $name);
 		
 		$classDef = $generator->generate();
-		eval($classDef);
+		$obj = $generator->generate();
 		
-		$class = new ReflectionClass($name);
+		$class = new ReflectionClass($obj);
 		
-		$this->assertEquals($name, $class->getName());
 		$this->assertContains($toMock, $class->getInterfaceNames(), 'The generated class does not implement the mocked class');
 	}
 	

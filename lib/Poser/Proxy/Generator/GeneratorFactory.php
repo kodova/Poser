@@ -7,22 +7,21 @@ namespace Poser\Proxy\Generator;
  * generators. A new generator per object that needs
  * to be generated.
  *
- * @package default
  */
 class GeneratorFactory {
 	
-	public function getGenerator($toMock, MockOptions $options) {
+	public function getGenerator($toMock, \Poser\MockOptions $options) {
 		if ($options->canMockStatic()) {
 			return new NewGenerator($toMock);
 		}
 		
-		$class = new \ReflectionClass($toMock, $options->getName());
+		$class = new \ReflectionClass($toMock);
 		if ($class->isInterface()) {
-			return new InterfaceGenerator();
+			return new InterfaceGenerator($toMock);
 		}
 		
 		//default
-		return new ExtendedGenerator($toMock, $options->getName())
+		return new ExtendedGenerator($toMock);
 	}
 	
 }
