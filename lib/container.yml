@@ -4,6 +4,7 @@ services:
         arguments:
             - @objectCache
             - @generatorFactory
+            - @mockingMonitor
 
     poserCore:
         class: Poser\PoserCore
@@ -15,3 +16,12 @@ services:
 
     generatorFactory:
         class: Poser\Proxy\Generator\GeneratorFactory
+
+    mockingMonitor:
+        class: Poser\MockingMonitor
+        arguments:
+            - @argumentMatcherMonitor
+    
+    argumentMatcherMonitor:
+        class: Poser\ArgumentMatcherMonitor
+        

@@ -8,7 +8,8 @@ use Poser\Invocation\Answer as Answer;
 class EmptyValueAnswer implements Answer {
 	
 	public function answer(Invocation $invocation){
-		$type = $invocation->getMethod()->getReturnType();
+		$method = $invocation->getMethod();
+		$type = ($method == null) ? null : $method->getReturnType();
 		
 		if($type == null){
 			return null;

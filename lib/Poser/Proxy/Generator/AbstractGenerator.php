@@ -94,10 +94,14 @@ abstract class AbstractGenerator implements Generator{
 	
 	private function generateProxyHandler(){
 		return "
+				private \$proxy;
+				
+				public function setProxy(\$proxy) {
+					\$this->proxy = \$proxy;
+				}
+		
 				public function __call(\$method, \$args) {
-					/*
-						TODO Need to complete this
-					*/
+					\$proxy->handle(\$method, \$args);
 				}\n";
 	}
 		

@@ -23,6 +23,7 @@ $loader->registerNamespaces(array(
 	'Poser' => $paths,
 	'Helpers' => $paths
 ));
+$loader->registerPrefix('Hamcrest', explode(PATH_SEPARATOR, get_include_path()));
 $loader->register();
 
 unset($root, $paths, $loader);
