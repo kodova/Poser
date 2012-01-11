@@ -1,38 +1,49 @@
 <?php
 
-namespace Poser\Invocation;
+namespace Poser\Invocation;	
 
-interface Invocation{
+
+class Invocation implements Invokable, Matchable {
 	
-	/**
-	 * Returns a instance of the mocked object that was invoked;
-	 *
-	 * @return mixed the object that has been mocked.
-	 */
-	public function getMock();
+	private $mock;
+	private $arguments;
+	private $matchers;
 	
-	/**
-	 * Gets the mehtod name that was invoked
-	 *
-	 * @return Poser\Reflection\TypedMethod The method being invocked
-	 */
-	public function getMethod();
+	function __construct($mock, $method, $args, $matchers) {
+		$this->mock = $mock;
+		$this->arguments = $args;
+		$this->matchers = $matchers;
+		
+		if (is_a($mock, 'Poser\Proxy\SubstituteProxy')) {
+			$this->method = null;
+		} else {
+			$class = new \ReflectionClass($mock);
+			$this->method =  new \Poser\Reflection\TypedMethod($class->getName(), $method);
+		}
+	}
 	
-	/**
-	 * Gets the arguments that where passed to the invocation
-	 *
-	 * @return array
-	 */
-	public function getArguments();
+	public function getMock(){
+		return $this->mock;
+	}
 	
-	/**
-	 * Calls the real method of the class that is being mocked. This may
-	 * throw exception from either the real method or if becuase the real
-	 * class was not loaded for some mocks.
-	 *
-	 * @return mixed the value retuned from the real method
-	 * @throws Exception
-	 */
-	public function callRealMethod();
+
+	public function getMethod(){
+		return $this->method;
+	}
 	
+
+	public function getArguments(){
+		return $this->arguments;
+	}
+	
+
+	public function callRealMethod(){
+		/*
+			TODO Need to implement this method
+		*/
+	}
+	
+	public function matches(Invocation $invocation){
+		
+	}
 }

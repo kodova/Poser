@@ -1,17 +1,17 @@
 <?php
-
+	
 use \Poser\Proxy\Generator\InterfaceGenerator as InterfaceGenerator;
 
 class InterfaceGeneratorTest extends PHPUnit_Framework_TestCase 
 {
-    public function setUp() {
-    }
-
-    public function tearDown() {
-    }
+	public function setUp() {
+	}
+	
+	public function tearDown() {
+	}
 	
 	public function testGetClassDeclaration() {
-	    $toMock = "Poser\\Invocation\\Invocation";
+		$toMock = 'Helpers\Test\InterfaceClass';
 		$name = "InvocationImpl";
 		
 		$generator = new InterfaceGenerator($toMock, $name);
@@ -22,7 +22,7 @@ class InterfaceGeneratorTest extends PHPUnit_Framework_TestCase
 	}
 	
 	public function testGetMethodsToProxy() {
-	    $toMock = "Poser\\Invocation\\Invocation";
+		$toMock = 'Helpers\Test\InterfaceClass';
 		$name = "InvocationImpl";
 		$class = new ReflectionClass($toMock);
 		
@@ -35,7 +35,7 @@ class InterfaceGeneratorTest extends PHPUnit_Framework_TestCase
 	}
 	
 	public function testGenearte() {
-	    $toMock = $toMock = "Poser\\Invocation\\Invocation";
+		$toMock = 'Helpers\Test\InterfaceClass';
 		$name = \Helpers\ClassName::getName('InvocationImp');
 		
 		$generator = new InterfaceGenerator($toMock, $name);
@@ -50,9 +50,9 @@ class InterfaceGeneratorTest extends PHPUnit_Framework_TestCase
 	
 	/**
 	 * @expectedException \Poser\Proxy\Generator\GeneratorException
-	*/
+	 */
 	public function testShouldNotGenerateDueToNonInterface() {
-	    $toMock = 'Poser\Invocation\EmptyValueAnswer';
+		$toMock = 'Poser\Invocation\EmptyValueAnswer';
 		$name = \Helpers\ClassName::getName('InvocationImp');
 		
 		$generator = new InterfaceGenerator($toMock, $name);

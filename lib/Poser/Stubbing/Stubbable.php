@@ -38,12 +38,4 @@ interface Stubbable {
 	 * @return Stubbable
 	 */
 	public function then(Answer $answer);
-	
-	
-	/**
-	 * Retuns the mock that was used for the stubbing.
-	 *
-	 * @return mixed
-	 */
-	public function getMock();
 }

@@ -2,7 +2,7 @@
 
 namespace Poser;
 
-use Poser\Invocation\Answer as Answer;
+use Poser\Invocation\Answer;
 
 
 class MockOptions {
@@ -26,7 +26,7 @@ class MockOptions {
 	/**
 	 * Gets the default answer for unstubbed methods.
 	 *
-	 * @return void
+	 * @return Answer
 	 */
 	public function getDefaultAnswer() {
 		return $this->defaultAnswer;
@@ -36,7 +36,7 @@ class MockOptions {
 	 * Sets the default answer for unstubbed methods. Will be
 	 * defaulted to /Poser/Invocation/EmptyValueAnswer
 	 *
-	 * @param string $defaultAnswer 
+	 * @param Answer $defaultAnswer 
 	 * @return void
 	 */
 	public function setDefaultAnswer(Answer $defaultAnswer) {

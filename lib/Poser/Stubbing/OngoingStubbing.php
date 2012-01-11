@@ -6,6 +6,12 @@ use \Poser\Stubbing\Stubbable as Stubbable;
 
 
 class OngoingStubbing implements Stubbable {
+	
+	private $invocationContainer;
+	
+	function __construct($invocationContainer) {
+		$this->invocationContainer = $invocationContainer;
+	}
 
 	public function thenReturn($args){
 		if (is_array($args)) {
@@ -23,14 +29,11 @@ class OngoingStubbing implements Stubbable {
 	}
 
 	public function thenAnswer(Answer $answer){
-		
+		$this->invocationContainer->addConsecutiveAnswer($answer);
+		return $this;
 	}
 	
 	public function then(Answer $answer){
-		
-	}
-	
-	public function getMock(){
-		
+		return $this->thenAnswer($answer);
 	}
 }
