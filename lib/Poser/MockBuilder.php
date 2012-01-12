@@ -8,17 +8,35 @@ use Poser\MockOptions as MockOptions;
 use Poser\PoserCore as PoserCore;
 
 class MockBuilder {
-	
+	/**
+	 * @var String
+	 */
 	private $name;
+	/**
+	 * @var Answer
+	 */
 	private $defaultAnswer;
-	private $mockStaic;
+	/**
+	 * @var boolean
+	 */
+	private $mockStatic;
+	/**
+	 * @var PoserCore
+	 */
 	private $poserCore;
+	/**
+	 * @var string
+	 */
 	private $class;
 	
-	function __construct(PoserCore $poserCore, string $class) {
+	/**
+	 * @param PoserCore $poserCore
+	 * @param string $class
+	 */
+	function __construct(PoserCore $poserCore, $class) {
 		$this->defaultAnswer = new EmptyValueAnswer();
 		$this->name = null;
-		$this->mockStaic = false;
+		$this->mockStatic = false;
 		$this->poserCore = $poserCore;
 		$this->class = $class;
 	}
@@ -78,7 +96,7 @@ class MockBuilder {
 		$options = new MockOptions();
 		$options->setDefaultAnswer($this->defaultAnswer);
 		$options->setName($this->name);
-		$options->setMockStatick($this->mockStatic);
-		return $poserCore->mock($this->class, $options);
+		$options->setMockStatic($this->mockStatic);
+		return $this->poserCore->mock($this->class, $options);
 	}
 }

@@ -4,6 +4,9 @@ use \Poser\DefaultReturnValues;
 
 class DefaultReturnValuesTest extends PHPUnit_Framework_TestCase 
 {
+	/**
+	 * @var DefaultReturnValues
+	 */
 	private $defaultReturnValues = null;
 	
     public function setUp() {

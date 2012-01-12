@@ -2,9 +2,7 @@
 
 namespace Poser\Invocation;
 
-use \Poser\Invocation\Invocation as Invocation;
-
-interface Matchable {
+interface Matchable extends Invokable{
 	
 	/**
 	 * Returns true if the invocation matches the current object
@@ -12,7 +10,5 @@ interface Matchable {
 	 * @param Invocation $invocation 
 	 * @return bool
 	 */
-	public function matches(Invocation $invocation);
-
-	
+	public function matches(Matchable $invocation);
 }

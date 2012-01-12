@@ -2,25 +2,41 @@
 
 namespace Poser\Stubbing;
 
-use \Poser\Stubbing\Stubbable as Stubbable;
+use Poser\Invocation\Matchable;
+
+use Poser\Invocation\Answer;
+
+use Poser\Invocation\InvocationContainer;
+
+use Poser\Invocation\ReturnAnswer;
+
+use Poser\Stubbing\Stubbable;
 
 
-class OngoingStubbing implements Stubbable {
+class OngoingStubbing implements Stubbable{
 	
+	/**
+	 * @var InvocationContainer
+	 */
 	private $invocationContainer;
+	/**
+     * @var Stub
+	 */
+	private $stub;
 	
-	function __construct($invocationContainer) {
+	function __construct(InvocationContainer $invocationContainer, Stub $stub) {
 		$this->invocationContainer = $invocationContainer;
+		$this->stub = $stub;
 	}
 
 	public function thenReturn($args){
 		if (is_array($args)) {
 			foreach($args as $arg){
-				$stubbing = $this->thenAnswer(new Returns($arg));
+				$stubbing = $this->thenAnswer(new ReturnAnswer($arg));
 			}
 			return $stubbing;
 		} else {
-			return $this->thenAnswer(new Returns($args));
+			return $this->thenAnswer(new ReturnAnswer($args));
 		}
 	}
 
@@ -29,11 +45,13 @@ class OngoingStubbing implements Stubbable {
 	}
 
 	public function thenAnswer(Answer $answer){
-		$this->invocationContainer->addConsecutiveAnswer($answer);
-		return $this;
+		$this->stub->addAnswer($answer);
+		$this->invocationContainer->addStub($this->stub);
 	}
 	
 	public function then(Answer $answer){
 		return $this->thenAnswer($answer);
 	}
+	
+	
 }

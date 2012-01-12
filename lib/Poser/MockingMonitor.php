@@ -2,8 +2,10 @@
 
 namespace Poser;
 
-use \Poser\Stubbing\Stubbable;
-use \Poser\Invocation;
+use Poser\Invocation\Invocation;
+
+use Poser\Stubbing\Stubbable;
+
 
 /**
  * A monitor that oversees all mocking operations. The primary tasks of 
@@ -57,7 +59,7 @@ class MockingMonitor {
 	 *
 	 * @return void
 	 */
-	private function validateState() {
+	public function validateState() {
 		$this->argumentMatcherMonitor->validateState();
 	}
 	
@@ -71,7 +73,7 @@ class MockingMonitor {
 	 * @return ArgumentMatcherMonitor
 	 */
 	public function getArgumentMatcherMonitor() {
-		return $this->getArgumentMatcherMonitor;
+		return $this->argumentMatcherMonitor;
 	}
 	
 	/**
@@ -82,5 +84,9 @@ class MockingMonitor {
 	 */
 	public function stubbingComplete(Invocation $invocation) {
 		
+	}
+	
+	public function reportStubbing(Stubbable $stubbing){
+		$this->ongoingStubbing = $stubbing;
 	}
 }

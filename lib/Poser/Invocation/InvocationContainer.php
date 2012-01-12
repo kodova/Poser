@@ -2,6 +2,8 @@
 
 namespace Poser\Invocation;
 
+use Poser\Stubbing\Stub;
+
 use Poser\MockingMonitor;
 
 use Poser\MockOptions;
@@ -9,7 +11,14 @@ use \SplDoublyLinkedList;
 
 class InvocationContainer {
 
+	/**
+	 * Holds all the invocations of the method to be use for verifing the calls later
+	 * @var SplDoublyLinkedList[Invocation]
+	 */
 	private $invocations = null;
+	/**
+	 * @var SplDoublyLinkedList
+	 */
 	private $stubs = null;
 	private $matchers;
 
@@ -30,19 +39,8 @@ class InvocationContainer {
 		$this->mockOptions = $mockOptions;
 	}
 	
-	public function addConsecutiveAnswer(Answer $answer) {
-		$this->addAnswer($answer, true);
-	}
-	
-	public function addAnswer(Answer $answer, $consecutive = false) {
-		$invocation = $this->invocations->pop();	//remove the last invocation since it was called to support stubbing
-		$this->mockingMonitor->stubbingComplete($invocation);
-		
-		if ($consecutive) {
-			$this->stubs->top()->addAnswer($answer);
-		} else {
-			$this->add(new Stub($this->mockOptions->getDefaultAnswer(), $invocation));
-		}
+	public function addStub(Stub $stub){
+		$this->stubs->push($stub);
 	}
 	
 	public function reportInvocataion(Invocation $invocation, $matchers) {

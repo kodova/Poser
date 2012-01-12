@@ -101,7 +101,7 @@ abstract class AbstractGenerator implements Generator{
 				}
 		
 				public function __call(\$method, \$args) {
-					\$proxy->handle(\$method, \$args);
+					\$this->proxy->handle(\$method, \$args);
 				}\n";
 	}
 		

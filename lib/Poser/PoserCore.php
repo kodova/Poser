@@ -3,10 +3,11 @@
 namespace Poser;
 
 use Poser\Stubbing\Stubbable;
-
-use \Poser\Proxy\ProxyFactory as ProxyFactory;
-use \Poser\MockOptions as MockOptions;
-use \Poser\MockBuilder as MockBuilder;
+use Poser\Proxy\ProxyFactory;
+use Poser\MockOptions;
+use Poser\MockBuilder;
+use Hamcrest_Matcher;
+use Poser\DefaultReturnValues;
 
 class PoserCore {
 	
@@ -40,7 +41,7 @@ class PoserCore {
 	 * @return Stubbable
 	 */
 	public function when($invoked){
-		
+		return $this->currentStub();
 	}
 	
 	private function currentStub(){
@@ -51,6 +52,14 @@ class PoserCore {
 		}		
 		
 		return $stub;
+	}
+	
+	/**
+	 * @param Hamcrest_Matcher $matcher
+	 * @return DefaultReturnValues;
+	 */
+	public function reportMatcher(Hamcrest_Matcher $matcher){
+		return $this->mockingMonitor->getArgumentMatcherMonitor()->reportMatcher($matcher);
 	}
 }
 

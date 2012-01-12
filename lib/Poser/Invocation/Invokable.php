@@ -12,11 +12,18 @@ interface Invokable{
 	public function getMock();
 	
 	/**
-	 * Gets the mehtod name that was invoked
+	 * Gets the method that was invoked
 	 *
 	 * @return Poser\Reflection\TypedMethod The method being invocked
 	 */
 	public function getMethod();
+	
+	/**
+	 * Gets the method name that was invoked
+	 * 
+	 * @return string
+	 */
+	public function getMethodName();
 	
 	/**
 	 * Gets the arguments that where passed to the invocation

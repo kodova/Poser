@@ -6,8 +6,8 @@ use Poser\Invocation\Matchable;
 
 use Poser\Invocation\Invocation;
 
-use \Poser\Invocation\Answer;
-use \SplQueue;
+use Poser\Invocation\Answer;
+use SplQueue;
 
 class Stub implements Answer {
 	/**
@@ -20,7 +20,7 @@ class Stub implements Answer {
 	 */
 	private $invocation = null;
 	
-	function __construct(Answer $answer, Invocation $invocation) {
+	function __construct(Invocation $invocation, Answer $answer = null) {
 		$this->invocation = $invocation;
 		$this->answers = new SplQueue();
 		$this->answers->enqueue($answer);
@@ -32,7 +32,7 @@ class Stub implements Answer {
 	}
 	
 	public function addAnswer(Answer $answer) {
-		$this->answers->enqueue($answers);
+		$this->answers->enqueue($answer);
 	}
 	
 	public function markStubUsed($usedAt) {
@@ -44,6 +44,6 @@ class Stub implements Answer {
 	}
 	
 	public function matches(Matchable $invocation){
-		return $invocation.matches($this->invocation);
+		return $invocation->matches($this->invocation);
 	}
 }

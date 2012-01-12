@@ -2,6 +2,8 @@
 
 namespace Poser\Proxy;
 
+use Poser\Invocation\InvocationContainer;
+
 use \Poser\MockOptions;
 use \Poser\Proxy\ObjectCache;
 use \Poser\Proxy\Generator\GeneratorFactory;
@@ -60,7 +62,8 @@ class ProxyFactory {
 		//build a new mock since we can't reuse
 		$generator = $this->generatorFactory->getGenerator($toMock, $options);
 		$mock = $generator->generate();
-		$mock->setProxy(new MethodProxy($this->mockingMonitor));
+		$invocationContainer = new InvocationContainer($this->mockingMonitor, $options);
+		$mock->setProxy(new MethodProxy($mock, $this->mockingMonitor, $invocationContainer, $options));
 		$this->objectCache->add($name, $mock);
 		return $mock;
 	}

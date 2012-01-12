@@ -2,6 +2,8 @@
 
 namespace Poser\Stubbing;
 
+use Poser\Invocation\Answer;
+
 interface Stubbable {
 	
 	/**

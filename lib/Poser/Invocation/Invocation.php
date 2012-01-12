@@ -2,17 +2,47 @@
 
 namespace Poser\Invocation;	
 
+use Poser\Exception\PoserException;
+
+use Poser\Reflection\TypedMethod;
+use SplDoublyLinkedList;
 
 class Invocation implements Invokable, Matchable {
 	
+	/**
+	 * @var mixed
+	 */
 	private $mock;
+	/**
+	 * @var array
+	 */
 	private $arguments;
+	/**
+	 * @var SplDoublyLinkedList
+	 */
 	private $matchers;
+	/**
+	 * @var TypedMethod
+	 */
+	private $method;
+	/**
+	 * @var string
+	 */
+	private $methodName;
 	
-	function __construct($mock, $method, $args, $matchers) {
+	/**
+	 * 
+	 * 
+	 * @param mixed $mock
+	 * @param string $method
+	 * @param array $args
+	 * @param SplDoublyLinkedList $matchers
+	 */
+	function __construct($mock, $method, $args, SplDoublyLinkedList $matchers) {
 		$this->mock = $mock;
 		$this->arguments = $args;
 		$this->matchers = $matchers;
+		$this->methodName = $method;
 		
 		if (is_a($mock, 'Poser\Proxy\SubstituteProxy')) {
 			$this->method = null;
@@ -26,12 +56,26 @@ class Invocation implements Invokable, Matchable {
 		return $this->mock;
 	}
 	
-
+	/**
+	 * (non-PHPdoc)
+	 * @see Poser\Invocation.Invokable::getMethod()
+	 */
 	public function getMethod(){
 		return $this->method;
 	}
 	
+	/**
+	 * (non-PHPdoc)
+	 * @see Poser\Invocation.Invokable::getMethodName()
+	 */
+	public function getMethodName(){
+		return $this->methodName; 
+	}
 
+	/**
+	 * (non-PHPdoc)
+	 * @see Poser\Invocation.Invokable::getArguments()
+	 */
 	public function getArguments(){
 		return $this->arguments;
 	}
@@ -43,7 +87,41 @@ class Invocation implements Invokable, Matchable {
 		*/
 	}
 	
-	public function matches(Invocation $invocation){
+	public function matches(Matchable $invocation){
+		//if not the same mock then they do not match
+		if ($this->mock !== $invocation->getMock() || $this->getMethodName() == $invocation->getMethodName() || sizeOf($this->getArguments()) != sizeOf($invocation->getArguments())) {
+			return false;
+		}
 		
+		if ($this->matchers == null || $this->matchers->count() > 0){
+			$matchers = $this->matchers;
+			$requiredCount = $this->getMethod()->getNumberOfRequiredParameters();
+			if ($requiredCount <= $matchers->count()) {
+				throw new PoserException("You need to matchers for all required parameters");
+			}
+			
+			$argsToMatch = $invocation->getArguments();
+			for ($i = 0; $i < $matchers->count(); $i++){
+				$matcher = $matchers[$i];
+				$argument = $argsToMatch[$i];
+				if(!$matcher->match($argument)){
+					return false;
+				}
+			}
+			return true;			
+		}else{ //match exact args only
+			$argsA = $this->getArguments();
+			$argsB = $invocation->getArguments();
+			
+			for($i = 0; $i < sizeof($argsA); $i++){
+				$argA = $argsA[$i];
+				$argB = $argsB[$i];
+				if ($argA != $argB){
+					return false;
+				}
+			}
+			return true;
+		}
 	}
+	
 }

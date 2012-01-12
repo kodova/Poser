@@ -6,7 +6,7 @@ use Hamcrest_Matcher;
 use SplDoublyLinkedList;
 
 class ArgumentMatcherMonitor {
-	
+
 	private $argumentList = null;
 	private $defaultReturnValues = null;
 			
@@ -18,6 +18,7 @@ class ArgumentMatcherMonitor {
 	public function reset() {
 		$this->argumentList = new SplDoublyLinkedList(SplDoublyLinkedList::IT_MODE_FIFO | SplDoublyLinkedList::IT_MODE_KEEP);
 	}
+
 	
 	public function pullMatchers() {
 		$matchers = $this->argumentList;
@@ -34,6 +35,10 @@ class ArgumentMatcherMonitor {
 		}
 	}
 	
+	/**
+	 * @param Hamcrest_Matcher $matcher
+	 * @return DefaultReturnValues
+	 */
 	public function reportMatcher(Hamcrest_Matcher $matcher) {
 		$this->argumentList->push($matcher);
 		return $this->defaultReturnValues;

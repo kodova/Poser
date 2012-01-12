@@ -6,8 +6,11 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader as YamlFileLoader;
 use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\Config\FileLocator;
-use Poser\MockOptions as MockOptions;
-use Poser\MockBuilder as MockBuilder;
+use Poser\MockOptios;
+use Poser\PoserCore;
+use Poser\MockBuilder;
+use Poser\Stubbing\Stubbable;
+use Hamcrest_Matchers as hm;
 
 /**
  * undocumented class
@@ -23,8 +26,8 @@ class Poser {
 	 *
 	 * @package default
 	 */
-	public static function mock($class, MockOptions $options){
-		return static::build($class)->mcok();
+	public static function mock($class, MockOptions $options = null){
+		return static::build($class)->mock();
 	}
 	
 	public static function mockSingleton($class, MockOptions $options){
@@ -38,9 +41,25 @@ class Poser {
 	 * @return MockBuilder a builder use to create mock
 	 */
 	public static function build($class){
-		return new MockBuilder($this->poserCore, $class);
+		$core = self::getPoserCore();
+		return new MockBuilder($core, $class);
 	}
 	
+	/**
+	 * 
+	 * Enter description here ...
+	 * @param mixed $mockInvocation
+	 * @return Stubbable
+	 */
+	public function when($mockInvocation){
+		$core = self::getPoserCore();
+		return $core->when($mockInvocation);
+	}
+	
+	/**
+	 *
+	 * @return PoserCore
+	 */
 	private static function getPoserCore(){
 		if(null == self::$poserCore){
 			$loader = new Symfony\Component\ClassLoader\UniversalClassLoader();
@@ -48,6 +67,7 @@ class Poser {
 				'Symfony' => explode(PATH_SEPARATOR, get_include_path()),
 				'Poser' => __DIR__
 			));
+			$loader->registerPrefix("Hamcrest", explode(PATH_SEPARATOR, get_include_path()));
 			$loader->register();
 			
 			$container = new Symfony\Component\DependencyInjection\ContainerBuilder();
@@ -67,5 +87,25 @@ class Poser {
 	 */
 	public static function setPoserCore(PoserCore $poserCore){
 		static::$poserCore = $poserCore;
+	}
+	
+	
+	//---- Matchers ----//
+	
+	
+	public static function any($class){
+		return self::getPoserCore()->reportMatcher(hm::any($class))->returnNull();
+	}
+	
+	public static function eq($val){
+		return self::equalTo($val);
+	}
+	
+	public static function equalTo($val){
+		return self::getPoserCore()->reportMatcher(hm::equalTo($val))->returnNull();
+	}
+	
+	public static function anything($description = 'ANYTHING'){
+		return self::getPoserCore()->reportMatcher(hm::anything($description))->returnNull();
 	}
 }
