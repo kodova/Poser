@@ -45,12 +45,12 @@ class MethodProxy {
 	public function handle($method, $args) {
 		$matchers = $this->mockingMonitor->getArgumentMatcherMonitor()->pullMatchers();
 		$invocation = new Invocation($this->mock, $method, $args, $matchers);
-		
-		
-		//verify
-		$this->mockingMonitor->validateState();
 
-		//TODO is someone trying to verify soemthing do verify and short circut
+		$verifcation = $this->mockingMonitor->currentVerification($this->mock);
+		if ($verifcation != null){
+			$verifcation->getType()->verify($invocation, $this->invocationContainer);
+			return;
+		}
 
 		$this->invocationContainer->reportInvocataion($invocation, $matchers);
 		$stub = new Stub($invocation);
@@ -60,13 +60,21 @@ class MethodProxy {
 		if ($stubbedInvocation == null) {
 			return $this->options->getDefaultAnswer()->answer($invocation);
 		}else{
-			$stubbedInvocation->captureArguments($invocation);
-			return $stubbedInvocation->answer(invocation);
+			$this->mockingMonitor->reset();
+			return $stubbedInvocation->answer($invocation);
 		}
 	}
 	
 	public function getMock() {
 		return $this->mock;
+	}
+	
+	/**
+	 * Returns the InvocationContainer for the give mock object
+	 * @return \Poser\Proxy\InvocationContainer
+	 */
+	public function getInvocationContainer(){
+		return $this->invocationContainer;
 	}
 }
 

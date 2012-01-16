@@ -2,6 +2,12 @@
 
 namespace Poser;
 
+use Poser\Verification\VerificationRequest;
+
+use Poser\Exception\PoserException;
+
+use Poser\Verification\VerifiableType;
+
 use Poser\Stubbing\Stubbable;
 use Poser\Proxy\ProxyFactory;
 use Poser\MockOptions;
@@ -60,6 +66,29 @@ class PoserCore {
 	 */
 	public function reportMatcher(Hamcrest_Matcher $matcher){
 		return $this->mockingMonitor->getArgumentMatcherMonitor()->reportMatcher($matcher);
+	}
+	
+	/**
+	 * @param mixed $mocks
+	 * @return void
+	 */
+	public function verifyZeroInteractions($mocks){
+		$parms = func_get_args();
+		foreach($params as $mock){
+			$container = $mock->getProxy()->getInvocationContainer();
+			if($container->hasInvocations()){
+				throw new PoserException("There were invocations on  mock when there should no have been some");
+			}	
+		}
+	}
+	
+	public function verify($mock, VerifiableType $type){
+		if($mock == null){
+			throw new PoserException("You can not verify a null object"); 
+		}
+		
+		$this->mockingMonitor->startVerification(new VerificationRequest($mock, $type));
+		return $mock;
 	}
 }
 

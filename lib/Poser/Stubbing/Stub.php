@@ -20,15 +20,14 @@ class Stub implements Answer {
 	 */
 	private $invocation = null;
 	
-	function __construct(Invocation $invocation, Answer $answer = null) {
+	function __construct(Invocation $invocation) {
 		$this->invocation = $invocation;
 		$this->answers = new SplQueue();
-		$this->answers->enqueue($answer);
 	}
 	
 	public function answer(Invocation $invocation) {
 		$answer = ($this->answers->count() == 1) ? $this->answers->top() : $this->answers->dequeue();
-		return $answer->answer();
+		return $answer->answer($invocation);
 	}
 	
 	public function addAnswer(Answer $answer) {
@@ -44,6 +43,6 @@ class Stub implements Answer {
 	}
 	
 	public function matches(Matchable $invocation){
-		return $invocation->matches($this->invocation);
+		return $this->invocation->matches($invocation);
 	}
 }

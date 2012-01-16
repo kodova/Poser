@@ -2,6 +2,10 @@
 
 namespace Poser;
 
+use Poser\Exception\PoserException;
+
+use Poser\Verification\VerificationRequest;
+
 use Poser\Invocation\Invocation;
 
 use Poser\Stubbing\Stubbable;
@@ -28,6 +32,11 @@ class MockingMonitor {
 	 */
 	private $argumentMatcherMonitor = null;
 	
+	/**
+	 * @var VerificationRequest
+	 */
+	private $verification = null;
+	
 	public function __construct(ArgumentMatcherMonitor $argumentMatcherMonitor) {
 		$this->argumentMatcherMonitor = $argumentMatcherMonitor;
 	}
@@ -39,6 +48,15 @@ class MockingMonitor {
 	 */
 	public function startStubbing() {
 		$this->validateState();
+	}
+	
+	/**
+	 * Start the current verificaiton process
+	 * @param VerificationRequest $verification
+	 */
+	public function startVerification(VerificationRequest $verification){
+		$this->validateState();
+		$this->verification = $verification;
 	}
 	
 	/**
@@ -54,18 +72,42 @@ class MockingMonitor {
 	}
 	
 	/**
+	 * Gets the current VerificationRequest that is currently in process
+	 * @return \Poser\VerificationRequest
+	 */
+	public function currentVerification($toVerify) {
+		$verification = $this->verification;
+		if($verification != null && $verification->getMock()->equals($toVerify)){
+			$this->reset();
+			return $verification;
+		}else{
+			return null;
+		}
+	}
+	
+	/**
 	 * Validates the state of the current mocking to ensure
 	 * that we can start mocking
 	 *
 	 * @return void
 	 */
 	public function validateState() {
+		if($this->ongoingStubbing != null){
+			throw new PoserException("Mocking in a invalid state there is ongoing stub");  //TODO need to make better
+		}
+		
+		if($this->verification != null){
+			throw new PoserException("Mocking is in a invalid state there is a verificaiton currently active");
+		}
+		
 		$this->argumentMatcherMonitor->validateState();
+		//TODO report that there is unfinished stubbing and verification
 	}
 	
 	public function reset() {
 		$this->getArgumentMatcherMonitor()->reset();
-		unset($this->ongoingStubbing);
+		$this->ongoingStubbing = null;
+		$this->verification = null;
 	}
 	
 	/**
@@ -83,7 +125,7 @@ class MockingMonitor {
 	 * @return void
 	 */
 	public function stubbingComplete(Invocation $invocation) {
-		
+		$this->reset();
 	}
 	
 	public function reportStubbing(Stubbable $stubbing){

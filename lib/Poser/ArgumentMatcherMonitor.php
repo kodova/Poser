@@ -6,8 +6,13 @@ use Hamcrest_Matcher;
 use SplDoublyLinkedList;
 
 class ArgumentMatcherMonitor {
-
+	/**
+	 * @var SplDoublyLinkedList
+	 */
 	private $argumentList = null;
+	/**
+	 * @var DefaultReturnValues
+	 */
 	private $defaultReturnValues = null;
 			
 	function __construct() {

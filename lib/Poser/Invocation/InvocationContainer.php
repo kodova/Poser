@@ -61,4 +61,23 @@ class InvocationContainer {
 	public function hasAnswers() {
 		return !$this->stubs->isEmpty();
 	}
+	
+	public function hasInvocations(){
+		return ($this->invocations->count() > 0);
+	}
+	
+	/**
+	 * @return array[Invocation]
+	 */
+	public function getInvocations($func = null){
+		$toReturn = array();
+		foreach ($this->invocations as $invocation){
+			if($func != null && is_a($func, '\Closure') && !$func($invocation)){
+				continue;
+			}
+			$toReturn[] = $invocation;
+		}
+		
+		return $toReturn;
+	}
 }

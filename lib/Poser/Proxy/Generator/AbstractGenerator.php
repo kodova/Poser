@@ -56,6 +56,7 @@ abstract class AbstractGenerator implements Generator{
 				$proxyHandler
 				
 				$proxiedMethods
+				
 			}";
 		eval($classDef);
 		return new $classType();
@@ -93,16 +94,32 @@ abstract class AbstractGenerator implements Generator{
 	}
 	
 	private function generateProxyHandler(){
+		$id = uniqid();
+		
 		return "
 				private \$proxy;
+				private \$id = '$id';
 				
 				public function setProxy(\$proxy) {
 					\$this->proxy = \$proxy;
 				}
+				
+				public function getProxy() {
+					return \$this->proxy;
+				}
 		
 				public function __call(\$method, \$args) {
-					\$this->proxy->handle(\$method, \$args);
-				}\n";
+					return \$this->proxy->handle(\$method, \$args);
+				}\n
+				
+				public function getId() {
+					return \$this->id;
+				}
+				
+				public function equals(\$object) {
+					return (is_a(\$object, __CLASS__) && \$object->getId() == \$this->getId());
+				}
+		";
 	}
 		
 	protected function getToMock(){

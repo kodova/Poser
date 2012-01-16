@@ -89,14 +89,14 @@ class Invocation implements Invokable, Matchable {
 	
 	public function matches(Matchable $invocation){
 		//if not the same mock then they do not match
-		if ($this->mock !== $invocation->getMock() || $this->getMethodName() == $invocation->getMethodName() || sizeOf($this->getArguments()) != sizeOf($invocation->getArguments())) {
+		if (!$this->mock->equals($invocation->getMock()) || $this->getMethodName() != $invocation->getMethodName() || sizeOf($this->getArguments()) != sizeOf($invocation->getArguments())) {
 			return false;
 		}
 		
-		if ($this->matchers == null || $this->matchers->count() > 0){
+		if ($this->matchers != null && $this->matchers->count() > 0){
 			$matchers = $this->matchers;
 			$requiredCount = $this->getMethod()->getNumberOfRequiredParameters();
-			if ($requiredCount <= $matchers->count()) {
+			if ($requiredCount > $matchers->count()) {
 				throw new PoserException("You need to matchers for all required parameters");
 			}
 			
@@ -104,7 +104,7 @@ class Invocation implements Invokable, Matchable {
 			for ($i = 0; $i < $matchers->count(); $i++){
 				$matcher = $matchers[$i];
 				$argument = $argsToMatch[$i];
-				if(!$matcher->match($argument)){
+				if(!$matcher->matches($argument)){
 					return false;
 				}
 			}
@@ -124,4 +124,7 @@ class Invocation implements Invokable, Matchable {
 		}
 	}
 	
+	public function markStubbed(){
+		//TODO need to implement this
+	}
 }

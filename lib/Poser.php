@@ -10,6 +10,8 @@ use Poser\MockOptios;
 use Poser\PoserCore;
 use Poser\MockBuilder;
 use Poser\Stubbing\Stubbable;
+use Poser\Verification\Times;
+use Poser\Verification\VerifiableType;
 use Hamcrest_Matchers as hm;
 
 /**
@@ -33,7 +35,7 @@ class Poser {
 	public static function mockSingleton($class, MockOptions $options){
 		return static::build($class)->mockSingleton();
 	}
-	
+
 	/**
 	 * Used to build a more advanced or custom mock object
 	 *
@@ -46,8 +48,8 @@ class Poser {
 	}
 	
 	/**
-	 * 
-	 * Enter description here ...
+	 * Used to create a stub for a mocked object method calls. You can use this to return 
+	 * values when the default return value is not desired.
 	 * @param mixed $mockInvocation
 	 * @return Stubbable
 	 */
@@ -57,7 +59,7 @@ class Poser {
 	}
 	
 	/**
-	 *
+	 * Retuns a single instance of the PoserCore object that controls everything.
 	 * @return PoserCore
 	 */
 	private static function getPoserCore(){
@@ -90,9 +92,66 @@ class Poser {
 	}
 	
 	
+	//-- Verification --??
+	/**
+	 * Enter description here ...
+	 * @param mixed $mock
+	 * @param VerifiableType $times
+	 */
+	public static function verify($mock, VerifiableType $times = null){
+		if($times == null){
+			$times = self::times(1);
+		}
+		return self::getPoserCore()->verify($mock, $times);
+	}
+	
+	/**
+	 * Ensures that a stub is invoked at 1 or more times
+	 * @return Times
+	 */
+	public static function atLeastOnce() {
+		self::atLeast(1);
+	}
+	
+	/**
+	 * Ensurses that the given mock was invoked a given
+	 * number of times or more.
+	 * @param unknown_type $count
+	 */
+	public static function atLeast($count){
+		//TODO need to implement this
+	}
+	
+	/**
+	 * Allows a stubed method to be invoked no more than 
+	 * a given number of times.
+	 * @param unknown_type $count
+	 */
+	public static function atMost($count){
+		//TODO need to implement this
+	}
+	
+	public static function never() {
+		return times(0);
+	}
+	
+	/**
+	 * @param Times $count
+	 */
+	public static function times($count){
+		return new Times($count);
+	}
+	
+	/**
+	 * Verifies that there were zero interactions with a given set of mocks
+	 * @param mixed $mocks
+	 */
+	public static function verifyZeroInteractions($mocks){
+		self::getPoserCore()->verifyZeroInteractions($mocks);
+	}
+	
+	
 	//---- Matchers ----//
-	
-	
 	public static function any($class){
 		return self::getPoserCore()->reportMatcher(hm::any($class))->returnNull();
 	}
