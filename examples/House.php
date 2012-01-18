@@ -3,9 +3,19 @@
 class House{
 	
 	/**
-	 * @var unknown_type
+	 * @var array[Bacon]
 	 */
 	private $baconStock = array();
+	
+	/**
+	 * @var Cooker
+	 */
+	private $cooker = null;
+	
+	public function __construct(Cooker $cooker, $baconStock){
+		$this->cooker = $cooker;
+		$this->baconStock = $baconStock;
+	}
 		
 	public function baconInStock(){
 		return (sizeof($this->baconStock) > 0);
@@ -30,5 +40,12 @@ class House{
 	 */
 	public function stockRawBacon($bacon){
 		$this->baconStock = array_merge($this->baconStock , $bacon);
-	}	
+	}
+
+	/**
+	 * @return Cooker
+	 */
+	public function getCooker(){
+		return $this->cooker;
+	}
 }

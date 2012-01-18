@@ -50,6 +50,7 @@ class MockBuilder {
 	 */
 	public function name($name) {
 		$this->name = $name;
+		return $this;
 	}
 	
 	/**
@@ -62,6 +63,7 @@ class MockBuilder {
 	 */
 	public function mockStatic($mockStatic){
 		$this->mockStatic = $mockStatic;
+		return $this;
 	}
 	
 	/**
@@ -85,6 +87,7 @@ class MockBuilder {
 	 */
 	public function defaultAnswer(Answer $answer) {
 		$this->defaultAnswer = $defaultAnswer;
+		return $this;
 	}
 	
 	/**

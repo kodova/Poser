@@ -2,11 +2,21 @@
 
 interface Cooker{
 	
-	public function cook(); 
+	
+	/**
+	 * @param boolean $crispy
+	 * @param array[bacon] $bacon
+	 */
+	public function cook($crispy, array $bacon); 
+	
+	
+	/**
+	 * Cleans the cooking itme
+	 */
+	public function clean();
 	
 	/**
 	 * @return boolean
 	 */
-	public function requireFlipping();
-	
+	public function isClean();
 }
