@@ -95,9 +95,16 @@ class Invocation implements Invokable, Matchable {
 		
 		if ($this->matchers != null && $this->matchers->count() > 0){
 			$matchers = $this->matchers;
-			$requiredCount = $this->getMethod()->getNumberOfRequiredParameters();
-			if ($requiredCount > $matchers->count()) {
-				throw new PoserException("You need to matchers for all required parameters");
+			
+			if(is_a($this->mock, "\Poser\Proxy\SubstituteProxy")){
+				if(sizeof($this->arguments) != sizeof($this->matchers)){
+					throw new PoserException("You need to matchers for all required parameters");
+				}
+			}else{
+				$requiredCount = $this->getMethod()->getNumberOfRequiredParameters();
+				if ($requiredCount > $matchers->count()) {
+					throw new PoserException("You need to matchers for all required parameters");
+				}
 			}
 			
 			$argsToMatch = $invocation->getArguments();

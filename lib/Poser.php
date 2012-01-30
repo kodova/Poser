@@ -53,7 +53,7 @@ class Poser {
 	 * @param mixed $mockInvocation
 	 * @return Stubbable
 	 */
-	public function when($mockInvocation){
+	public static function when($mockInvocation){
 		$core = self::getPoserCore();
 		return $core->when($mockInvocation);
 	}
@@ -136,7 +136,8 @@ class Poser {
 	}
 	
 	/**
-	 * @param Times $count
+	 * @param int $count
+	 * @return Times
 	 */
 	public static function times($count){
 		return new Times($count);

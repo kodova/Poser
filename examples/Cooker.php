@@ -7,7 +7,7 @@ interface Cooker{
 	 * @param boolean $crispy
 	 * @param array[bacon] $bacon
 	 */
-	public function cook($crispy, array $bacon); 
+	public function cook($crispy, $bacon); 
 	
 	
 	/**

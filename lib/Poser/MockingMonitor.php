@@ -92,10 +92,6 @@ class MockingMonitor {
 	 * @return void
 	 */
 	public function validateState() {
-		if($this->ongoingStubbing != null){
-			throw new PoserException("Mocking in a invalid state there is ongoing stub");  //TODO need to make better
-		}
-		
 		if($this->verification != null){
 			throw new PoserException("Mocking is in a invalid state there is a verificaiton currently active");
 		}

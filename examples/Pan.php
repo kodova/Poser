@@ -19,7 +19,7 @@ class Pan implements Cooker{
 		$this->clean = true;
 	}
 	
-	public  function cook($crispy, array $bacon){
+	public  function cook($crispy, $bacon){
 		//cook the bacon
 	} 
 	

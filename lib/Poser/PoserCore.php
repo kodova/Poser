@@ -3,11 +3,8 @@
 namespace Poser;
 
 use Poser\Verification\VerificationRequest;
-
 use Poser\Exception\PoserException;
-
 use Poser\Verification\VerifiableType;
-
 use Poser\Stubbing\Stubbable;
 use Poser\Proxy\ProxyFactory;
 use Poser\MockOptions;

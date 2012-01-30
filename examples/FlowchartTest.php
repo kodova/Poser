@@ -1,6 +1,7 @@
 <?php
 
 require_once '../lib/Poser.php';
+require_once '../lib/Poser/global_functions.php';
 require_once 'Bacon.php';
 require_once 'Cooker.php';
 require_once 'Dog.php';
@@ -32,28 +33,60 @@ class FlowchartTest extends PHPUnit_Framework_TestCase{
 	 * @var Dog
 	 */
 	private $dog = null;
+
+	/**
+	 * @var Cooker
+	 */
+	private $cooker = null;
 	
 	public function setUp(){
-		$this->house = p::build('House')->mockStatic(true)->mock();
-		$this->person = p::build('Person')->mockStatic(true)->mock();
-		$this->dog = p::mock('Dog');
+		$this->house = build('House')->mockStatic(true)->mock();
+		$this->person = build('Person')->mockStatic(true)->mock();
+		$this->dog = mock('Dog');
+		$this->cooker = mock('Cooker');
 		
 		$this->flowchart = new Flowchart($this->house, $this->person, $this->dog);
 	}
 	
 	public function tearDown(){
 		$this->flowchart = null;
-		$this->house;
-		$this->person;
-		$this->dog;
+		$this->house = null;
+		$this->person = null;
+		$this->dog = null;
 	}
 	
+	/**
+	 * @ignore
+	 * Enter description here ...
+	 */
 	public function testWhatToEatWhenBacon(){
-		p::when($this->person->wantsBacon())->thenReturn(true);
+		when($this->person->wantsBacon())->thenReturn(true);
 		
 		$this->flowchart->whatToEat();
 		
-		p::verify($this->person)->write(p::anything());
+		verify($this->person, times(2))->write(anything());
+	}
+	
+	/**
+	 * @ignore
+	 * Enter description here ...
+	 */
+	public function testWhatToEatWhenNotBacon(){
+		when($this->person->wantsBacon())->thenReturn(false);
+	
+		$this->flowchart->whatToEat();
+	
+		verify($this->person, times(3))->write(anything());
+	}
+	
+	public function testCookBaconWhenLikesCrispy(){
+		$bacon = array();
+		when($this->house->getCooker())->thenReturn($this->cooker);
+		when($this->person->likesCrispyBacon())->thenReturn(Person::YES);
+		
+		$this->flowchart->cookBacon();
+		
+		verify($this->cooker)->cook(true, $array);
 	}
 	
 }

@@ -65,7 +65,7 @@ class MockOptions {
 	
 	/**
 	 * Indicates if the mock object can mock static methods
-	 *
+	 * @deprecated
 	 * @return bool
 	 */
 	public function canMockStatic() {
@@ -77,11 +77,11 @@ class MockOptions {
 	 * should only be used when need as you can not call real methods on the mocked
 	 * class if this is set to true.
 	 *
+	 * @deprecated
 	 * @param bool $mockStatic 
 	 * @return void
 	 */
 	public function setMockStatic($mockStatic) {
 		$this->mockStatic = $mockStatic;
 	}
-	
 }
