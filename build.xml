@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Poser" basedir="." default="generate">
+	
+	<property file="package.properties"/>
+	<property name="build.dir" value="./build" />
+	<property name='build.dist.dir' value='lib' />
+	<property name='pkg.version' value='0.1.0' />
+	
+	<fileset dir='lib' id='src.files'>
+		<include name="**" />
+	</fileset>
+	
+	<target name='build'>
+		<mkdir dir="${build.dir}" />
+		<copy todir="${build.dir}">
+			<fileset refid="src.files" />
+		</copy>
+	</target>
+	
+	<target name="clean">
+		<delete dir="${build.dir}" />
+	</target>
+	
+	<target name="generate" depends="build">
+		<pearpkg2 name="Poser" dir="${build.src.dir}">
+			<option name="outputdirectory" value="${build.dir}"/>
+			<option name="packagefile" value="package2.xml"/>
+			<option name="packagedirectory" value="./${build.dist.dir}"/>
+			<option name="baseinstalldir" value="${package.prefix}"/>
+			<option name="channel" value="${package.channel}"/>
+			<option name="summary" value="${package.summary}"/>
+			<option name="description" value="${package.description}"/>
+			<option name="apiversion" value="${package.version}"/>
+			<option name="apistability" value="${package.stability}"/>
+			<option name="releaseversion" value="${package.version}"/>
+			<option name="releasestability" value="${package.stability}"/>
+			<option name="license" value="none"/>
+			<option name="phpdep" value="5.3.0"/>
+			<option name="pearinstallerdep" value="1.4.6"/>
+			<option name="packagetype" value="php"/>
+			<option name="notes" value="${package.release.notes}"/>
+			<mapping name="maintainers">
+				<element>
+					<element key="handle" value="kodova"/>
+					<element key="name" value="Patrick Arnold"/>
+					<element key="email" value="patrick@webpt.com"/>
+					<element key="role" value="lead"/>
+				</element>
+			</mapping>
+			<fileset dir="${build.dir}">
+				<include name="**" />
+			</fileset>
+		</pearpkg2>
+	</target>
+</project>
