@@ -11,7 +11,7 @@ git repository under the dev branch. There are some prerequisites that need to b
 on the project
 
 	pear channel-discover pear.symfony.com
-	pear install pear install --alldeps symfony2/DependencyInjection symfony2/ClassLoader
+	pear install --alldeps symfony2/DependencyInjection symfony2/ClassLoader
 	
 
 [mockito]: http://code.google.com/p/mockito/ "mockito"

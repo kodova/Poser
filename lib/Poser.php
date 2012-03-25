@@ -74,7 +74,7 @@ class Poser {
 			
 			$container = new Symfony\Component\DependencyInjection\ContainerBuilder();
 			$configLoader = new YamlFileLoader($container, new FileLocator(__DIR__));
-			$configLoader->load('container.yml');
+			$configLoader->load('Poser/container.yml');
 			self::$poserCore = $container->get('poserCore');
 		}
 		
