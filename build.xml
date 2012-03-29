@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="Poser" basedir="." default="generate">
+<project name="Poser" basedir="." default="build">
 	
 	<property file="package.properties"/>
 	<property name="build.dir" value="./build" />
@@ -21,7 +21,27 @@
 		<delete dir="${build.dir}" />
 	</target>
 	
-	<target name="generate" depends="clean,build">
+	<target name="api">
+	</target>
+	
+	<target name="release">
+	</target>
+	
+	<target name="pear.package">
+	</target>
+	
+	<target name="test">
+		<phpunit codecoverage="false" haltonfailure="true" haltonerror="true" bootstrap="tests/Bootstrap.php">
+			<formatter type="xml" usefile="true" outfile="tests/results.xml" />
+			<batchtest>
+				<fileset dir="tests">
+					<include name="**/*Test*.php"/>
+				</fileset>
+			</batchtest>
+		</phpunit>
+	</target>
+	
+	<target name="pear.generate" depends="clean,build">
 		<pearpkg2 name="Poser" dir="${build.src.dir}">
 			<option name="outputdirectory" value="${build.dir}"/>
 			<option name="packagefile" value="package2.xml"/>
@@ -55,13 +75,14 @@
 				</element>
 				<element>
 					<element key='channel' value='pear.symfony.com' />
-					<element key='name' value='symfony2/DependencyInjection' />
+					<element key='name' value='DependencyInjection' />
 					<element key='version' value='2.0.7' />
 				</element>
 			</mapping>
 			<fileset dir="${build.dir}">
 				<include name="**" />
 			</fileset>
+			<role extension="yml" role="php" />
 		</pearpkg2>
 	</target>
 </project>

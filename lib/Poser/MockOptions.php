@@ -24,6 +24,11 @@ class MockOptions {
 	private $mockStatic = false;
 	
 	/**
+	 * @var array
+	 */
+	private $constants = array();
+	
+	/**
 	 * Gets the default answer for unstubbed methods.
 	 *
 	 * @return Answer
@@ -83,5 +88,24 @@ class MockOptions {
 	 */
 	public function setMockStatic($mockStatic) {
 		$this->mockStatic = $mockStatic;
+	}
+	
+	/**
+	* Values to be added as a constant.
+	*
+	* @param array $constants Keys will be the constant name and values will be the value
+	*/
+	public function setConstants($constants){
+		$this->constants = array_merge($this->constants, $constants);
+	}
+	
+	/**
+	 * Gets the constants that have been declared by the user to be included
+	 * into the mock.
+	 * 
+	 * @return array
+	 */
+	public function getConstants(){
+		return $this->constants;
 	}
 }

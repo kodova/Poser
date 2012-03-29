@@ -28,6 +28,10 @@ class MockBuilder {
 	 * @var string
 	 */
 	private $class;
+	/**
+	 * @var array[string]
+	 */
+	private $constants = array();
 	
 	/**
 	 * @param PoserCore $poserCore
@@ -87,6 +91,16 @@ class MockBuilder {
 	 */
 	public function defaultAnswer(Answer $answer) {
 		$this->defaultAnswer = $defaultAnswer;
+		return $this;
+	}
+	
+	/**
+	 * Values to be added as a constant.
+	 * 
+	 * @param array $constants Keys will be the constant name and values will be the value
+	 */
+	public function constants($constants){
+		$this->constants = array_merge($this->constants, $constants);
 		return $this;
 	}
 	
