@@ -3,10 +3,18 @@
 namespace Poser\Proxy\Generator;
 
 
+use Poser\MockOptions;
+
 class NewGenerator extends AbstractGenerator {
 	
-	function __construct($toMock) {
+	/**
+	 * @var MockOptions
+	 */
+	private $mockOptions;
+	
+	function __construct($toMock, MockOptions $mockOptions) {
 		parent::__construct($toMock);
+		$this->mockOptions = $mockOptions;
 	}
 	
 	public function getClassDeclaration(){
@@ -44,4 +52,14 @@ class NewGenerator extends AbstractGenerator {
 		$parts = explode('\\', $type);
 		return end($parts);
 	}
+	
+	/**
+	 * (non-PHPdoc)
+	 * @see Poser\Proxy\Generator.AbstractGenerator::getConstants()
+	 */
+	public function getConstants(){
+		return $this->mockOptions->getConstants();
+	}
 }
+
+

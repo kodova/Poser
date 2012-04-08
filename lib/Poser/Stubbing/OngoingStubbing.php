@@ -2,6 +2,8 @@
 
 namespace Poser\Stubbing;
 
+use Poser\Invocation\ThrowAnswer;
+
 use Poser\Invocation\Matchable;
 
 use Poser\Invocation\Answer;
@@ -41,7 +43,7 @@ class OngoingStubbing implements Stubbable{
 	}
 
 	public function thenThrow(Exception $exception){
-		return $this->thenAnswer(new ThrowException($exception));
+		return $this->thenAnswer(new ThrowAnswer($exception));
 	}
 
 	public function thenAnswer(Answer $answer){

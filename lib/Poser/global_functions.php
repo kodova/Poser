@@ -17,6 +17,12 @@ function mockSingleton($class, MockOptions $options){
 	return p::mockSingleton($class, $options);
 }
 
+/**
+ * (non-PHPdoc)
+ * @see Poser::build()
+ * @param string $class
+ * @return \Poser\MockBuilder
+ */
 function build($class){
 	return p::build($class);
 }

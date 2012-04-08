@@ -2,6 +2,9 @@
 
 namespace Poser\Verification;
 
-class VerificationMode implements Verifiable{
+/**
+ * @deprecated Don't see any uses of this class 
+ */
+class VerificationMode {
 	
 }

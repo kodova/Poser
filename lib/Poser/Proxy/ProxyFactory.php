@@ -2,13 +2,18 @@
 
 namespace Poser\Proxy;
 
+
+use Poser\MockOptions;
+
 use Poser\Invocation\InvocationContainer;
 
-use \Poser\MockOptions;
-use \Poser\Proxy\Generator\GeneratorFactory;
-use \Poser\Proxy\SubstituteProxy;
-use \Poser\MockingMonitor;
-use \ReflectionClass;
+use Poser\Exception\PoserException;
+
+use Poser\MockingMonitor;
+
+use Poser\Proxy\Generator\GeneratorFactory;
+
+use ReflectionClass;
 
 class ProxyFactory {
 	
@@ -43,7 +48,7 @@ class ProxyFactory {
 				if($class->implementsInterface('\Poser\Proxy\SubstituteProxy')){
 					$mock = new $toMock();
 				} else {					
-					throw new \Poser\Exception\PoserException("Unable to create a mock that can stub static calls for $toMock as it has already been loaded someplace else");				
+					throw new PoserException("Unable to create a mock that can stub static calls for $toMock as it has already been loaded someplace else");				
 				}
 			}else{
 				$mock = $this->createMock($toMock, $options);
@@ -51,7 +56,7 @@ class ProxyFactory {
 		}else{
 			$mock = $this->createMock($toMock, $options);	
 		}
-		
+			
 		$invocationContainer = new InvocationContainer($this->mockingMonitor, $options);
 		$mock->setProxy(new MethodProxy($mock, $this->mockingMonitor, $invocationContainer, $options));
 		return $mock;

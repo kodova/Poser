@@ -8,11 +8,19 @@ namespace Poser\Proxy\Generator;
  * to be generated.
  *
  */
+use Poser\MockOptions;
+
 class GeneratorFactory {
-	
-	public function getGenerator($toMock, \Poser\MockOptions $options) {
+
+	/**
+	 * Gets a generator that can build the created mock.
+	 * @param string $toMock
+	 * @param MockOptions $options
+	 * @return Generator
+	 */
+	public function getGenerator($toMock, MockOptions $options) {
 		if ($options->canMockStatic()) {
-			return new NewGenerator($toMock);
+			return new NewGenerator($toMock, $options);
 		}
 		
 		$class = new \ReflectionClass($toMock);

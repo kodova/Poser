@@ -7,10 +7,7 @@ use Poser\Exception\PoserException;
 use Poser\Verification\VerifiableType;
 use Poser\Stubbing\Stubbable;
 use Poser\Proxy\ProxyFactory;
-use Poser\MockOptions;
-use Poser\MockBuilder;
 use Hamcrest_Matcher;
-use Poser\DefaultReturnValues;
 
 class PoserCore {
 	

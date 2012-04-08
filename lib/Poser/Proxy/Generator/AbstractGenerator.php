@@ -39,11 +39,19 @@ abstract class AbstractGenerator implements Generator{
 	 * @return array[ReflectionMethod]
 	 */
 	abstract function getMethodsToProxy();
-
+	
+	/**
+	 * Gets an array hash that has keys that are
+	 * the name of the values. Should be overriden 
+	 * for generators that need this feature
+	 * @return array
+	 */
+	public function getConstants(){}
 	
 	public function generate() {
 		$proxiedMethods = $this->generateProxyMethdos();
 		$proxyHandler = $this->generateProxyHandler();
+		$constants = $this->generateConstants($this->getConstants());
 		$classDeclaration = $this->getClassDeclaration();
 		$declaration = $classDeclaration->getDeclaration();
 		$namepace = (null != $classDeclaration->getNamespace()) ? "namespace {$classDeclaration->getNamespace()};" : '';
@@ -53,6 +61,8 @@ abstract class AbstractGenerator implements Generator{
 			$namepace
 		
 			$declaration {
+				$constants
+			
 				$proxyHandler
 				
 				$proxiedMethods
@@ -120,6 +130,18 @@ abstract class AbstractGenerator implements Generator{
 					return (is_a(\$object, __CLASS__) && \$object->getId() == \$this->getId());
 				}
 		";
+	}
+	
+	private function generateConstants($constants){
+		if ( ! is_array($constants) ){
+			return "";
+		}
+		
+		$output = "";
+		foreach ($constants as $name => $value){
+			$output = "const $name = $value;\n";
+		}
+		return $output;
 	}
 		
 	protected function getToMock(){

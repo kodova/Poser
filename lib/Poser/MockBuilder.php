@@ -37,7 +37,7 @@ class MockBuilder {
 	 * @param PoserCore $poserCore
 	 * @param string $class
 	 */
-	function __construct(PoserCore $poserCore, $class) {
+	public function __construct(PoserCore $poserCore, $class) {
 		$this->defaultAnswer = new EmptyValueAnswer();
 		$this->name = null;
 		$this->mockStatic = false;
@@ -50,7 +50,7 @@ class MockBuilder {
 	 * be used to retrieve the mock object at a later time.
 	 *
 	 * @param string $name 
-	 * @return void
+	 * @return \Poser\MockBuilder
 	 */
 	public function name($name) {
 		$this->name = $name;
@@ -63,7 +63,7 @@ class MockBuilder {
 	 * functionality
 	 *
 	 * @param bool $mockStatic 
-	 * @return void
+	 * @return \Poser\MockBuilder
 	 */
 	public function mockStatic($mockStatic){
 		$this->mockStatic = $mockStatic;
@@ -76,9 +76,9 @@ class MockBuilder {
 	 * instance of itself, a mock object
 	 * 
 	 * @param string $method the method that gets singleton instance. defaults to getInstance
-	 * @return void
+	 * @return \Poser\MockBuilder
 	 */
-	public function mockSingleton($method = 'getInstance') {
+	public function singleton($method = 'getInstance') {
 		$mock = $this->mock();		
 		return $mock;
 	}
@@ -87,7 +87,7 @@ class MockBuilder {
 	 * Used to set the default answer to non-stubbed calls
 	 *
 	 * @param Poser/Invocation/Answer $answer 
-	 * @return void
+	 * @return \Poser\MockBuilder
 	 */
 	public function defaultAnswer(Answer $answer) {
 		$this->defaultAnswer = $defaultAnswer;
@@ -98,6 +98,7 @@ class MockBuilder {
 	 * Values to be added as a constant.
 	 * 
 	 * @param array $constants Keys will be the constant name and values will be the value
+	 * @return \Poser\MockBuilder
 	 */
 	public function constants($constants){
 		$this->constants = array_merge($this->constants, $constants);
@@ -114,6 +115,7 @@ class MockBuilder {
 		$options->setDefaultAnswer($this->defaultAnswer);
 		$options->setName($this->name);
 		$options->setMockStatic($this->mockStatic);
+		$options->setConstants($this->constants);
 		return $this->poserCore->mock($this->class, $options);
 	}
 }

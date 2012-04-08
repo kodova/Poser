@@ -16,10 +16,13 @@ class InvocationContainer {
 	 * @var SplDoublyLinkedList[Invocation]
 	 */
 	private $invocations = null;
+	
 	/**
 	 * @var SplDoublyLinkedList
 	 */
 	private $stubs = null;
+	
+	
 	private $matchers;
 
 	/**
@@ -70,14 +73,12 @@ class InvocationContainer {
 	 * @return array[Invocation]
 	 */
 	public function getInvocations($func = null){
-		$toReturn = array();
-		foreach ($this->invocations as $invocation){
-			if($func != null && is_a($func, '\Closure') && !$func($invocation)){
-				continue;
-			}
-			$toReturn[] = $invocation;
+		if ( $func instanceof \Closure){
+			return $this->invocations;
 		}
 		
-		return $toReturn;
+		return array_filter($this->invocations, function($invocation){
+			return $func($invocation);
+		});
 	}
 }

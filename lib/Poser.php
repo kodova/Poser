@@ -40,7 +40,7 @@ class Poser {
 	 * Used to build a more advanced or custom mock object
 	 *
 	 * @param string $class The class to be mocked
-	 * @return MockBuilder a builder use to create mock
+	 * @return \Poser\MockBuilder a builder use to create mock
 	 */
 	public static function build($class){
 		$core = self::getPoserCore();
@@ -51,7 +51,7 @@ class Poser {
 	 * Used to create a stub for a mocked object method calls. You can use this to return 
 	 * values when the default return value is not desired.
 	 * @param mixed $mockInvocation
-	 * @return Stubbable
+	 * @return \Poser\Stubbing\Stubbable
 	 */
 	public static function when($mockInvocation){
 		$core = self::getPoserCore();

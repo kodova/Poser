@@ -3,9 +3,9 @@
 namespace Poser\Invocation;	
 
 use Poser\Exception\PoserException;
-
 use Poser\Reflection\TypedMethod;
 use SplDoublyLinkedList;
+use Poser\Proxy\SubstituteProxy;
 
 class Invocation implements Invokable, Matchable {
 	
@@ -93,37 +93,37 @@ class Invocation implements Invokable, Matchable {
 			return false;
 		}
 		
-		if ($this->matchers != null && $this->matchers->count() > 0){
+		if ($this->matchers != null && $this->matchers->count() > 0) {
 			$matchers = $this->matchers;
-			
-			if(is_a($this->mock, "\Poser\Proxy\SubstituteProxy")){
-				if(sizeof($this->arguments) != sizeof($this->matchers)){
+
+			if ($this->mock instanceof SubstituteProxy) {
+				if (sizeof($this->arguments) != sizeof($this->matchers)) {
 					throw new PoserException("You need to matchers for all required parameters");
 				}
-			}else{
+			} else {
 				$requiredCount = $this->getMethod()->getNumberOfRequiredParameters();
 				if ($requiredCount > $matchers->count()) {
 					throw new PoserException("You need to matchers for all required parameters");
 				}
 			}
-			
+
 			$argsToMatch = $invocation->getArguments();
-			for ($i = 0; $i < $matchers->count(); $i++){
+			for ($i = 0; $i < $matchers->count(); $i++) {
 				$matcher = $matchers[$i];
 				$argument = $argsToMatch[$i];
-				if(!$matcher->matches($argument)){
+				if (!$matcher->matches($argument)) {
 					return false;
 				}
 			}
-			return true;			
-		}else{ //match exact args only
+			return true;
+		} else { //match exact args only
 			$argsA = $this->getArguments();
 			$argsB = $invocation->getArguments();
-			
-			for($i = 0; $i < sizeof($argsA); $i++){
+
+			for ($i = 0; $i < sizeof($argsA); $i++) {
 				$argA = $argsA[$i];
 				$argB = $argsB[$i];
-				if ($argA != $argB){
+				if ($argA != $argB) {
 					return false;
 				}
 			}
