@@ -29,7 +29,7 @@ abstract class AbstractGenerator implements Generator{
 	/**
 	 * Gets a Class Declaration to the proxy being generated
 	 *
-	 * @return Poser\Proxy\Generator\ClassDeclaration
+	 * @return ClassDeclaration
 	 */
 	abstract function getClassDeclaration();
 	

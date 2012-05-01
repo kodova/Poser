@@ -6,7 +6,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader as YamlFileLoader;
 use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\Config\FileLocator;
-use Poser\MockOptios;
+use Poser\MockOptions;
 use Poser\PoserCore;
 use Poser\MockBuilder;
 use Poser\Stubbing\Stubbable;
@@ -20,18 +20,26 @@ use Hamcrest_Matchers as hm;
  * @package default
  */
 class Poser {
-	
+
 	private static $poserCore = null;
-	
+
+
 	/**
-	 * Creates a new mock of a class
-	 *
-	 * @package default
+	 * @static
+	 * @param $class
+	 * @param null|MockOptions $options
+	 * @return mixed
 	 */
 	public static function mock($class, MockOptions $options = null){
 		return static::build($class)->mock();
 	}
-	
+
+	/**
+	 * @static
+	 * @param $class
+	 * @param MockOptions $options
+	 * @return mixed
+	 */
 	public static function mockSingleton($class, MockOptions $options){
 		return static::build($class)->mockSingleton();
 	}
@@ -91,8 +99,8 @@ class Poser {
 		static::$poserCore = $poserCore;
 	}
 	
-	
-	//-- Verification --??
+
+	//-- Verification --//
 	/**
 	 * Enter description here ...
 	 * @param mixed $mock
@@ -116,7 +124,7 @@ class Poser {
 	/**
 	 * Ensurses that the given mock was invoked a given
 	 * number of times or more.
-	 * @param unknown_type $count
+	 * @param int $count
 	 */
 	public static function atLeast($count){
 		//TODO need to implement this
@@ -125,7 +133,7 @@ class Poser {
 	/**
 	 * Allows a stubed method to be invoked no more than 
 	 * a given number of times.
-	 * @param unknown_type $count
+	 * @param int $count
 	 */
 	public static function atMost($count){
 		//TODO need to implement this

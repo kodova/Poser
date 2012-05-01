@@ -2,6 +2,8 @@
 
 namespace Poser\Invocation;
 
+use Exception;
+
 interface Invokable{
 	
 	/**
@@ -14,7 +16,7 @@ interface Invokable{
 	/**
 	 * Gets the method that was invoked
 	 *
-	 * @return Poser\Reflection\TypedMethod The method being invocked
+	 * @return \Poser\Reflection\TypedMethod The method being invoked
 	 */
 	public function getMethod();
 	
@@ -34,10 +36,10 @@ interface Invokable{
 	
 	/**
 	 * Calls the real method of the class that is being mocked. This may
-	 * throw exception from either the real method or if becuase the real
+	 * throw exception from either the real method or if because the real
 	 * class was not loaded for some mocks.
 	 *
-	 * @return mixed the value retuned from the real method
+	 * @return mixed the value returned from the real method
 	 * @throws Exception
 	 */
 	public function callRealMethod();

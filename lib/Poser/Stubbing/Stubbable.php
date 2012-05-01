@@ -3,11 +3,12 @@
 namespace Poser\Stubbing;
 
 use Poser\Invocation\Answer;
+use Exception;
 
 interface Stubbable {
 	
 	/**
-	 * Sets the value to be returned when the mothod is called. If more than 
+	 * Sets the value to be returned when the method is called. If more than
 	 * argument is supplied it will return the arguments in consecutive calls 
 	 * in the order they appear as parameters.
 	 *
@@ -17,7 +18,7 @@ interface Stubbable {
 	public function thenReturn($args);
 	
 	/**
-	 * Sets the exeception that will be thrown when the method is invoked.
+	 * Sets the exception that will be thrown when the method is invoked.
 	 *
 	 * @param Exception $exception 
 	 * @return Stubbable

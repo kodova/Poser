@@ -25,8 +25,9 @@ class Times implements VerifiableType{
 	}
 	
 	/**
-	 * (non-PHPdoc)
-	 * @see Poser\Verification.VerifiableType::verify()
+	 * @param \Poser\Invocation\Invocation $wanted
+	 * @param \Poser\Invocation\InvocationContainer $invocationContainer
+	 * @throws \Poser\Exception\PoserException
 	 */
 	public function verify(Invocation $wanted, InvocationContainer $invocationContainer){
 		$invocations = $invocationContainer->getInvocations(function(Matchable $invocation) use ($wanted){

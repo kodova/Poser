@@ -76,21 +76,21 @@ class MockBuilder {
 	 * instance of itself, a mock object
 	 * 
 	 * @param string $method the method that gets singleton instance. defaults to getInstance
-	 * @return void
+	 * @return mixed
 	 */
 	public function mockSingleton($method = 'getInstance') {
 		$mock = $this->mock();		
 		return $mock;
 	}
-	
+
 	/**
 	 * Used to set the default answer to non-stubbed calls
 	 *
-	 * @param Poser/Invocation/Answer $answer 
-	 * @return void
+	 * @param \Poser\Invocation\Answer $answer
+	 * @return MockBuilder
 	 */
 	public function defaultAnswer(Answer $answer) {
-		$this->defaultAnswer = $defaultAnswer;
+		$this->defaultAnswer = $answer;
 		return $this;
 	}
 	

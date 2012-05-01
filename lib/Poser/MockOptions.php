@@ -8,7 +8,7 @@ use Poser\Invocation\Answer;
 class MockOptions {
 	
 	/**
-	 * @var Poser/Invocation/Answer
+	 * @var Answer
 	 */
 	private $defaultAnswer;
 	

@@ -21,6 +21,7 @@
 		<delete dir="${build.dir}" />
 	</target>
 	
+<<<<<<< HEAD
 	<target name="api">
 	</target>
 	
@@ -39,6 +40,23 @@
 				</fileset>
 			</batchtest>
 		</phpunit>
+=======
+	<target name="release" depends="clean,pear.package,api"></target>
+	
+	<target name="api">
+		<phpdoc title="Poser API Documentation"
+			destdir="build/api"
+			sourcecode="false"
+			output="HTML:Smarty:PHP">
+			<fileset dir="./lib">
+				<include name="**/*.php" />
+			</fileset>
+		</phpdoc>
+	</target>
+	
+	<target name="pear.package" depends="pear.generate">
+		<exec command="pear package ${build.dir}/package2.xml" />
+>>>>>>> Corrected some errors and spelling
 	</target>
 	
 	<target name="pear.generate" depends="clean,build">
