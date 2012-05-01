@@ -1,7 +1,7 @@
 <?php
 
 use Poser as p;
-use Poser\MockOptios;
+use Poser\MockOptions;
 use Poser\PoserCore;
 use Poser\MockBuilder;
 use Poser\Stubbing\Stubbable;

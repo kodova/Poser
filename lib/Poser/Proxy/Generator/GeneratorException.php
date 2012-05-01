@@ -2,6 +2,8 @@
 
 namespace Poser\Proxy\Generator;
 
+use Exception;
+
 /**
  * An exception for runtime error when generation dynamic proxyies.
  *

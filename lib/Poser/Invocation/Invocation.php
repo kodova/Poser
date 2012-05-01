@@ -51,42 +51,52 @@ class Invocation implements Invokable, Matchable {
 			$this->method =  new \Poser\Reflection\TypedMethod($class->getName(), $method);
 		}
 	}
-	
+
+	/**
+	 * @return mixed
+	 */
 	public function getMock(){
 		return $this->mock;
 	}
-	
+
 	/**
-	 * (non-PHPdoc)
-	 * @see Poser\Invocation.Invokable::getMethod()
+	 * @return null|\Poser\Reflection\TypedMethod
 	 */
 	public function getMethod(){
 		return $this->method;
 	}
-	
+
+
 	/**
-	 * (non-PHPdoc)
-	 * @see Poser\Invocation.Invokable::getMethodName()
+	 * @return string
 	 */
 	public function getMethodName(){
 		return $this->methodName; 
 	}
 
+
 	/**
-	 * (non-PHPdoc)
-	 * @see Poser\Invocation.Invokable::getArguments()
+	 * @return array
 	 */
 	public function getArguments(){
 		return $this->arguments;
 	}
-	
 
+
+	/**
+	 *
+	 */
 	public function callRealMethod(){
 		/*
 			TODO Need to implement this method
 		*/
 	}
-	
+
+	/**
+	 * @param Matchable $invocation
+	 * @return bool
+	 * @throws \Poser\Exception\PoserException
+	 */
 	public function matches(Matchable $invocation){
 		//if not the same mock then they do not match
 		if (!$this->mock->equals($invocation->getMock()) || $this->getMethodName() != $invocation->getMethodName() || sizeOf($this->getArguments()) != sizeOf($invocation->getArguments())) {
@@ -130,7 +140,10 @@ class Invocation implements Invokable, Matchable {
 			return true;
 		}
 	}
-	
+
+	/**
+	 *
+	 */
 	public function markStubbed(){
 		//TODO need to implement this
 	}

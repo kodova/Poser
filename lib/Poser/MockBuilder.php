@@ -37,7 +37,7 @@ class MockBuilder {
 	 * @param PoserCore $poserCore
 	 * @param string $class
 	 */
-	public function __construct(PoserCore $poserCore, $class) {
+	function __construct(PoserCore $poserCore, $class) {
 		$this->defaultAnswer = new EmptyValueAnswer();
 		$this->name = null;
 		$this->mockStatic = false;
@@ -50,7 +50,7 @@ class MockBuilder {
 	 * be used to retrieve the mock object at a later time.
 	 *
 	 * @param string $name 
-	 * @return \Poser\MockBuilder
+	 * @return void
 	 */
 	public function name($name) {
 		$this->name = $name;
@@ -63,7 +63,7 @@ class MockBuilder {
 	 * functionality
 	 *
 	 * @param bool $mockStatic 
-	 * @return \Poser\MockBuilder
+	 * @return void
 	 */
 	public function mockStatic($mockStatic){
 		$this->mockStatic = $mockStatic;
@@ -76,21 +76,21 @@ class MockBuilder {
 	 * instance of itself, a mock object
 	 * 
 	 * @param string $method the method that gets singleton instance. defaults to getInstance
-	 * @return \Poser\MockBuilder
+	 * @return mixed
 	 */
-	public function singleton($method = 'getInstance') {
+	public function mockSingleton($method = 'getInstance') {
 		$mock = $this->mock();		
 		return $mock;
 	}
-	
+
 	/**
 	 * Used to set the default answer to non-stubbed calls
 	 *
-	 * @param Poser/Invocation/Answer $answer 
-	 * @return \Poser\MockBuilder
+	 * @param \Poser\Invocation\Answer $answer
+	 * @return MockBuilder
 	 */
 	public function defaultAnswer(Answer $answer) {
-		$this->defaultAnswer = $defaultAnswer;
+		$this->defaultAnswer = $answer;
 		return $this;
 	}
 	
@@ -98,7 +98,6 @@ class MockBuilder {
 	 * Values to be added as a constant.
 	 * 
 	 * @param array $constants Keys will be the constant name and values will be the value
-	 * @return \Poser\MockBuilder
 	 */
 	public function constants($constants){
 		$this->constants = array_merge($this->constants, $constants);
@@ -115,7 +114,6 @@ class MockBuilder {
 		$options->setDefaultAnswer($this->defaultAnswer);
 		$options->setName($this->name);
 		$options->setMockStatic($this->mockStatic);
-		$options->setConstants($this->constants);
 		return $this->poserCore->mock($this->class, $options);
 	}
 }
