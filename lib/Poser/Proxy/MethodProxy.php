@@ -37,7 +37,12 @@ class MethodProxy {
 		$this->mockingMonitor = $mockingMonitor;
 		$this->options = $options;
 	}
-	
+
+	/**
+	 * @param $method
+	 * @param $args
+	 * @return mixed
+	 */
 	public function handle($method, $args) {
 		$matchers = $this->mockingMonitor->getArgumentMatcherMonitor()->pullMatchers();
 		$stackTrace = debug_backtrace();
@@ -46,7 +51,7 @@ class MethodProxy {
 		$verifcation = $this->mockingMonitor->currentVerification($this->mock);
 		if ($verifcation != null){
 			$verifcation->getType()->verify($invocation, $this->invocationContainer);
-			return;
+			return null;
 		}
 
 		$this->invocationContainer->reportInvocataion($invocation, $matchers);
