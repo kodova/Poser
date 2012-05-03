@@ -49,6 +49,6 @@ class GeneratorFactoryTest extends PHPUnit_Framework_TestCase {
         
         $generator = $this->generatorFactory->getGenerator($toMock, $options);
         
-        $this->assertTrue(is_a($generator, 'Poser\Proxy\Generator\NewGenerator'));
+        $this->assertTrue(is_a($generator, 'Poser\Proxy\Generator\SubstituteGenerator'));
     }
 }

@@ -6,6 +6,8 @@ use Helpers\Test\MethodClass;
 use Poser\MockingMonitor;
 use Poser\ArgumentMatcherMonitor;
 use Poser\MockOptions;
+use Poser\Verification\TimesException;
+use Poser\Exception\PoserException;
 
 /**
  * Description of TimesTest
@@ -31,7 +33,7 @@ class TimesTest extends PHPUnit_Framework_TestCase{
 										  ->setConstructorArgs(array($mockingMonitor, new MockOptions()))
 										  ->setMethods(array('getInvocations'))
 										  ->getMock();
-		$this->invocation = new Invocation(new MethodClass(), 'privateFoo', null, new SplDoublyLinkedList);
+		$this->invocation = new Invocation(new MethodClass(), 'privateFoo', null, new SplDoublyLinkedList, array());
 	}
 
 	protected function tearDown() {
@@ -44,7 +46,7 @@ class TimesTest extends PHPUnit_Framework_TestCase{
 	}
 	
 	/**
-	 * @expectedException Poser\Exception\PoserException 
+	 * @expectedException Poser\Exception\PoserException
 	 */
 	function testConstrctorLessThanZero(){
 		new Times(-1);

@@ -45,6 +45,10 @@ function times($count){
 	return p::times($count);
 }
 
+function once(){
+	return p::times(1);
+}
+
 function verifyZeroInteractions($mocks){
 	return p::verifyZeroInteractions($mocks);
 }

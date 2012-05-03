@@ -1,6 +1,7 @@
 <?php
 
 use Poser\MockOptions;
+use Poser\Proxy\Generator\SubstituteGenerator;
 
 use \Poser\Proxy\Generator\SubstituteGenerator as NewGenerator;
 

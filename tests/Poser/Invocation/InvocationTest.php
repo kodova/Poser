@@ -31,10 +31,10 @@ class InvocationTest extends PHPUnit_Framework_TestCase{
 		$method = 'privateFoo';
 		$args = array();
 		$matchers = new SplDoublyLinkedList;
-		$invocation = new Invocation($mock, $method, $args, $matchers);
+		$invocation = new Invocation($mock, $method, $args, $matchers, array());
 		
 		$mock2 = p::mock('Helpers\Test\InterfaceClass');
-		$invocation2 = new Invocation($mock2, 'foo', array(), new SplDoublyLinkedList());
+		$invocation2 = new Invocation($mock2, 'foo', array(), new SplDoublyLinkedList(), array());
 		
 		$result = $invocation->matches($invocation2);
 		$this->assertFalse($result);
@@ -45,10 +45,10 @@ class InvocationTest extends PHPUnit_Framework_TestCase{
 		$method = 'privateFoo';
 		$args = array();
 		$matchers = new SplDoublyLinkedList;
-		$invocation = new Invocation($mock, $method, $args, $matchers);
+		$invocation = new Invocation($mock, $method, $args, $matchers, array());
 		
 		$mock2 = p::mock('Helpers\Test\MethodClass');
-		$invocation2 = new Invocation($mock2, 'mixedArgsFoo', array(), new SplDoublyLinkedList());
+		$invocation2 = new Invocation($mock2, 'mixedArgsFoo', array(), new SplDoublyLinkedList(), array());
 		
 		$result = $invocation->matches($invocation2);
 		$this->assertFalse($result);
@@ -59,10 +59,10 @@ class InvocationTest extends PHPUnit_Framework_TestCase{
 		$method = 'privateFoo';
 		$args = array();
 		$matchers = new SplDoublyLinkedList;
-		$invocation = new Invocation($mock, $method, $args, $matchers);
+		$invocation = new Invocation($mock, $method, $args, $matchers, array());
 		
 		$mock2 = p::mock('Helpers\Test\MethodClass');
-		$invocation2 = new Invocation($mock2, $method, range(1, 3), new SplDoublyLinkedList());
+		$invocation2 = new Invocation($mock2, $method, range(1, 3), new SplDoublyLinkedList(), array());
 		
 		$result = $invocation->matches($invocation2);
 		$this->assertFalse($result);
@@ -73,10 +73,10 @@ class InvocationTest extends PHPUnit_Framework_TestCase{
 		$method = 'privateFoo';
 		$args = array();
 		$matchers = new SplDoublyLinkedList;
-		$invocation = new Invocation($mock, $method, $args, $matchers);
+		$invocation = new Invocation($mock, $method, $args, $matchers, array());
 		
 		$mock2 = p::mock('Helpers\Test\MethodClass');
-		$invocation2 = new Invocation($mock2, $method, range(1, 3), new SplDoublyLinkedList());
+		$invocation2 = new Invocation($mock2, $method, range(1, 3), new SplDoublyLinkedList(), array());
 		
 		$result = $invocation->matches($invocation2);
 		$this->assertFalse($result);
@@ -87,8 +87,8 @@ class InvocationTest extends PHPUnit_Framework_TestCase{
 		$method = 'privateFoo';
 		$args = array();
 		$matchers = new SplDoublyLinkedList();
-		$invocation = new Invocation($mock, $method, $args, $matchers);
-		$invocation2 = new Invocation($mock, $method, $args, $matchers);
+		$invocation = new Invocation($mock, $method, $args, $matchers, array());
+		$invocation2 = new Invocation($mock, $method, $args, $matchers, array());
 		
 		$result = $invocation->matches($invocation2);
 		$this->assertTrue($result);
@@ -99,8 +99,8 @@ class InvocationTest extends PHPUnit_Framework_TestCase{
 		$method = 'privateFoo';
 		$args = array(1, 2);
 		$matchers = new SplDoublyLinkedList();
-		$invocation = new Invocation($mock, $method, $args, $matchers);
-		$invocation2 = new Invocation($mock, $method, array(1, 2), $matchers);
+		$invocation = new Invocation($mock, $method, $args, $matchers, array());
+		$invocation2 = new Invocation($mock, $method, array(1, 2), $matchers, array());
 		
 		$result = $invocation->matches($invocation2);
 		$this->assertTrue($result);
@@ -111,8 +111,8 @@ class InvocationTest extends PHPUnit_Framework_TestCase{
 		$method = 'privateFoo';
 		$args = array(1, 2);
 		$matchers = new SplDoublyLinkedList();
-		$invocation = new Invocation($mock, $method, $args, $matchers);
-		$invocation2 = new Invocation($mock, $method, array(3, 4), $matchers);
+		$invocation = new Invocation($mock, $method, $args, $matchers, array());
+		$invocation2 = new Invocation($mock, $method, array(3, 4), $matchers, array());
 		
 		$result = $invocation->matches($invocation2);
 		$this->assertFalse($result);
@@ -123,8 +123,8 @@ class InvocationTest extends PHPUnit_Framework_TestCase{
 		$method = 'privateFoo';
 		$args = array(1, 2);
 		$matchers = new SplDoublyLinkedList();
-		$invocation = new Invocation($mock, $method, $args, $matchers);
-		$invocation2 = new Invocation($mock, $method, array(3, 4), $matchers);
+		$invocation = new Invocation($mock, $method, $args, $matchers, array());
+		$invocation2 = new Invocation($mock, $method, array(3, 4), $matchers, array());
 		
 		$result = $invocation->matches($invocation2);
 		$this->assertFalse($result);

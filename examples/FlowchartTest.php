@@ -66,10 +66,11 @@ class FlowchartTest extends PHPUnit_Framework_TestCase{
 		$this->flowchart->whatToEat();
 	
 		verify($this->person, times(3))->write(anything());
+		verify($this->person)->wantsBacon();
 	}
 	
 	public function testCookBaconWhenLikesCrispy(){
-		$bacon = array();
+//		$bacon = array();
 		when($this->house->getCooker())->thenReturn($this->cooker);
 		when($this->person->likesCrispyBacon())->thenReturn(Person::YES);
 		

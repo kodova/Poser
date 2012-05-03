@@ -164,6 +164,11 @@ class Invocation implements Invokable, Matchable {
 	function __toString() {
 		$call = $this->stackTrace[2];
 		$text = sprintf("%s#%s line %d", $call['class'], $call['function'], $call['line']);
+		for($i = 3; $i < sizeof($this->stackTrace); $i++){
+			$call = $this->stackTrace[$i];
+			$line = (isset($call['line'])) ? $call['line'] : "<unknown line>";
+			$text .= sprintf("\n\t\t%s#%s line %d", $call['class'], $call['function'], $line);
+		}
 		return $text;
 	}
 }
