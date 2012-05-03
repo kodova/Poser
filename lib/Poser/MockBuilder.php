@@ -115,6 +115,7 @@ class MockBuilder {
 		$options->setDefaultAnswer($this->defaultAnswer);
 		$options->setName($this->name);
 		$options->setMockStatic($this->mockStatic);
+		$options->setConstants($this->constants);
 		return $this->poserCore->mock($this->class, $options);
 	}
 }

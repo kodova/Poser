@@ -139,7 +139,7 @@ abstract class AbstractGenerator implements Generator{
 		
 		$output = "";
 		foreach ($constants as $name => $value){
-			$output = "const $name = $value;\n";
+			$output .= "const $name = $value;\n";
 		}
 		return $output;
 	}
