@@ -12,7 +12,7 @@ use \SplDoublyLinkedList;
 class InvocationContainer {
 
 	/**
-	 * Holds all the invocations of the method to be use for verifing the calls later
+	 * Holds all the invocations of the method to be use for verifying the calls later
 	 * @var SplDoublyLinkedList[Invocation]
 	 */
 	private $invocations = null;
@@ -74,12 +74,16 @@ class InvocationContainer {
 	 * @return array|null|\SplDoublyLinkedList
 	 */
 	public function getInvocations($func = null){
-		if ( $func instanceof \Closure){
+		if ( ! $func instanceof \Closure){
 			return $this->invocations;
 		}
-		
-		return array_filter($this->invocations, function($invocation){
-			return $func($invocation);
-		});
+
+		$matches = array();
+		foreach($this->invocations as $invocation){
+			if($func($invocation)){
+				$matches[] = $invocation;
+			}
+		}
+		return $matches;
 	}
 }

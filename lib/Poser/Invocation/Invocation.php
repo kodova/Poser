@@ -160,4 +160,10 @@ class Invocation implements Invokable, Matchable {
 	public function getStackTrace() {
 		return $this->stackTrace;
 	}
+
+	function __toString() {
+		$call = $this->stackTrace[2];
+		$text = sprintf("%s#%s line %d", $call['class'], $call['function'], $call['line']);
+		return $text;
+	}
 }

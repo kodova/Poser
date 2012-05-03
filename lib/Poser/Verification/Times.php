@@ -37,11 +37,11 @@ class Times implements VerifiableType{
 
 		$actual = sizeof($invocations);
 		if ($this->wantedCount == 0 && $actual > 0){
-			throw new PoserException(sprintf("The method %s was invoked when it never should have been", $wanted->getMethodName()));
+			throw new TimesException($this->wantedCount, $invocations);
 		}elseif ($this->wantedCount < $actual){
-			throw new PoserException(sprintf("The method %s was invoked %d times when %d was expected", $wanted->getMethodName(), $actual, $this->wantedCount));
+			throw new TimesException($this->wantedCount, $invocations);
 		}elseif ($this->wantedCount > $actual){
-			throw new PoserException(sprintf("The method %s was only invoked %d times when it should have been %d", $wanted->getMethodName(), $actual, $this->wantedCount));
+			throw new TimesException($this->wantedCount, $invocations);
 		}
 	}
 	
