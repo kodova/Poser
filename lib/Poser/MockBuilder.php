@@ -50,20 +50,20 @@ class MockBuilder {
 	 * be used to retrieve the mock object at a later time.
 	 *
 	 * @param string $name 
-	 * @return void
+	 * @return MockBuilder
 	 */
 	public function name($name) {
 		$this->name = $name;
 		return $this;
 	}
-	
+
 	/**
 	 * Sets if the mock object will mock static calls. this
 	 * should only be used when necessary since it limits other
 	 * functionality
 	 *
-	 * @param bool $mockStatic 
-	 * @return void
+	 * @param boolean $mockStatic
+	 * @return MockBuilder
 	 */
 	public function mockStatic($mockStatic){
 		$this->mockStatic = $mockStatic;
@@ -98,6 +98,7 @@ class MockBuilder {
 	 * Values to be added as a constant.
 	 * 
 	 * @param array $constants Keys will be the constant name and values will be the value
+	 * @return \Poser\MockBuilder
 	 */
 	public function constants($constants){
 		$this->constants = array_merge($this->constants, $constants);

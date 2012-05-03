@@ -54,11 +54,11 @@ abstract class AbstractGenerator implements Generator{
 		$constants = $this->generateConstants($this->getConstants());
 		$classDeclaration = $this->getClassDeclaration();
 		$declaration = $classDeclaration->getDeclaration();
-		$namepace = (null != $classDeclaration->getNamespace()) ? "namespace {$classDeclaration->getNamespace()};" : '';
+		$namespace = (null != $classDeclaration->getNamespace()) ? "namespace {$classDeclaration->getNamespace()};" : '';
 		$classType = $classDeclaration->getType();
 		
 		$classDef = "
-			$namepace
+			$namespace
 		
 			$declaration {
 				$constants

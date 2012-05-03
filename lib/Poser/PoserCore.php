@@ -22,12 +22,13 @@ class PoserCore {
 		$this->proxyFactory = $proxyFactory;
 		$this->mockingMonitor = $mockingMonitor;
 	}
-	
+
 	/**
-	 * Creats a mock for a given class
+	 * Creates a mock for a given class
 	 *
 	 * @param string $toMock the name of the class to mock
-	 * @return mixed The mock object
+	 * @param \Poser\MockOptions $options
+	 * @return mixed
 	 */
 	public function mock($toMock, MockOptions $options) {
 		$mock = $this->proxyFactory->createProxy($toMock, $options);
@@ -61,13 +62,14 @@ class PoserCore {
 	public function reportMatcher(Hamcrest_Matcher $matcher){
 		return $this->mockingMonitor->getArgumentMatcherMonitor()->reportMatcher($matcher);
 	}
-	
+
 	/**
 	 * @param mixed $mocks
-	 * @return void
+	 * @throws Exception\PoserException
+	 * @return mixed
 	 */
 	public function verifyZeroInteractions($mocks){
-		$parms = func_get_args();
+		$params = func_get_args();
 		foreach($params as $mock){
 			$container = $mock->getProxy()->getInvocationContainer();
 			if($container->hasInvocations()){

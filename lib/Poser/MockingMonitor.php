@@ -51,7 +51,7 @@ class MockingMonitor {
 	}
 	
 	/**
-	 * Start the current verificaiton process
+	 * Start the current verification process
 	 * @param VerificationRequest $verification
 	 */
 	public function startVerification(VerificationRequest $verification){
@@ -70,9 +70,10 @@ class MockingMonitor {
 		$this->reset();
 		return $stubbing;
 	}
-	
+
 	/**
 	 * Gets the current VerificationRequest that is currently in process
+	 * @param $toVerify
 	 * @return \Poser\VerificationRequest
 	 */
 	public function currentVerification($toVerify) {
@@ -84,16 +85,17 @@ class MockingMonitor {
 			return null;
 		}
 	}
-	
+
 	/**
 	 * Validates the state of the current mocking to ensure
 	 * that we can start mocking
 	 *
+	 * @throws Exception\PoserException
 	 * @return void
 	 */
 	public function validateState() {
 		if($this->verification != null){
-			throw new PoserException("Mocking is in a invalid state there is a verificaiton currently active");
+			throw new PoserException("Mocking is in a invalid state there is a verification currently active");
 		}
 		
 		$this->argumentMatcherMonitor->validateState();

@@ -3,13 +3,9 @@
 namespace Poser\Proxy;
 
 use Poser\Stubbing\Stub;
-
 use Poser\Stubbing\OngoingStubbing;
-
 use Poser\MockOptions;
-
 use Poser\Invocation\InvocationContainer;
-
 use Poser\MockingMonitor;
 use Poser\Invocation\Invocation;
 
@@ -44,7 +40,8 @@ class MethodProxy {
 	
 	public function handle($method, $args) {
 		$matchers = $this->mockingMonitor->getArgumentMatcherMonitor()->pullMatchers();
-		$invocation = new Invocation($this->mock, $method, $args, $matchers);
+		$stackTrace = debug_backtrace();
+		$invocation = new Invocation($this->mock, $method, $args, $matchers, $stackTrace);
 
 		$verifcation = $this->mockingMonitor->currentVerification($this->mock);
 		if ($verifcation != null){

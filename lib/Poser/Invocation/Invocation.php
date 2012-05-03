@@ -29,20 +29,26 @@ class Invocation implements Invokable, Matchable {
 	 * @var string
 	 */
 	private $methodName;
-	
 	/**
-	 * 
-	 * 
+	 * @var array
+	 */
+	private $stackTrace;
+
+	/**
+	 *
+	 *
 	 * @param mixed $mock
 	 * @param string $method
 	 * @param array $args
 	 * @param SplDoublyLinkedList $matchers
+	 * @param $stackTrace
 	 */
-	function __construct($mock, $method, $args, SplDoublyLinkedList $matchers) {
+	function __construct($mock, $method, $args, SplDoublyLinkedList $matchers, $stackTrace) {
 		$this->mock = $mock;
 		$this->arguments = $args;
 		$this->matchers = $matchers;
 		$this->methodName = $method;
+		$this->stackTrace = $stackTrace;
 		
 		if (is_a($mock, 'Poser\Proxy\SubstituteProxy')) {
 			$this->method = null;
@@ -146,5 +152,12 @@ class Invocation implements Invokable, Matchable {
 	 */
 	public function markStubbed(){
 		//TODO need to implement this
+	}
+
+	/**
+	 * @return array
+	 */
+	public function getStackTrace() {
+		return $this->stackTrace;
 	}
 }

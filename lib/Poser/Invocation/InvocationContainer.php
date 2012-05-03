@@ -68,9 +68,10 @@ class InvocationContainer {
 	public function hasInvocations(){
 		return ($this->invocations->count() > 0);
 	}
-	
+
 	/**
-	 * @return array[Invocation]
+	 * @param Closure|null $func
+	 * @return array|null|\SplDoublyLinkedList
 	 */
 	public function getInvocations($func = null){
 		if ( $func instanceof \Closure){

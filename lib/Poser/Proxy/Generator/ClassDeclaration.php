@@ -36,7 +36,7 @@ class ClassDeclaration {
 	 * Returns the declartion in string form that does not include
 	 * the curly braces.
 	 * <code>
-     * class Foo extneds Bar implements Fooable
+     * class Foo exceeds Bar implements Fooable
      * </code>
 	 * @return string
 	 */

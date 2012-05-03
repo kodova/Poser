@@ -12,7 +12,11 @@ class VerificationRequest {
 	 * @var VerifiableType
 	 */
 	private $type;
-	
+
+	/**
+	 * @param mixed $mock
+	 * @param VerifiableType $type
+	 */
 	public function __construct($mock, VerifiableType $type){
 		$this->mock = $mock;
 		$this->type = $type;

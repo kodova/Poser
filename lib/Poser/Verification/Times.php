@@ -13,9 +13,10 @@ use Poser\Exception\PoserException;
 class Times implements VerifiableType{
 	
 	protected $wantedCount;
-	
+
 	/**
-	 * @param integer $count
+	 * @param int $count
+	 * @throws \Poser\Exception\PoserException
 	 */
 	public function __construct($count){
 		if($count < 0){

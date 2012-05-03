@@ -41,11 +41,7 @@ class FlowchartTest extends PHPUnit_Framework_TestCase{
 		$this->house = build('House')->mockStatic(true)->mock();
 		$this->dog = mock('Dog');
 		$this->cooker = mock('Cooker');
-		$this->person = build('Person')
-				->mockStatic(true)
-				->constants(array('YES' => 0, 'NO' => 1))
-				->mock();
-		
+		$this->person = build('Person')->mockStatic(true)->constants(array('YES' => 0, 'NO' => 1))->mock();
 		$this->flowchart = new Flowchart($this->house, $this->person, $this->dog);
 	}
 	
@@ -55,10 +51,7 @@ class FlowchartTest extends PHPUnit_Framework_TestCase{
 		$this->person = null;
 		$this->dog = null;
 	}
-	
-	/**
-	 * @ignore
-	 */
+
 	public function testWhatToEatWhenBacon(){
 		when($this->person->wantsBacon())->thenReturn(true);
 		
@@ -82,7 +75,7 @@ class FlowchartTest extends PHPUnit_Framework_TestCase{
 		
 		$this->flowchart->cookBacon();
 		
-		verify($this->cooker)->cook(true, $array);
+		verify($this->cooker)->cook(true, array());
 	}
 	
 }
