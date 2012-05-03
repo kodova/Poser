@@ -56,7 +56,7 @@ class MethodProxy {
 
 		$this->invocationContainer->reportInvocataion($invocation, $matchers);
 		$stub = new Stub($invocation);
-		$this->mockingMonitor->reportStubbing(new OngoingStubbing($this->invocationContainer, $stub));
+		$this->mockingMonitor->reportStubbing(new OngoingStubbing($this->invocationContainer, $stub, $invocation));
 		
 		$stubbedInvocation = $this->invocationContainer->findAnswerFor($invocation);
 		if ($stubbedInvocation == null) {

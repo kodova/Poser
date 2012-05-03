@@ -6,6 +6,7 @@ use Poser\Invocation\Matchable;
 use Poser\Invocation\Answer;
 use Poser\Invocation\InvocationContainer;
 use Poser\Invocation\ReturnAnswer;
+use Poser\Invocation\Invocation;
 use Poser\Stubbing\Stubbable;
 use Exception;
 
@@ -20,10 +21,20 @@ class OngoingStubbing implements Stubbable{
      * @var Stub
 	 */
 	private $stub;
-	
-	function __construct(InvocationContainer $invocationContainer, Stub $stub) {
+	/**
+	 * @var Invocation
+	 */
+	private $invocation;
+
+	/**
+	 * @param \Poser\Invocation\InvocationContainer $invocationContainer
+	 * @param Stub $stub
+	 * @param \Poser\Invocation\Invocation $invocation
+	 */
+	function __construct(InvocationContainer $invocationContainer, Stub $stub, Invocation $invocation) {
 		$this->invocationContainer = $invocationContainer;
 		$this->stub = $stub;
+		$this->invocation = $invocation;
 	}
 
 	/**
@@ -45,6 +56,7 @@ class OngoingStubbing implements Stubbable{
 	 * @param \Poser\Invocation\Answer $answer
 	 */
 	public function thenAnswer(Answer $answer){
+		$this->invocation->markStubbed();
 		$this->stub->addAnswer($answer);
 		$this->invocationContainer->addStub($this->stub);
 	}
