@@ -5,7 +5,7 @@ namespace Poser\Proxy\Generator;
 
 use Poser\MockOptions;
 
-class NewGenerator extends AbstractGenerator {
+class SubstituteGenerator extends AbstractGenerator {
 	
 	/**
 	 * @var MockOptions

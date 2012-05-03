@@ -20,7 +20,7 @@ class GeneratorFactory {
 	 */
 	public function getGenerator($toMock, MockOptions $options) {
 		if ($options->canMockStatic()) {
-			return new NewGenerator($toMock, $options);
+			return new SubstituteGenerator($toMock, $options);
 		}
 		
 		$class = new \ReflectionClass($toMock);

@@ -2,10 +2,10 @@
 
 use Poser\MockOptions;
 
-use \Poser\Proxy\Generator\NewGenerator as NewGenerator;
+use \Poser\Proxy\Generator\SubstituteGenerator as NewGenerator;
 
 
-class NewGeneratorTest extends PHPUnit_Framework_TestCase  {
+class SubstituteGeneratorTest extends PHPUnit_Framework_TestCase  {
 	
 	
 	public function testGetClassDeclarationWithNamespace() {
@@ -14,7 +14,7 @@ class NewGeneratorTest extends PHPUnit_Framework_TestCase  {
 		$options = new MockOptions();
 	    $toMock = "$namespace\\$name";
 		
-		$generator = new NewGenerator($toMock, $options);
+		$generator = new SubstituteGenerator($toMock, $options);
 		$class = $generator->getClassDeclaration();
 		
 		$this->assertEquals($name, $class->getClassName(), 'The class names to not match');
@@ -26,7 +26,7 @@ class NewGeneratorTest extends PHPUnit_Framework_TestCase  {
 	    $toMock = 'Helpers_Test_MethodClass';
 	    $options = new MockOptions();
 		
-		$generator = new NewGenerator($toMock, $options);
+		$generator = new SubstituteGenerator($toMock, $options);
 		$class = $generator->getClassDeclaration();
 		
 		$this->assertEquals($toMock, $class->getClassName(), 'The class names to not match');
@@ -38,7 +38,7 @@ class NewGeneratorTest extends PHPUnit_Framework_TestCase  {
 	    $toMock = 'Helpers\Test\MethodClass';
 	    $options = new MockOptions();
 		
-		$generator = new NewGenerator($toMock, $options);
+		$generator = new SubstituteGenerator($toMock, $options);
 		$methods = $generator->getMethodsToProxy();
 		
 		$this->assertEmpty($methods);
@@ -47,7 +47,7 @@ class NewGeneratorTest extends PHPUnit_Framework_TestCase  {
 	public function testGenerate() {
 		$toMock = 'Helpers\Test\DoNotUseClass';
 		$options = new MockOptions();
-		$generator = new NewGenerator($toMock, $options);
+		$generator = new SubstituteGenerator($toMock, $options);
 		$obj = $generator->generate();
 		
 		$this->assertTrue(is_a($obj, $toMock));
@@ -59,7 +59,7 @@ class NewGeneratorTest extends PHPUnit_Framework_TestCase  {
 		$options = new MockOptions();
 		$options->setConstants($const);
 		
-		$generator = new NewGenerator($toMock, $options);
+		$generator = new SubstituteGenerator($toMock, $options);
 		$constants = $generator->getConstants();
 		
 		$this->assertEquals($const, $constants);
@@ -70,7 +70,7 @@ class NewGeneratorTest extends PHPUnit_Framework_TestCase  {
 		$options = new MockOptions();
 		$options->setConstants(array('TEST' => 3));
 		
-		$generator = new \Poser\Proxy\Generator\NewGenerator($toMock, $options);
+		$generator = new \Poser\Proxy\Generator\SubstituteGenerator($toMock, $options);
 		$obj = $generator->generate();
 		
 		$this->assertEquals(ThisDoesNotExist::TEST, 3);
