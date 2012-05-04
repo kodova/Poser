@@ -79,7 +79,9 @@ class MockBuilder {
 	 * @return mixed
 	 */
 	public function mockSingleton($method = 'getInstance') {
-		$mock = $this->mock();		
+		$mock = $this->mockStatic(true)->mock();
+		$class = $this->class;
+		$this->poserCore->when($class::$method())->thenReturn($mock);
 		return $mock;
 	}
 

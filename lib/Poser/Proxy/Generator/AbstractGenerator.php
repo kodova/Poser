@@ -107,11 +107,17 @@ abstract class AbstractGenerator implements Generator{
 		$id = uniqid();
 		
 		return "
+				private static \$staticProxy;
 				private \$proxy;
 				private \$id = '$id';
 				
 				public function setProxy(\$proxy) {
 					\$this->proxy = \$proxy;
+					self::\$staticProxy = \$proxy;
+				}
+
+				public static function setStaticProxy(\$proxy){
+					self::\$staticProxy = \$proxy;
 				}
 				
 				public function getProxy() {
@@ -120,6 +126,10 @@ abstract class AbstractGenerator implements Generator{
 		
 				public function __call(\$method, \$args) {
 					return \$this->proxy->handle(\$method, \$args);
+				}\n
+
+				public static function __callStatic(\$method, \$args) {
+					return self::\$staticProxy->handle(\$method, \$args);
 				}\n
 				
 				public function getId() {

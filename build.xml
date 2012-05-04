@@ -20,15 +20,8 @@
 	<target name="clean">
 		<delete dir="${build.dir}" />
 	</target>
-	
-<<<<<<< HEAD
+
 	<target name="api">
-	</target>
-	
-	<target name="release">
-	</target>
-	
-	<target name="pear.package">
 	</target>
 	
 	<target name="test">
@@ -40,8 +33,7 @@
 				</fileset>
 			</batchtest>
 		</phpunit>
-=======
-	<target name="release" depends="clean,pear.package,api"></target>
+    </target>
 	
 	<target name="api">
 		<phpdoc title="Poser API Documentation"
@@ -56,7 +48,6 @@
 	
 	<target name="pear.package" depends="pear.generate">
 		<exec command="pear package ${build.dir}/package2.xml" />
->>>>>>> Corrected some errors and spelling
 	</target>
 	
 	<target name="pear.generate" depends="clean,build">

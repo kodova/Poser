@@ -4,15 +4,10 @@ namespace Poser\Proxy;
 
 
 use Poser\MockOptions;
-
 use Poser\Invocation\InvocationContainer;
-
 use Poser\Exception\PoserException;
-
 use Poser\MockingMonitor;
-
 use Poser\Proxy\Generator\GeneratorFactory;
-
 use ReflectionClass;
 
 class ProxyFactory {
