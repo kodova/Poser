@@ -3,9 +3,7 @@
 namespace Poser\Stubbing;
 
 use Poser\Invocation\Matchable;
-
 use Poser\Invocation\Invocation;
-
 use Poser\Invocation\Answer;
 use SplQueue;
 

@@ -9,12 +9,13 @@ namespace Poser\Proxy\Generator;
  * @package default
  */
 class ExtendedGenerator extends AbstractGenerator {
-	
+
 	/**
 	 * Creates instance of geneartor
 	 *
 	 * @param string $toMock The type of object that needs to be extended
-	 * @param string $name Then name of the of the generated class
+	 * @throws GeneratorException
+	 * @internal param string $name Then name of the of the generated class
 	 */
 	function __construct($toMock) {
 		parent::__construct($toMock);

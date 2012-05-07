@@ -2,6 +2,8 @@
 
 namespace Poser\Proxy\Generator;
 
+use Poser\Exception\UndefinedPropertyException;
+
 /**
  * Represents a declaration in a object form
  */
@@ -15,23 +17,7 @@ class ClassDeclaration {
 	public function setImplements(array $implements) {
 		$this->implements = $implements;
 	}
-	
-	public function __call($name, $args) {
-		//get the property name
-		$property = substr($name, 3);
-		$property[0] = strtolower($property[0]);
-		
-		//get the prefix
-		if (strstr($name, 'get')) {
-			return $this->$property;
-		} elseif (strstr($name, 'set')) {
-			$arg = isset($args[0]) ? $args[0] : null;
-			$this->$property = $arg;
-		} else {
-			throw new \Poser\Exception\UndefinedPropertyException($property, get_class());
-		}
-	}
-	
+
 	/**
 	 * Returns the declartion in string form that does not include
 	 * the curly braces.
@@ -53,5 +39,33 @@ class ClassDeclaration {
 	
 	public function getType() {
 		return $this->namespace . '\\' . $this->className;
+	}
+
+	public function getExtends() {
+		return $this->extends;
+	}
+
+	public function setExtends($extends) {
+		$this->extends = $extends;
+	}
+
+	public function getImplements() {
+		return $this->implements;
+	}
+
+	public function getClassName() {
+		return $this->className;
+	}
+
+	public function setClassName($className) {
+		$this->className = $className;
+	}
+
+	public function getNamespace() {
+		return $this->namespace;
+	}
+
+	public function setNamespace($namespace) {
+		$this->namespace = $namespace;
 	}
 }

@@ -56,7 +56,7 @@ class FlowchartTest extends PHPUnit_Framework_TestCase{
 		when($this->person->wantsBacon())->thenReturn(true);
 		
 		$this->flowchart->whatToEat();
-		
+
 		verify($this->person, times(2))->write(anything());
 	}
 	
@@ -64,19 +64,20 @@ class FlowchartTest extends PHPUnit_Framework_TestCase{
 		when($this->person->wantsBacon())->thenReturn(false);
 	
 		$this->flowchart->whatToEat();
-	
+
 		verify($this->person, times(3))->write(anything());
 		verify($this->person)->wantsBacon();
 	}
 	
 	public function testCookBaconWhenLikesCrispy(){
+//		$this->markTestSkipped("skipping");
 //		$bacon = array();
 		when($this->house->getCooker())->thenReturn($this->cooker);
 		when($this->person->likesCrispyBacon())->thenReturn(Person::YES);
 		
 		$this->flowchart->cookBacon();
 		
-		verify($this->cooker)->cook(true, array());
+		verify($this->cooker)->cook(false, array());
 	}
 	
 }

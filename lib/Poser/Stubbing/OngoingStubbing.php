@@ -6,6 +6,7 @@ use Poser\Invocation\Matchable;
 use Poser\Invocation\Answer;
 use Poser\Invocation\InvocationContainer;
 use Poser\Invocation\ReturnAnswer;
+use Poser\Invocation\ThrowAnswer;
 use Poser\Invocation\Invocation;
 use Poser\Stubbing\Stubbable;
 use Exception;
@@ -76,6 +77,6 @@ class OngoingStubbing implements Stubbable{
 	 * @return Stubbable
 	 */
 	public function thenThrow(Exception $exception) {
-		$this->thenAnswer(new ThrowException($exception));
+		$this->thenAnswer(new ThrowAnswer($exception));
 	}
 }

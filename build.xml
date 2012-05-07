@@ -5,6 +5,8 @@
 	<property name="build.dir" value="./build" />
 	<property name='build.dist.dir' value='lib' />
 	<property name='pkg.version' value='0.1.0' />
+
+
 	
 	<fileset dir='lib' id='src.files'>
 		<include name="**" />
@@ -20,9 +22,6 @@
 	<target name="clean">
 		<delete dir="${build.dir}" />
 	</target>
-
-	<target name="api">
-	</target>
 	
 	<target name="test">
 		<phpunit codecoverage="false" haltonfailure="true" haltonerror="true" bootstrap="tests/Bootstrap.php">
@@ -36,14 +35,13 @@
     </target>
 	
 	<target name="api">
-		<phpdoc title="Poser API Documentation"
-			destdir="build/api"
-			sourcecode="false"
-			output="HTML:Smarty:PHP">
-			<fileset dir="./lib">
-				<include name="**/*.php" />
-			</fileset>
-		</phpdoc>
+        <apigen
+            source="lib"
+            destination="api"
+            title="Poser API"
+            deprecated="true"
+            todo="true"
+            wipeout="true"/>
 	</target>
 	
 	<target name="pear.package" depends="pear.generate">

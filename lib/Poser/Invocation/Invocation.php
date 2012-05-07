@@ -6,6 +6,7 @@ use Poser\Exception\PoserException;
 use Poser\Reflection\TypedMethod;
 use SplDoublyLinkedList;
 use Poser\Proxy\SubstituteProxy;
+use ReflectionClass;
 
 class Invocation implements Invokable, Matchable {
 	
@@ -33,6 +34,10 @@ class Invocation implements Invokable, Matchable {
 	 * @var array
 	 */
 	private $stackTrace;
+	/**
+	 * @var boolean
+	 */
+	private $stubbed = false;
 
 	/**
 	 *
@@ -53,8 +58,8 @@ class Invocation implements Invokable, Matchable {
 		if (is_a($mock, 'Poser\Proxy\SubstituteProxy')) {
 			$this->method = null;
 		} else {
-			$class = new \ReflectionClass($mock);
-			$this->method =  new \Poser\Reflection\TypedMethod($class->getName(), $method);
+			$class = new ReflectionClass($mock);
+			$this->method =  new TypedMethod($class->getName(), $method);
 		}
 	}
 
@@ -93,9 +98,7 @@ class Invocation implements Invokable, Matchable {
 	 *
 	 */
 	public function callRealMethod(){
-		/*
-			TODO Need to implement this method
-		*/
+		//TODO need to implement this
 	}
 
 	/**
@@ -151,7 +154,7 @@ class Invocation implements Invokable, Matchable {
 	 *
 	 */
 	public function markStubbed(){
-		//TODO need to implement this
+		$this->stubbed = true;
 	}
 
 	/**
@@ -159,6 +162,10 @@ class Invocation implements Invokable, Matchable {
 	 */
 	public function getStackTrace() {
 		return $this->stackTrace;
+	}
+
+	public function wasStubbed(){
+		return $this->stubbed;
 	}
 
 	function __toString() {

@@ -29,7 +29,7 @@ class Flowchart extends OutputWriter{
 	
 	public function run(){
 		if($this->person->isHungry()){
-			$this->person->write("Im hungey");
+			$this->person->write("Im hungry");
 			$this->whatToEat();
 			$this->haveBacon();	
 			$this->cleanCooker();
@@ -77,7 +77,7 @@ class Flowchart extends OutputWriter{
 		if($cooker->isClean()){
 			$this->write("Hooray!");
 		} else{
-			$this->write("Damit, if it's not one thing...");
+			$this->write("Dammit, if it's not one thing...");
 			$this->person->cleanCooker($cooker);
 		}
 		$this->write("Let's make some bacon!");
@@ -100,16 +100,16 @@ class Flowchart extends OutputWriter{
 		$bacon = $this->house->getRawBacon(self::BACON_TO_EAT);
 		switch ($this->person->likesCrispyBacon()) {
 			case Person::YES:
-				$this->write("Sometiems you just want it to be a little chewy. Today is one of those days");
+				$this->write("Sometimes you just want it to be a little chewy. Today is one of those days");
 				$cooker->cook(false, $bacon);
 				break;
 			case Person::NO:
 				$this->person->write("I really like my bacon crispy, but I fear it can get burnt to easily");
-				$this->write("Thats's a risk we all take. the price of great bacon is eternal vigilance");
+				$this->write("That's a risk we all take. the price of great bacon is eternal vigilance");
 				$cooker->cook(true, $bacon);
 				break;
 			case Person::MAYBE:
-				$this->person->write("Decisions! How about I make some cripsy, and some not so crispy?");
+				$this->person->write("Decisions! How about I make some crispy, and some not so crispy?");
 				$this->write("Good thinking! Variety is the spice of life, after all...");
 				$half = round(sizeof($bacon) / 2);
 				$cooker->cook(true, array_slice($bacon, 0, $half - 1));
@@ -123,7 +123,7 @@ class Flowchart extends OutputWriter{
 		$this->person->write(sprintf("Should I give some to %s?", $this->dog->getName()));
 		$giveToDog = $this->person->giveSomeToDog();
 		if($giveToDog == Person::NO){
-			$this->write("Withholding bacond from a dog is ihhumane. How dare you even think it?");
+			$this->write("Withholding bacon from a dog is inhumane. How dare you even think it?");
 		}elseif ($giveToDog == Person::MAYBE){
 			$this->person->write("I'll see if he'll chose bacon over beggin strips");
 			if($this->person->disownDog($this->dog->wantsBacon())){

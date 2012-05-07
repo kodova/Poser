@@ -3,11 +3,10 @@
 namespace Poser\Invocation;
 
 use Poser\Stubbing\Stub;
-
+use Poser\Stubbing\Stubbable;
 use Poser\MockingMonitor;
-
 use Poser\MockOptions;
-use \SplDoublyLinkedList;
+use SplDoublyLinkedList;
 
 class InvocationContainer {
 
@@ -18,7 +17,7 @@ class InvocationContainer {
 	private $invocations = null;
 	
 	/**
-	 * @var SplDoublyLinkedList
+	 * @var Stubbable
 	 */
 	private $stubs = null;
 	
@@ -55,10 +54,10 @@ class InvocationContainer {
 		foreach ($this->stubs as $stub) {
 			if($stub->matches($invocation)){
 				$stub->markStubUsed($invocation);
-				$invocation->markStubbed();
 				return $stub;
 			}
 		}
+		return null;
 	}
 	
 	public function hasAnswers() {
@@ -70,17 +69,17 @@ class InvocationContainer {
 	}
 
 	/**
-	 * @param Closure|null $func
+	 * @param Closure|null $matchFunction
 	 * @return array|null|\SplDoublyLinkedList
 	 */
-	public function getInvocations($func = null){
-		if ( ! $func instanceof \Closure){
+	public function getInvocations($matchFunction = null){
+		if ( ! $matchFunction instanceof \Closure){
 			return $this->invocations;
 		}
 
 		$matches = array();
 		foreach($this->invocations as $invocation){
-			if($func($invocation)){
+			if($matchFunction($invocation)){
 				$matches[] = $invocation;
 			}
 		}

@@ -28,11 +28,12 @@ class SubstituteGenerator extends AbstractGenerator {
  	public function getMethodsToProxy(){
 		return array();
 	}
-	
+
 	/**
 	 * Extracts the namespace from a given type without using
 	 * reflection. We do not want to load the class defintion.
 	 *
+	 * @param $type
 	 * @return void
 	 */
 	private function getNamespace($type){
@@ -56,6 +57,8 @@ class SubstituteGenerator extends AbstractGenerator {
 	/**
 	 * (non-PHPdoc)
 	 * @see Poser\Proxy\Generator.AbstractGenerator::getConstants()
+	 * @return array
+	 * @return array
 	 */
 	public function getConstants(){
 		return $this->mockOptions->getConstants();

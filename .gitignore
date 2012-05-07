@@ -8,3 +8,5 @@ Gen.php
 /
 build
 .idea/
+
+tests/results.xml

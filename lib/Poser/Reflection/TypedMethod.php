@@ -16,7 +16,7 @@ class TypedMethod extends ReflectionMethod {
 	 * Gets the return type of a given method. This will return
 	 * value of supplied in the PHPDoc return value
 	 *
-	 * @return void
+	 * @return null|string
 	 */
 	public function getReturnType(){
 		$doc = $this->getDocComment();

@@ -176,4 +176,28 @@ class Poser {
 	public static function anything($description = 'ANYTHING'){
 		return self::getPoserCore()->reportMatcher(hm::anything($description))->returnNull();
 	}
+
+	public static function anArray(){
+		return self::getPoserCore()->reportMatcher(hm::anArray())->returnArray();
+	}
+
+	public static function hasKey($key){
+		return self::getPoserCore()->reportMatcher(hm::hasKey($key))->returnArray();
+	}
+
+	public static function hasValue($item){
+		return self::getPoserCore()->reportMatcher(hm::hasValue($item))->returnArray();
+	}
+
+	public static function hasEntry($key, $value){
+		return self::getPoserCore()->reportMatcher(hm::hasEntry($key, $value))->returnArray();
+	}
+
+	public static function emptyArray(){
+		return self::getPoserCore()->reportMatcher(hm::emptyArray())->returnArray();
+	}
+
+	public static function not($value){
+		return self::getPoserCore()->reportMatcher(hm::not($value))->returnNull();
+	}
 }

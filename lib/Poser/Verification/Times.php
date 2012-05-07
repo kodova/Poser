@@ -24,14 +24,17 @@ class Times implements VerifiableType{
 		}
 		$this->wantedCount = $count;
 	}
-	
+
 	/**
 	 * @param \Poser\Invocation\Invocation $wanted
 	 * @param \Poser\Invocation\InvocationContainer $invocationContainer
-	 * @throws \Poser\Exception\PoserException
+	 * @throws TimesException
 	 */
 	public function verify(Invocation $wanted, InvocationContainer $invocationContainer){
-		$invocations = $invocationContainer->getInvocations(function(Matchable $invocation) use ($wanted){
+		$invocations = $invocationContainer->getInvocations(function(Invocation $invocation) use ($wanted){
+			if($invocation->wasStubbed()){
+				return false;
+			}
 			return $wanted->matches($invocation);
 		});
 

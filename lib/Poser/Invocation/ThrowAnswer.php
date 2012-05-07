@@ -3,6 +3,7 @@
 namespace Poser\Invocation;
 
 use Poser\Invocation\Answer;
+use Exception;
 
 class ThrowAnswer implements Answer{
 	
@@ -11,7 +12,7 @@ class ThrowAnswer implements Answer{
 	 */
 	private $throwable;
 	
-	public function __construct(\Exception $throwable){
+	public function __construct(Exception $throwable){
 		$this->throwable = $throwable;
 	}
 	
