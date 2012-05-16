@@ -3,10 +3,10 @@
 namespace Poser\Proxy;
 
 use Poser\Stubbing\Stub;
+use Poser\MockingMonitor;
 use Poser\Stubbing\OngoingStubbing;
 use Poser\MockOptions;
 use Poser\Invocation\InvocationContainer;
-use Poser\MockingMonitor;
 use Poser\Invocation\Invocation;
 
 class MethodProxy {

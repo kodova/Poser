@@ -3,6 +3,7 @@
 namespace Poser\Stubbing;
 
 use Poser\Invocation\Matchable;
+use Poser\Exception\PoserException;
 use Poser\Invocation\Answer;
 use Poser\Invocation\InvocationContainer;
 use Poser\Invocation\ReturnAnswer;
@@ -39,17 +40,21 @@ class OngoingStubbing implements Stubbable{
 	}
 
 	/**
-	 * @param $args
+	 * @throws PoserException
+	 * @internal param $args
+	 * @return null|mixed
 	 */
-	public function thenReturn($args){
-		if (is_array($args)) {
-			$subbing = null;
-			foreach($args as $arg){
-				$stubbing = $this->thenAnswer(new ReturnAnswer($arg));
+	public function thenReturn(){
+		if(func_num_args() == 0){
+			throw new PoserException("You must supply one or more value when calling thenReturn");
+		}
+
+		if (func_num_args() > 1) {
+			foreach(func_get_args() as $arg){
+				$this->thenAnswer(new ReturnAnswer($arg));
 			}
-			return $stubbing;
 		} else {
-			return $this->thenAnswer(new ReturnAnswer($args));
+			$this->thenAnswer(new ReturnAnswer(func_get_arg(0)));
 		}
 	}
 

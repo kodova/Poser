@@ -15,7 +15,7 @@ interface Stubbable {
 	 * @param mixed|array $args a list of args to return.
 	 * @return Stubbable
 	 */
-	public function thenReturn($args);
+	public function thenReturn();
 	
 	/**
 	 * Sets the exception that will be thrown when the method is invoked.
