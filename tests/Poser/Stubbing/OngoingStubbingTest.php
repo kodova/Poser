@@ -1,0 +1,100 @@
+<?php
+namespace Poser\Stubbing;
+
+use Poser\Stubbing\OngoingStubbing;
+use SplDoublyLinkedList;
+use Helpers\Test\MethodClass;
+use Poser\Invocation\Invocation;
+use Poser\ArgumentMatcherMonitor;
+use Poser\MockOptions;
+use Poser\Stubbing\Stub;
+use Poser\MockingMonitor;
+use Poser\Invocation\InvocationContainer;
+
+class OngoingStubbingTest extends \PHPUnit_Framework_TestCase
+{
+    /**
+     * @var OngoingStubbing
+     */
+    protected $object;
+
+	/**
+	 * @var InvocationContainer
+	 */
+	protected $invocationContainer;
+
+	/**
+	 * @var Invocation
+	 */
+	public $invocation;
+
+	/**
+	 * @var Stub
+	 */
+	public $stub;
+
+	protected function setUp() {
+	    $mockingMonitor = new MockingMonitor(new ArgumentMatcherMonitor());
+	    $this->invocationContainer = $this->getMockBuilder('Poser\Invocation\InvocationContainer')
+		                                  ->setConstructorArgs(array($mockingMonitor, new MockOptions))
+		                                  ->setMethods(array('addStub'))
+		                                  ->getMock();
+	    $this->invocation = new Invocation(new MethodClass(), 'privateFoo', null, new SplDoublyLinkedList, array());
+	    $this->stub = new Stub($this->invocation);
+
+
+        $this->object = new OngoingStubbing($this->invocationContainer, $this->stub, $this->invocation);
+    }
+
+    protected function tearDown() {
+	    $this->object = null;
+    }
+
+    public function testThenReturnShouldAddSingleAnswerWhenOnlyOneGiven(){
+		$this->invocationContainer->expects($this->once())
+								  ->method('addStub');
+	    $this->object->thenReturn(1);
+    }
+
+	public function testThenReturnShouldAddManyAnswersWhenManyGiven(){
+		$this->invocationContainer->expects($this->count(2))
+			->method('addStub');
+		$this->object->thenReturn("foo", "bar");
+	}
+
+    /**
+     * @covers Poser\Stubbing\OngoingStubbing::thenAnswer
+     * @todo   Implement testThenAnswer().
+     */
+    public function testThenAnswer()
+    {
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete(
+          'This test has not been implemented yet.'
+        );
+    }
+
+    /**
+     * @covers Poser\Stubbing\OngoingStubbing::then
+     * @todo   Implement testThen().
+     */
+    public function testThen()
+    {
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete(
+          'This test has not been implemented yet.'
+        );
+    }
+
+    /**
+     * @covers Poser\Stubbing\OngoingStubbing::thenThrow
+     * @todo   Implement testThenThrow().
+     */
+    public function testThenThrow()
+    {
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete(
+          'This test has not been implemented yet.'
+        );
+    }
+}
