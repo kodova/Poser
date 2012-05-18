@@ -57,44 +57,49 @@ class OngoingStubbingTest extends \PHPUnit_Framework_TestCase
     }
 
 	public function testThenReturnShouldAddManyAnswersWhenManyGiven(){
-		$this->invocationContainer->expects($this->count(2))
+		$this->invocationContainer->expects($this->exactly(2))
 			->method('addStub');
 		$this->object->thenReturn("foo", "bar");
 	}
 
+	/**
+	 * @expectedException Poser\Exception\PoserException
+	 */
+	public function testThenReturnShouldThrowExceptionWhenNothingGiven(){
+		$this->object->thenReturn();
+	}
+
     /**
      * @covers Poser\Stubbing\OngoingStubbing::thenAnswer
-     * @todo   Implement testThenAnswer().
      */
-    public function testThenAnswer()
-    {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+    public function testThenAnswer(){
+	    $answer = new \Poser\Invocation\ReturnAnswer(null);
+        $this->invocationContainer->expects($this->any())
+	        ->method('thenAnswer')
+            ->with($this->equalTo($answer));
+	    $this->object->thenAnswer($answer);
     }
 
     /**
      * @covers Poser\Stubbing\OngoingStubbing::then
-     * @todo   Implement testThen().
      */
-    public function testThen()
-    {
+    public function testThen() {
         // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+	    $answer = new \Poser\Invocation\ReturnAnswer(null);
+	    $this->invocationContainer->expects($this->any())
+		    ->method('then')
+		    ->with($this->equalTo($answer));
+	    $this->object->then($answer);
     }
 
     /**
      * @covers Poser\Stubbing\OngoingStubbing::thenThrow
-     * @todo   Implement testThenThrow().
      */
-    public function testThenThrow()
-    {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+    public function testThenThrow() {
+	    $this->invocationContainer->expects($this->any())
+		    ->method("thenThrow")
+			->with($this->isInstanceOf('Poser\Invocation\ThrowAnswer'));
+
+		$this->object->thenThrow(new \Poser\Exception\PoserException("foo"));
     }
 }
