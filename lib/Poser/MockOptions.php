@@ -70,7 +70,6 @@ class MockOptions {
 	
 	/**
 	 * Indicates if the mock object can mock static methods
-	 * @deprecated
 	 * @return bool
 	 */
 	public function canMockStatic() {
