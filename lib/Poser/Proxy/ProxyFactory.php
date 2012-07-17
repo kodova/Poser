@@ -49,7 +49,7 @@ class ProxyFactory {
 		
 		//are they requesting a mock that uses static that has already been defined
 		if ($options->canMockStatic()) {
-			if(class_exists($toMock)){
+			if(class_exists($toMock, false)){
 				$class = new ReflectionClass($toMock);
 				if($class->implementsInterface('\Poser\Proxy\SubstituteProxy')){
 					$mock = new $toMock();
