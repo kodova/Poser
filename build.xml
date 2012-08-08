@@ -8,7 +8,7 @@
 
 
 	
-	<fileset dir='lib' id='src.files'>
+	<fileset dir='src' id='src.files'>
 		<include name="**" />
 	</fileset>
 	

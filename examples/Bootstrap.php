@@ -1,4 +1,4 @@
 <?php 
 
-require_once '../lib/Poser.php';
-require_once '../lib/Poser/global_functions.php';
+require_once '../src/Poser.php';
+require_once '../src/Poser/global_functions.php';

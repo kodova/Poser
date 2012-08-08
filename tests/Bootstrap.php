@@ -8,11 +8,9 @@ use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\Config\FileLocator;
 
 
-error_reporting(E_ALL | E_STRICT);
-
 $root =	dirname(__FILE__) . "/..";
 $paths = array(
-    "$root/lib",
+    "$root/src",
     "$root/tests",
 	"$root/tests/Helpers"
 );
