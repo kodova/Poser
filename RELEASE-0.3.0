@@ -1,0 +1,6 @@
+Package  Poser release notes for version 0.3.0.
+- Upgraded the build system to to use pyrus
+- Removed Phing support
+
+Bug fixes
+- https://github.com/WebPT/Poser/issues/1

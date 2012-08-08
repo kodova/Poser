@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" packagerversion="1.9.4" version="2.0" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
+ <name>ClassLoader</name>
+ <channel>pear.symfony.com</channel>
+ <summary>Symfony2 ClassLoader Component</summary>
+ <description>Symfony2 ClassLoader Component</description>
+ <lead>
+  <name>Fabien Potencier</name>
+  <user>fabpot</user>
+  <email>fabien@symfony.com</email>
+  <active>yes</active>
+ </lead>
+ <date>2012-08-07</date>
+ <time>17:44:16</time>
+ <version>
+  <release>2.1.0BETA4</release>
+  <api>2.1.0BETA4</api>
+ </version>
+ <stability>
+  <release>stable</release>
+  <api>stable</api>
+ </stability>
+ <license uri="http://www.opensource.org/licenses/mit-license.php">MIT</license>
+ <notes>
+-
+ </notes>
+ <contents>
+  <dir name="/">
+   <file md5sum="332444e3c37c4ea3d482a9c00c903398" name="Symfony/Component/ClassLoader/XcacheClassLoader.php" role="php"/>
+   <file md5sum="1a238f56697b901430caf660d575ac6a" name="Symfony/Component/ClassLoader/UniversalClassLoader.php" role="php"/>
+   <file md5sum="f0caaf00640c181a54cdef7560c89c88" name="Symfony/Component/ClassLoader/Tests/UniversalClassLoaderTest.php" role="php"/>
+   <file md5sum="d560ea07154ede9772e22e33f7ef7628" name="Symfony/Component/ClassLoader/Tests/Fixtures/php5.4/traits.php" role="php"/>
+   <file md5sum="ed2a4f5ef1c5a5b94181d4caff23caff" name="Symfony/Component/ClassLoader/Tests/Fixtures/Pearlike2/Foo.php" role="php"/>
+   <file md5sum="14a87e5a8699b57391eff2c94f576c18" name="Symfony/Component/ClassLoader/Tests/Fixtures/Pearlike2/Baz.php" role="php"/>
+   <file md5sum="43c84f5dcf75beec1d21efa12d74d135" name="Symfony/Component/ClassLoader/Tests/Fixtures/Pearlike2/Bar.php" role="php"/>
+   <file md5sum="2ccc8e12aac56ba8a19cc5749f4ddef6" name="Symfony/Component/ClassLoader/Tests/Fixtures/Pearlike/Foo.php" role="php"/>
+   <file md5sum="7ec330e5918e68855ea1928650677c2e" name="Symfony/Component/ClassLoader/Tests/Fixtures/Pearlike/Baz.php" role="php"/>
+   <file md5sum="092caf7c7dda0fd29b6a4eb94e16e8c7" name="Symfony/Component/ClassLoader/Tests/Fixtures/Pearlike/Bar.php" role="php"/>
+   <file md5sum="7017318cc8fb7cb1b43f1f7caf023e5b" name="Symfony/Component/ClassLoader/Tests/Fixtures/Namespaced2/Foo.php" role="php"/>
+   <file md5sum="f7037244d76da1670a0b6ab35980d735" name="Symfony/Component/ClassLoader/Tests/Fixtures/Namespaced2/Baz.php" role="php"/>
+   <file md5sum="0e1341c26bd5098d0666416a99328602" name="Symfony/Component/ClassLoader/Tests/Fixtures/Namespaced2/Bar.php" role="php"/>
+   <file md5sum="004debf153631e65aa55a6a595f5e859" name="Symfony/Component/ClassLoader/Tests/Fixtures/Namespaced/Foo.php" role="php"/>
+   <file md5sum="669a66483c0b6c6d301928afdc9c4e4f" name="Symfony/Component/ClassLoader/Tests/Fixtures/Namespaced/Baz.php" role="php"/>
+   <file md5sum="0bd20d6bd956d80ab403aab7ec1692d3" name="Symfony/Component/ClassLoader/Tests/Fixtures/Namespaced/Bar.php" role="php"/>
+   <file md5sum="22c1ff3bd402ac54f7663e249ee27265" name="Symfony/Component/ClassLoader/Tests/Fixtures/includepath/Foo.php" role="php"/>
+   <file md5sum="fe464b289785a184fb96897588e17915" name="Symfony/Component/ClassLoader/Tests/Fixtures/fallback/Pearlike2/FooBar.php" role="php"/>
+   <file md5sum="f8188170d810646eafce22ad6458c37c" name="Symfony/Component/ClassLoader/Tests/Fixtures/fallback/Pearlike/FooBar.php" role="php"/>
+   <file md5sum="7f38452cd551fb2149367bc6b11329e2" name="Symfony/Component/ClassLoader/Tests/Fixtures/fallback/Namespaced2/FooBar.php" role="php"/>
+   <file md5sum="4bc49eb260c97d801f0c924b3cbb9e83" name="Symfony/Component/ClassLoader/Tests/Fixtures/fallback/Namespaced/FooBar.php" role="php"/>
+   <file md5sum="3925f28e4b3d85670506ec8f20ad5c1a" name="Symfony/Component/ClassLoader/Tests/Fixtures/classmap/SomeParent.php" role="php"/>
+   <file md5sum="b183b2f81d0a3580b8494e2a315b5c0f" name="Symfony/Component/ClassLoader/Tests/Fixtures/classmap/SomeInterface.php" role="php"/>
+   <file md5sum="e4d922295055f51230604c8e3d231eae" name="Symfony/Component/ClassLoader/Tests/Fixtures/classmap/SomeClass.php" role="php"/>
+   <file md5sum="23a88b412716678374cb83b3bd84f281" name="Symfony/Component/ClassLoader/Tests/Fixtures/classmap/sameNsMultipleClasses.php" role="php"/>
+   <file md5sum="959a2c47ea204306eccdd8fb6bf09d9c" name="Symfony/Component/ClassLoader/Tests/Fixtures/classmap/notPhpFile.md" role="php"/>
+   <file md5sum="439f18e59d963c281150e47387e575e9" name="Symfony/Component/ClassLoader/Tests/Fixtures/classmap/notAClass.php" role="php"/>
+   <file md5sum="087217e8655325395af4f0dec57cde9b" name="Symfony/Component/ClassLoader/Tests/Fixtures/classmap/multipleNs.php" role="php"/>
+   <file md5sum="6ea7e288f1a6c11ad35be1011275cf49" name="Symfony/Component/ClassLoader/Tests/Fixtures/ClassesWithParents/GInterface.php" role="php"/>
+   <file md5sum="676dc682573657553221b8997da6fe5f" name="Symfony/Component/ClassLoader/Tests/Fixtures/ClassesWithParents/E.php" role="php"/>
+   <file md5sum="d1a43cd2eb1d650a46793b4324717801" name="Symfony/Component/ClassLoader/Tests/Fixtures/ClassesWithParents/D.php" role="php"/>
+   <file md5sum="f925be736833be1a46dcb4878537cfe3" name="Symfony/Component/ClassLoader/Tests/Fixtures/ClassesWithParents/CTrait.php" role="php"/>
+   <file md5sum="ea775929d42f58af393b4f224c59b1c9" name="Symfony/Component/ClassLoader/Tests/Fixtures/ClassesWithParents/CInterface.php" role="php"/>
+   <file md5sum="f6d6d69da53085f34b2363d23081783f" name="Symfony/Component/ClassLoader/Tests/Fixtures/ClassesWithParents/BTrait.php" role="php"/>
+   <file md5sum="0322eeaef5105762706853bd4445f92d" name="Symfony/Component/ClassLoader/Tests/Fixtures/ClassesWithParents/B.php" role="php"/>
+   <file md5sum="c718b10e49ff27e12c0674e674e85a6b" name="Symfony/Component/ClassLoader/Tests/Fixtures/ClassesWithParents/ATrait.php" role="php"/>
+   <file md5sum="c0ba313164bfc6fc725c67e515af6368" name="Symfony/Component/ClassLoader/Tests/Fixtures/ClassesWithParents/A.php" role="php"/>
+   <file md5sum="8c8934c39f7727374b802bea9c0892eb" name="Symfony/Component/ClassLoader/Tests/Fixtures/beta/PrefixCollision/C/B/Foo.php" role="php"/>
+   <file md5sum="d01e56d7432f31c185ea81acd0c3e43e" name="Symfony/Component/ClassLoader/Tests/Fixtures/beta/PrefixCollision/C/B/Bar.php" role="php"/>
+   <file md5sum="64b36c967661286fb774e010be84b5fc" name="Symfony/Component/ClassLoader/Tests/Fixtures/beta/PrefixCollision/A/B/Foo.php" role="php"/>
+   <file md5sum="7171280695f683129338bbc9127e8a5b" name="Symfony/Component/ClassLoader/Tests/Fixtures/beta/PrefixCollision/A/B/Bar.php" role="php"/>
+   <file md5sum="cbe4fddcef55d82678ce042506df312e" name="Symfony/Component/ClassLoader/Tests/Fixtures/beta/NamespaceCollision/C/B/Foo.php" role="php"/>
+   <file md5sum="16acd0ac1810324ade58e7f527b11721" name="Symfony/Component/ClassLoader/Tests/Fixtures/beta/NamespaceCollision/C/B/Bar.php" role="php"/>
+   <file md5sum="c3ff0020d627887437102f59aaa6d5a0" name="Symfony/Component/ClassLoader/Tests/Fixtures/beta/NamespaceCollision/A/B/Foo.php" role="php"/>
+   <file md5sum="1234b8d86aed91dae669333ff5ae887f" name="Symfony/Component/ClassLoader/Tests/Fixtures/beta/NamespaceCollision/A/B/Bar.php" role="php"/>
+   <file md5sum="f2002a4177d860d4b3763db043f9776f" name="Symfony/Component/ClassLoader/Tests/Fixtures/Apc/Pearlike/Foo.php" role="php"/>
+   <file md5sum="03ca66795cd12fdb9d39b41825906973" name="Symfony/Component/ClassLoader/Tests/Fixtures/Apc/Pearlike/Baz.php" role="php"/>
+   <file md5sum="5d889368e4bd7b30ea2179f77d82816f" name="Symfony/Component/ClassLoader/Tests/Fixtures/Apc/Pearlike/Bar.php" role="php"/>
+   <file md5sum="03276dc89dca3856b642091121781aa7" name="Symfony/Component/ClassLoader/Tests/Fixtures/Apc/Namespaced/FooBar.php" role="php"/>
+   <file md5sum="b52382287fd5a64b85c707f0841c797d" name="Symfony/Component/ClassLoader/Tests/Fixtures/Apc/Namespaced/Foo.php" role="php"/>
+   <file md5sum="272f5b10737a621697301cef1fd00c34" name="Symfony/Component/ClassLoader/Tests/Fixtures/Apc/Namespaced/Baz.php" role="php"/>
+   <file md5sum="450ce1f75995d3855e2890174cad81c9" name="Symfony/Component/ClassLoader/Tests/Fixtures/Apc/Namespaced/Bar.php" role="php"/>
+   <file md5sum="03276dc89dca3856b642091121781aa7" name="Symfony/Component/ClassLoader/Tests/Fixtures/Apc/fallback/Namespaced/FooBar.php" role="php"/>
+   <file md5sum="83f27620b7ba2c11696bdf11716d223d" name="Symfony/Component/ClassLoader/Tests/Fixtures/Apc/fallback/Apc/Pearlike/FooBar.php" role="php"/>
+   <file md5sum="b4809859bdbb243d35edfa3da736c859" name="Symfony/Component/ClassLoader/Tests/Fixtures/Apc/beta/Apc/NamespaceCollision/A/B/Foo.php" role="php"/>
+   <file md5sum="133c40a5d435bb2607fcaba19a177e92" name="Symfony/Component/ClassLoader/Tests/Fixtures/Apc/beta/Apc/NamespaceCollision/A/B/Bar.php" role="php"/>
+   <file md5sum="0a6020428498f5d43bdd1871bdfe5fff" name="Symfony/Component/ClassLoader/Tests/Fixtures/Apc/beta/Apc/ApcPrefixCollision/A/B/Foo.php" role="php"/>
+   <file md5sum="88f045e809ca7fb0c18dfdbb7bbedbfc" name="Symfony/Component/ClassLoader/Tests/Fixtures/Apc/beta/Apc/ApcPrefixCollision/A/B/Bar.php" role="php"/>
+   <file md5sum="199f5fc8858ff6ba24e9a1927a436a1f" name="Symfony/Component/ClassLoader/Tests/Fixtures/Apc/alpha/Apc/NamespaceCollision/A/Foo.php" role="php"/>
+   <file md5sum="3f41e3c6878caa34053b0df735fd06d4" name="Symfony/Component/ClassLoader/Tests/Fixtures/Apc/alpha/Apc/NamespaceCollision/A/Bar.php" role="php"/>
+   <file md5sum="565482b47ad54f50794890243d517198" name="Symfony/Component/ClassLoader/Tests/Fixtures/Apc/alpha/Apc/ApcPrefixCollision/A/Foo.php" role="php"/>
+   <file md5sum="9affd828e7b937fa5dab9348a1c106c3" name="Symfony/Component/ClassLoader/Tests/Fixtures/Apc/alpha/Apc/ApcPrefixCollision/A/Bar.php" role="php"/>
+   <file md5sum="3a0c0cab70920049cf7c910659bbdddb" name="Symfony/Component/ClassLoader/Tests/Fixtures/alpha/PrefixCollision/C/Foo.php" role="php"/>
+   <file md5sum="59093638625c5324d12879437e82ac23" name="Symfony/Component/ClassLoader/Tests/Fixtures/alpha/PrefixCollision/C/Bar.php" role="php"/>
+   <file md5sum="89c3f524e25d5abff91ddae0a9aa39f8" name="Symfony/Component/ClassLoader/Tests/Fixtures/alpha/PrefixCollision/A/Foo.php" role="php"/>
+   <file md5sum="44d59b6bdb3555587a3be549beb19451" name="Symfony/Component/ClassLoader/Tests/Fixtures/alpha/PrefixCollision/A/Bar.php" role="php"/>
+   <file md5sum="9c0b9aefd4284a57d7f649b8cde024c5" name="Symfony/Component/ClassLoader/Tests/Fixtures/alpha/NamespaceCollision/C/Foo.php" role="php"/>
+   <file md5sum="80ffae60899e48b99924c3a907d38255" name="Symfony/Component/ClassLoader/Tests/Fixtures/alpha/NamespaceCollision/C/Bar.php" role="php"/>
+   <file md5sum="e85a0c52a4381199ded8fca8e42c1875" name="Symfony/Component/ClassLoader/Tests/Fixtures/alpha/NamespaceCollision/A/Foo.php" role="php"/>
+   <file md5sum="7839cd8c5550658fbc5dd8f50db33db4" name="Symfony/Component/ClassLoader/Tests/Fixtures/alpha/NamespaceCollision/A/Bar.php" role="php"/>
+   <file md5sum="cb69366a7945d2756456b576670531bc" name="Symfony/Component/ClassLoader/Tests/ClassMapGeneratorTest.php" role="php"/>
+   <file md5sum="99246b09fa6591026ba9b52ef3f64eaa" name="Symfony/Component/ClassLoader/Tests/ClassLoaderTest.php" role="php"/>
+   <file md5sum="a942c8e294988bc73126785d77a97668" name="Symfony/Component/ClassLoader/Tests/ClassCollectionLoaderTest.php" role="php"/>
+   <file md5sum="46fa8440235d0ecbc19b159f25f4af1d" name="Symfony/Component/ClassLoader/Tests/bootstrap.php" role="php"/>
+   <file md5sum="3fb37ebb53adc1aa6b55c84c49fcf5a8" name="Symfony/Component/ClassLoader/Tests/ApcUniversalClassLoaderTest.php" role="php"/>
+   <file md5sum="162c4394555bc296b039bfe607444e67" name="Symfony/Component/ClassLoader/README.md" role="doc"/>
+   <file md5sum="6080bb4d1ee9a9fe2831d1a8012f5efc" name="Symfony/Component/ClassLoader/phpunit.xml.dist" role="php"/>
+   <file md5sum="cd1b0503563100917b14a22a1550608c" name="Symfony/Component/ClassLoader/MapClassLoader.php" role="php"/>
+   <file md5sum="0b154035f36a874478bb0da0285e60c9" name="Symfony/Component/ClassLoader/LICENSE" role="doc"/>
+   <file md5sum="edc1307f2a08518aefb89f5aab8a477e" name="Symfony/Component/ClassLoader/DebugUniversalClassLoader.php" role="php"/>
+   <file md5sum="80e3fe091a7a6e2ed8f62117b26a4309" name="Symfony/Component/ClassLoader/DebugClassLoader.php" role="php"/>
+   <file md5sum="05c34599b989cad189ef77e0aa566d30" name="Symfony/Component/ClassLoader/composer.json" role="doc"/>
+   <file md5sum="437e5150de620dbd97929a49913c0e53" name="Symfony/Component/ClassLoader/ClassMapGenerator.php" role="php"/>
+   <file md5sum="652a1aba4af808a55c1ecca6321e3525" name="Symfony/Component/ClassLoader/ClassLoader.php" role="php"/>
+   <file md5sum="9063bee0f1aa5b6f17c4880132705b8b" name="Symfony/Component/ClassLoader/ClassCollectionLoader.php" role="php"/>
+   <file md5sum="60f6c57bf84602b55bfdf052223994f7" name="Symfony/Component/ClassLoader/CHANGELOG.md" role="php"/>
+   <file md5sum="36f3a26287bd786ebcc27c5d18550372" name="Symfony/Component/ClassLoader/ApcUniversalClassLoader.php" role="php"/>
+   <file md5sum="793f58dd935abf3911f8f3d2fc3b130f" name="Symfony/Component/ClassLoader/ApcClassLoader.php" role="php"/>
+   <file md5sum="33b1597c0da7b96c93be096f6655f8f7" name="Symfony/Component/ClassLoader/.gitignore" role="php"/>
+  </dir>
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>5.3.2</min>
+   </php>
+   <pearinstaller>
+    <min>1.4.0</min>
+   </pearinstaller>
+  </required>
+ </dependencies>
+ <phprelease/>
+</package>

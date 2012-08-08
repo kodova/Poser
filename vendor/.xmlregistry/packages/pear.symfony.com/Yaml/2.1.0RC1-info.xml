@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" packagerversion="1.9.4" version="2.0" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
+ <name>Yaml</name>
+ <channel>pear.symfony.com</channel>
+ <summary>Symfony2 Yaml Component</summary>
+ <description>Symfony2 Yaml Component</description>
+ <lead>
+  <name>Fabien Potencier</name>
+  <user>fabpot</user>
+  <email>fabien@symfony.com</email>
+  <active>yes</active>
+ </lead>
+ <date>2012-08-07</date>
+ <time>17:44:16</time>
+ <version>
+  <release>2.1.0RC1</release>
+  <api>2.1.0RC1</api>
+ </version>
+ <stability>
+  <release>stable</release>
+  <api>stable</api>
+ </stability>
+ <license uri="http://www.opensource.org/licenses/mit-license.php">MIT</license>
+ <notes>
+-
+ </notes>
+ <contents>
+  <dir name="/">
+   <file md5sum="0ca14d6ff67e8dbc3dded0c8cf6ea2b4" name="Symfony/Component/Yaml/Yaml.php" role="php"/>
+   <file md5sum="8b8cc7ad02b73b6f297634f0c520c155" name="Symfony/Component/Yaml/Unescaper.php" role="php"/>
+   <file md5sum="1d36104b7ef70c0d6247bafac5cf398b" name="Symfony/Component/Yaml/Tests/YamlTest.php" role="php"/>
+   <file md5sum="b0626bec946b1eac2d8f436dfc194de8" name="Symfony/Component/Yaml/Tests/ParserTest.php" role="php"/>
+   <file md5sum="7e12103349d22af73c1d8f8b880568df" name="Symfony/Component/Yaml/Tests/InlineTest.php" role="php"/>
+   <file md5sum="38b9d8318b96f914d766df44b1c56b1f" name="Symfony/Component/Yaml/Tests/Fixtures/YtsTypeTransfers.yml" role="php"/>
+   <file md5sum="e69a3cc0b979aa375bf73d1510e76768" name="Symfony/Component/Yaml/Tests/Fixtures/YtsSpecificationExamples.yml" role="php"/>
+   <file md5sum="fda05f67ca13f8d50cb904b191039c04" name="Symfony/Component/Yaml/Tests/Fixtures/YtsNullsAndEmpties.yml" role="php"/>
+   <file md5sum="bf21b6ca89e2aea63b62f60448b841b4" name="Symfony/Component/Yaml/Tests/Fixtures/YtsFoldedScalars.yml" role="php"/>
+   <file md5sum="326c09dd8c5de226c680154c39206647" name="Symfony/Component/Yaml/Tests/Fixtures/YtsFlowCollections.yml" role="php"/>
+   <file md5sum="1a6d2fa2a7f53d4657b35baf4ecf67c6" name="Symfony/Component/Yaml/Tests/Fixtures/YtsErrorTests.yml" role="php"/>
+   <file md5sum="ae486823d3d8c404cabc065416e8b0dc" name="Symfony/Component/Yaml/Tests/Fixtures/YtsDocumentSeparator.yml" role="php"/>
+   <file md5sum="4c1744b763fce82db7d4e20c469b20cd" name="Symfony/Component/Yaml/Tests/Fixtures/YtsBlockMapping.yml" role="php"/>
+   <file md5sum="d469ec084c24eeadc6bc3a6cfe96eae0" name="Symfony/Component/Yaml/Tests/Fixtures/YtsBasicTests.yml" role="php"/>
+   <file md5sum="073781a1d2c37127a4296e9af7616624" name="Symfony/Component/Yaml/Tests/Fixtures/YtsAnchorAlias.yml" role="php"/>
+   <file md5sum="9bf9b30c034a48fd98f1ed6d4f033bb2" name="Symfony/Component/Yaml/Tests/Fixtures/unindentedCollections.yml" role="php"/>
+   <file md5sum="2cbc1c292d0a398e7044362758ea2c31" name="Symfony/Component/Yaml/Tests/Fixtures/sfTests.yml" role="php"/>
+   <file md5sum="7ab74ef2b099c462e66d223acdc12494" name="Symfony/Component/Yaml/Tests/Fixtures/sfQuotes.yml" role="php"/>
+   <file md5sum="886595fda5f2aa969a232045dbd4941c" name="Symfony/Component/Yaml/Tests/Fixtures/sfObjects.yml" role="php"/>
+   <file md5sum="809113de6e9d341fce21f0524dbaf43b" name="Symfony/Component/Yaml/Tests/Fixtures/sfMergeKey.yml" role="php"/>
+   <file md5sum="835842c734605efa1665b90ccb266b97" name="Symfony/Component/Yaml/Tests/Fixtures/sfCompact.yml" role="php"/>
+   <file md5sum="e988277c7ec6a29d44b7d4933c87348f" name="Symfony/Component/Yaml/Tests/Fixtures/sfComments.yml" role="php"/>
+   <file md5sum="809db138c609075657d8d2e81fabaa5c" name="Symfony/Component/Yaml/Tests/Fixtures/index.yml" role="php"/>
+   <file md5sum="6cd61d103efef1b40ea558ef01817f16" name="Symfony/Component/Yaml/Tests/Fixtures/escapedCharacters.yml" role="php"/>
+   <file md5sum="52dbe7660c58107077d0e7069fe43498" name="Symfony/Component/Yaml/Tests/Fixtures/embededPhp.yml" role="php"/>
+   <file md5sum="31fe26c85ad14908a86a436e3f7231a9" name="Symfony/Component/Yaml/Tests/DumperTest.php" role="php"/>
+   <file md5sum="27a9c95f043e8c4560e05526e9148b72" name="Symfony/Component/Yaml/Tests/bootstrap.php" role="php"/>
+   <file md5sum="6554736b0db481f9cc93e953af377ec0" name="Symfony/Component/Yaml/README.md" role="doc"/>
+   <file md5sum="389725b7d1c343a22f30878669dd98aa" name="Symfony/Component/Yaml/phpunit.xml.dist" role="php"/>
+   <file md5sum="c512dfd7a1daa20fb2715b1997ab0872" name="Symfony/Component/Yaml/Parser.php" role="php"/>
+   <file md5sum="0b154035f36a874478bb0da0285e60c9" name="Symfony/Component/Yaml/LICENSE" role="doc"/>
+   <file md5sum="a2a3e4cd8f7d16f344ebd179064abe21" name="Symfony/Component/Yaml/Inline.php" role="php"/>
+   <file md5sum="c896292187a50c923983b2887eb4ff69" name="Symfony/Component/Yaml/Exception/ParseException.php" role="php"/>
+   <file md5sum="a7ee6ec67e04faa2c2c29fef8adfc4fa" name="Symfony/Component/Yaml/Exception/ExceptionInterface.php" role="php"/>
+   <file md5sum="3e4c1e9fb5e795f439e1981422f4f758" name="Symfony/Component/Yaml/Exception/DumpException.php" role="php"/>
+   <file md5sum="468913adbae0879bd57401fe27a54511" name="Symfony/Component/Yaml/Escaper.php" role="php"/>
+   <file md5sum="bc5122d142948a13bcc01cf8ecb9aa2c" name="Symfony/Component/Yaml/Dumper.php" role="php"/>
+   <file md5sum="1dea193b4912921caac27fd87413058e" name="Symfony/Component/Yaml/composer.json" role="doc"/>
+   <file md5sum="00392ab3e6199c8363f9e53646f7da22" name="Symfony/Component/Yaml/CHANGELOG.md" role="php"/>
+  </dir>
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>5.3.2</min>
+   </php>
+   <pearinstaller>
+    <min>1.4.0</min>
+   </pearinstaller>
+  </required>
+ </dependencies>
+ <phprelease/>
+</package>

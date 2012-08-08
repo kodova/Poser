@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package version="2.1" xmlns="http://pear.php.net/dtd/package-2.1" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0     http://pear.php.net/dtd/tasks-1.0.xsd     http://pear.php.net/dtd/package-2.1     http://pear.php.net/dtd/package-2.1.xsd">
+ <name>Poser</name>
+ <channel>webpt.github.com/pear</channel>
+ <summary>Poser - A PHP Mock/Stubbing library
+</summary>
+ <description>
+Mocking is a key feature to true unit testing. Poser was developed to be a complete mocking framework 
+that loosely based its interfaces on the very popular Java mocking framework mockito.
+
+</description>
+ <lead>
+  <name>Patrick Arnold</name>
+  <user>kodova</user>
+  <email>patrick@webpt.com</email>
+  <active>yes</active>
+ </lead>
+ <date>2012-08-07</date>
+ <time>18:50:45</time>
+ <version>
+  <release>0.3.0</release>
+  <api>0.1.0</api>
+ </version>
+ <stability>
+  <release>alpha</release>
+  <api>alpha</api>
+ </stability>
+ <license uri="http://www.opensource.org/licenses/bsd-license.php">New BSD License</license>
+ <notes>Package  Poser release notes for version 0.3.0.
+- Upgraded the build system to to use pyrus
+- Removed Phing support
+
+Bug fixes
+- https://github.com/WebPT/Poser/issues/1
+</notes>
+ <contents>
+  <dir name="/">
+   <file role="script" name="script/pyrus.phar"/>
+   <file role="php" name="php/Poser/Verification/VerificationRequest.php"/>
+   <file role="php" name="php/Poser/Verification/VerificationMode.php"/>
+   <file role="php" name="php/Poser/Verification/VerificationException.php"/>
+   <file role="php" name="php/Poser/Verification/VerifiableType.php"/>
+   <file role="php" name="php/Poser/Verification/TimesException.php"/>
+   <file role="php" name="php/Poser/Verification/Times.php"/>
+   <file role="php" name="php/Poser/Stubbing/Stubbable.php"/>
+   <file role="php" name="php/Poser/Stubbing/Stub.php"/>
+   <file role="php" name="php/Poser/Stubbing/OngoingStubbing.php"/>
+   <file role="php" name="php/Poser/Reflection/TypedMethod.php"/>
+   <file role="php" name="php/Poser/Proxy/SubstituteProxy.php"/>
+   <file role="php" name="php/Poser/Proxy/ProxyFactory.php"/>
+   <file role="php" name="php/Poser/Proxy/MethodProxy.php"/>
+   <file role="php" name="php/Poser/Proxy/Generator/SubstituteGenerator.php"/>
+   <file role="php" name="php/Poser/Proxy/Generator/InterfaceGenerator.php"/>
+   <file role="php" name="php/Poser/Proxy/Generator/GeneratorFactory.php"/>
+   <file role="php" name="php/Poser/Proxy/Generator/GeneratorException.php"/>
+   <file role="php" name="php/Poser/Proxy/Generator/Generator.php"/>
+   <file role="php" name="php/Poser/Proxy/Generator/ExtendedGenerator.php"/>
+   <file role="php" name="php/Poser/Proxy/Generator/ClassDeclaration.php"/>
+   <file role="php" name="php/Poser/Proxy/Generator/AbstractGenerator.php"/>
+   <file role="php" name="php/Poser/PoserCore.php"/>
+   <file role="php" name="php/Poser/MockOptions.php"/>
+   <file role="php" name="php/Poser/MockingMonitor.php"/>
+   <file role="php" name="php/Poser/MockBuilder.php"/>
+   <file role="php" name="php/Poser/Invocation/ThrowAnswer.php"/>
+   <file role="php" name="php/Poser/Invocation/ReturnAnswer.php"/>
+   <file role="php" name="php/Poser/Invocation/Matchable.php"/>
+   <file role="php" name="php/Poser/Invocation/Invokable.php"/>
+   <file role="php" name="php/Poser/Invocation/InvocationContainer.php"/>
+   <file role="php" name="php/Poser/Invocation/Invocation.php"/>
+   <file role="php" name="php/Poser/Invocation/EmptyValueAnswer.php"/>
+   <file role="php" name="php/Poser/Invocation/Answer.php"/>
+   <file role="php" name="php/Poser/global_functions.php"/>
+   <file role="php" name="php/Poser/Exception/UndefinedPropertyException.php"/>
+   <file role="php" name="php/Poser/Exception/PoserException.php"/>
+   <file role="php" name="php/Poser/DefaultReturnValues.php"/>
+   <file role="php" name="php/Poser/container.yml"/>
+   <file role="php" name="php/Poser/ArgumentMatcherMonitor.php"/>
+   <file role="php" name="php/Poser.php"/>
+  </dir>
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>5.2.0</min>
+   </php>
+   <pearinstaller>
+    <min>1.4.8</min>
+   </pearinstaller>
+  </required>
+ </dependencies>
+ <phprelease>
+  <filelist>
+   <install name="php/Poser.php" as="Poser.php"/>
+   <install name="php/Poser/ArgumentMatcherMonitor.php" as="Poser/ArgumentMatcherMonitor.php"/>
+   <install name="php/Poser/container.yml" as="Poser/container.yml"/>
+   <install name="php/Poser/DefaultReturnValues.php" as="Poser/DefaultReturnValues.php"/>
+   <install name="php/Poser/Exception/PoserException.php" as="Poser/Exception/PoserException.php"/>
+   <install name="php/Poser/Exception/UndefinedPropertyException.php" as="Poser/Exception/UndefinedPropertyException.php"/>
+   <install name="php/Poser/global_functions.php" as="Poser/global_functions.php"/>
+   <install name="php/Poser/Invocation/Answer.php" as="Poser/Invocation/Answer.php"/>
+   <install name="php/Poser/Invocation/EmptyValueAnswer.php" as="Poser/Invocation/EmptyValueAnswer.php"/>
+   <install name="php/Poser/Invocation/Invocation.php" as="Poser/Invocation/Invocation.php"/>
+   <install name="php/Poser/Invocation/InvocationContainer.php" as="Poser/Invocation/InvocationContainer.php"/>
+   <install name="php/Poser/Invocation/Invokable.php" as="Poser/Invocation/Invokable.php"/>
+   <install name="php/Poser/Invocation/Matchable.php" as="Poser/Invocation/Matchable.php"/>
+   <install name="php/Poser/Invocation/ReturnAnswer.php" as="Poser/Invocation/ReturnAnswer.php"/>
+   <install name="php/Poser/Invocation/ThrowAnswer.php" as="Poser/Invocation/ThrowAnswer.php"/>
+   <install name="php/Poser/MockBuilder.php" as="Poser/MockBuilder.php"/>
+   <install name="php/Poser/MockingMonitor.php" as="Poser/MockingMonitor.php"/>
+   <install name="php/Poser/MockOptions.php" as="Poser/MockOptions.php"/>
+   <install name="php/Poser/PoserCore.php" as="Poser/PoserCore.php"/>
+   <install name="php/Poser/Proxy/Generator/AbstractGenerator.php" as="Poser/Proxy/Generator/AbstractGenerator.php"/>
+   <install name="php/Poser/Proxy/Generator/ClassDeclaration.php" as="Poser/Proxy/Generator/ClassDeclaration.php"/>
+   <install name="php/Poser/Proxy/Generator/ExtendedGenerator.php" as="Poser/Proxy/Generator/ExtendedGenerator.php"/>
+   <install name="php/Poser/Proxy/Generator/Generator.php" as="Poser/Proxy/Generator/Generator.php"/>
+   <install name="php/Poser/Proxy/Generator/GeneratorException.php" as="Poser/Proxy/Generator/GeneratorException.php"/>
+   <install name="php/Poser/Proxy/Generator/GeneratorFactory.php" as="Poser/Proxy/Generator/GeneratorFactory.php"/>
+   <install name="php/Poser/Proxy/Generator/InterfaceGenerator.php" as="Poser/Proxy/Generator/InterfaceGenerator.php"/>
+   <install name="php/Poser/Proxy/Generator/SubstituteGenerator.php" as="Poser/Proxy/Generator/SubstituteGenerator.php"/>
+   <install name="php/Poser/Proxy/MethodProxy.php" as="Poser/Proxy/MethodProxy.php"/>
+   <install name="php/Poser/Proxy/ProxyFactory.php" as="Poser/Proxy/ProxyFactory.php"/>
+   <install name="php/Poser/Proxy/SubstituteProxy.php" as="Poser/Proxy/SubstituteProxy.php"/>
+   <install name="php/Poser/Reflection/TypedMethod.php" as="Poser/Reflection/TypedMethod.php"/>
+   <install name="php/Poser/Stubbing/OngoingStubbing.php" as="Poser/Stubbing/OngoingStubbing.php"/>
+   <install name="php/Poser/Stubbing/Stub.php" as="Poser/Stubbing/Stub.php"/>
+   <install name="php/Poser/Stubbing/Stubbable.php" as="Poser/Stubbing/Stubbable.php"/>
+   <install name="php/Poser/Verification/Times.php" as="Poser/Verification/Times.php"/>
+   <install name="php/Poser/Verification/TimesException.php" as="Poser/Verification/TimesException.php"/>
+   <install name="php/Poser/Verification/VerifiableType.php" as="Poser/Verification/VerifiableType.php"/>
+   <install name="php/Poser/Verification/VerificationException.php" as="Poser/Verification/VerificationException.php"/>
+   <install name="php/Poser/Verification/VerificationMode.php" as="Poser/Verification/VerificationMode.php"/>
+   <install name="php/Poser/Verification/VerificationRequest.php" as="Poser/Verification/VerificationRequest.php"/>
+   <install name="script/pyrus.phar" as="pyrus.phar"/>
+  </filelist>
+ </phprelease>
+</package>

@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" packagerversion="1.9.4" version="2.0" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
+ <name>DependencyInjection</name>
+ <channel>pear.symfony.com</channel>
+ <summary>Symfony2 DependencyInjection Component</summary>
+ <description>Symfony2 DependencyInjection Component</description>
+ <lead>
+  <name>Fabien Potencier</name>
+  <user>fabpot</user>
+  <email>fabien@symfony.com</email>
+  <active>yes</active>
+ </lead>
+ <date>2012-08-07</date>
+ <time>17:44:16</time>
+ <version>
+  <release>2.1.0RC1</release>
+  <api>2.1.0RC1</api>
+ </version>
+ <stability>
+  <release>stable</release>
+  <api>stable</api>
+ </stability>
+ <license uri="http://www.opensource.org/licenses/mit-license.php">MIT</license>
+ <notes>
+-
+ </notes>
+ <contents>
+  <dir name="/">
+   <file md5sum="ed13f0022bf056748456b80c702dbe21" name="Symfony/Component/DependencyInjection/Variable.php" role="php"/>
+   <file md5sum="203939f24651f40960e928d69a8c6a08" name="Symfony/Component/DependencyInjection/Tests/ReferenceTest.php" role="php"/>
+   <file md5sum="965987dd3ddde1039ebe8c42d83a241b" name="Symfony/Component/DependencyInjection/Tests/ParameterTest.php" role="php"/>
+   <file md5sum="ed7a70e12e79560a8c17c188fddb0ec1" name="Symfony/Component/DependencyInjection/Tests/ParameterBag/ParameterBagTest.php" role="php"/>
+   <file md5sum="f967ec9e8b4a79bf91bd5b4675fbc70c" name="Symfony/Component/DependencyInjection/Tests/ParameterBag/FrozenParameterBagTest.php" role="php"/>
+   <file md5sum="44805aa87388afc6028940eee71a284d" name="Symfony/Component/DependencyInjection/Tests/Loader/YamlFileLoaderTest.php" role="php"/>
+   <file md5sum="24a13a4e6f4b1b5aeb0b8c5c7e3fa08c" name="Symfony/Component/DependencyInjection/Tests/Loader/XmlFileLoaderTest.php" role="php"/>
+   <file md5sum="ea06ff0696bcebfaa523b5c8ad03bfcf" name="Symfony/Component/DependencyInjection/Tests/Loader/PhpFileLoaderTest.php" role="php"/>
+   <file md5sum="d15ddd791ee0934ea316b604ee3eefb1" name="Symfony/Component/DependencyInjection/Tests/Loader/IniFileLoaderTest.php" role="php"/>
+   <file md5sum="9eb0103e9d6cf3dbec80f43b57d663cb" name="Symfony/Component/DependencyInjection/Tests/Loader/ClosureLoaderTest.php" role="php"/>
+   <file md5sum="9ed1d963ba546e9772a3808f08a91376" name="Symfony/Component/DependencyInjection/Tests/Fixtures/yaml/services13.yml" role="php"/>
+   <file md5sum="8fc6f5242a9a9a0092dcc9387e2f826c" name="Symfony/Component/DependencyInjection/Tests/Fixtures/yaml/services11.yml" role="php"/>
+   <file md5sum="98428e36b00061da1b64b1e64781e4d0" name="Symfony/Component/DependencyInjection/Tests/Fixtures/yaml/services10.yml" role="php"/>
+   <file md5sum="d205d2f0a6b0741e9ea8104ca6adaaa0" name="Symfony/Component/DependencyInjection/Tests/Fixtures/yaml/services9.yml" role="php"/>
+   <file md5sum="02c867b848be56cd3a492159c3e2eba9" name="Symfony/Component/DependencyInjection/Tests/Fixtures/yaml/services8.yml" role="php"/>
+   <file md5sum="6de30e3ec6f5769fffa3a84921d5ea58" name="Symfony/Component/DependencyInjection/Tests/Fixtures/yaml/services7.yml" role="php"/>
+   <file md5sum="7c9389aa39221f341b4bf747dd043f19" name="Symfony/Component/DependencyInjection/Tests/Fixtures/yaml/services6.yml" role="php"/>
+   <file md5sum="d1b518eb8021cccac6ac53ffc1157781" name="Symfony/Component/DependencyInjection/Tests/Fixtures/yaml/services4_bad_import.yml" role="php"/>
+   <file md5sum="d6d266a83310756feef502b3d1615846" name="Symfony/Component/DependencyInjection/Tests/Fixtures/yaml/services4.yml" role="php"/>
+   <file md5sum="2011daeb4d44240efd2caddf60d84038" name="Symfony/Component/DependencyInjection/Tests/Fixtures/yaml/services3.yml" role="php"/>
+   <file md5sum="3cd062949c81d5ccc76959324b2837d7" name="Symfony/Component/DependencyInjection/Tests/Fixtures/yaml/services2.yml" role="php"/>
+   <file md5sum="68b329da9893e34099c7d8ad5cb9c940" name="Symfony/Component/DependencyInjection/Tests/Fixtures/yaml/services1.yml" role="php"/>
+   <file md5sum="d42f2da1df5ecdf29be4ac27edda0c12" name="Symfony/Component/DependencyInjection/Tests/Fixtures/yaml/nonvalid2.yml" role="php"/>
+   <file md5sum="037bf52fe0bfa7b643b837d08dfdf92d" name="Symfony/Component/DependencyInjection/Tests/Fixtures/yaml/nonvalid1.yml" role="php"/>
+   <file md5sum="673274b34e08604273bed4cf341eee7d" name="Symfony/Component/DependencyInjection/Tests/Fixtures/yaml/badtag3.yml" role="php"/>
+   <file md5sum="2651cca5fcafb2d3328d2d18cc825f2f" name="Symfony/Component/DependencyInjection/Tests/Fixtures/yaml/badtag2.yml" role="php"/>
+   <file md5sum="2b4b910651d1e7de3a74cc6872184be8" name="Symfony/Component/DependencyInjection/Tests/Fixtures/yaml/badtag1.yml" role="php"/>
+   <file md5sum="0bed9c78fc2a7b638d81d6e948474ed9" name="Symfony/Component/DependencyInjection/Tests/Fixtures/xml/services13.xml" role="php"/>
+   <file md5sum="feaeed6480a960a8206c90e8c6f681b7" name="Symfony/Component/DependencyInjection/Tests/Fixtures/xml/services9.xml" role="php"/>
+   <file md5sum="1783ee95221282b4319fc41f79ec3007" name="Symfony/Component/DependencyInjection/Tests/Fixtures/xml/services8.xml" role="php"/>
+   <file md5sum="3f0cd2a9228c7f1479f535b48beb3f21" name="Symfony/Component/DependencyInjection/Tests/Fixtures/xml/services7.xml" role="php"/>
+   <file md5sum="cfab14ad120e65153650bbb2edc118d0" name="Symfony/Component/DependencyInjection/Tests/Fixtures/xml/services6.xml" role="php"/>
+   <file md5sum="6f50270290cb9bafc719886743286773" name="Symfony/Component/DependencyInjection/Tests/Fixtures/xml/services5.xml" role="php"/>
+   <file md5sum="53040074af5e742e3e7bc6a820f0b17d" name="Symfony/Component/DependencyInjection/Tests/Fixtures/xml/services4_bad_import.xml" role="php"/>
+   <file md5sum="5b6edb71e890234adad9ebb17e88fb6f" name="Symfony/Component/DependencyInjection/Tests/Fixtures/xml/services4.xml" role="php"/>
+   <file md5sum="5b8fbad821d7f9b92a37c6ec30fbb8a9" name="Symfony/Component/DependencyInjection/Tests/Fixtures/xml/services3.xml" role="php"/>
+   <file md5sum="31b138ff31142ef2b087382200bbdddf" name="Symfony/Component/DependencyInjection/Tests/Fixtures/xml/services2.xml" role="php"/>
+   <file md5sum="d7c935e1400a979267225dfbe9519a9e" name="Symfony/Component/DependencyInjection/Tests/Fixtures/xml/services1.xml" role="php"/>
+   <file md5sum="e1fb95406c0ff63742800fdc95eb99f6" name="Symfony/Component/DependencyInjection/Tests/Fixtures/xml/nonvalid.xml" role="php"/>
+   <file md5sum="834d96fb17d411d3c25df34a8e12339c" name="Symfony/Component/DependencyInjection/Tests/Fixtures/xml/extensions/services7.xml" role="php"/>
+   <file md5sum="873eec7bf6988585b8be9ed78d32d4f0" name="Symfony/Component/DependencyInjection/Tests/Fixtures/xml/extensions/services6.xml" role="php"/>
+   <file md5sum="7dade70bc8de90a4c116d01df8744179" name="Symfony/Component/DependencyInjection/Tests/Fixtures/xml/extensions/services5.xml" role="php"/>
+   <file md5sum="340f21074d0ff685079b5fc0b80dacdf" name="Symfony/Component/DependencyInjection/Tests/Fixtures/xml/extensions/services4.xml" role="php"/>
+   <file md5sum="2a00696fd70991a11a2aa0e1e5d61e75" name="Symfony/Component/DependencyInjection/Tests/Fixtures/xml/extensions/services3.xml" role="php"/>
+   <file md5sum="8a597cf4214e62043465a1d135cbf428" name="Symfony/Component/DependencyInjection/Tests/Fixtures/xml/extensions/services2.xml" role="php"/>
+   <file md5sum="d144314f085c31ccb0a41f802f306649" name="Symfony/Component/DependencyInjection/Tests/Fixtures/xml/extensions/services1.xml" role="php"/>
+   <file md5sum="f932ffc98518b016fc6383139b711c96" name="Symfony/Component/DependencyInjection/Tests/Fixtures/xml/extension2/services.xml" role="php"/>
+   <file md5sum="d741c7a31311ead4df2057e523afeba3" name="Symfony/Component/DependencyInjection/Tests/Fixtures/xml/extension1/services.xml" role="php"/>
+   <file md5sum="0a223fc28b123a00eeae0ce7825953eb" name="Symfony/Component/DependencyInjection/Tests/Fixtures/php/simple.php" role="php"/>
+   <file md5sum="b86088e3e35b9778368dcc684809a84a" name="Symfony/Component/DependencyInjection/Tests/Fixtures/php/services10.php" role="php"/>
+   <file md5sum="487a6c23ab1ac4e813b905873a8b7327" name="Symfony/Component/DependencyInjection/Tests/Fixtures/php/services9.php" role="php"/>
+   <file md5sum="b5366847678a776832de1a3bd431de1e" name="Symfony/Component/DependencyInjection/Tests/Fixtures/php/services8.php" role="php"/>
+   <file md5sum="775c082b0b7863094a9a453a442dbc83" name="Symfony/Component/DependencyInjection/Tests/Fixtures/php/services1.php" role="php"/>
+   <file md5sum="ff255a24bb1df7efd0a7b3427b3585c2" name="Symfony/Component/DependencyInjection/Tests/Fixtures/php/services1-1.php" role="php"/>
+   <file md5sum="e2432dcd44bad3082cff4aabce9d2f33" name="Symfony/Component/DependencyInjection/Tests/Fixtures/ini/parameters2.ini" role="php"/>
+   <file md5sum="cc1e7671d8c8e219998593b0069ac474" name="Symfony/Component/DependencyInjection/Tests/Fixtures/ini/parameters1.ini" role="php"/>
+   <file md5sum="4a8f0aad32fe89d804cb85703f0e2965" name="Symfony/Component/DependencyInjection/Tests/Fixtures/ini/parameters.ini" role="php"/>
+   <file md5sum="547a11b176c7c7905611acd1582252d6" name="Symfony/Component/DependencyInjection/Tests/Fixtures/ini/nonvalid.ini" role="php"/>
+   <file md5sum="cd16e7c41fc369846a5eb4a42d1e5b93" name="Symfony/Component/DependencyInjection/Tests/Fixtures/includes/schema/project-1.0.xsd" role="php"/>
+   <file md5sum="b4a17c6724b7c820a73579d094cdd932" name="Symfony/Component/DependencyInjection/Tests/Fixtures/includes/ProjectWithXsdExtensionInPhar.phar" role="php"/>
+   <file md5sum="2533e30245d301e424eb76b539244446" name="Symfony/Component/DependencyInjection/Tests/Fixtures/includes/ProjectWithXsdExtension.php" role="php"/>
+   <file md5sum="d378aa4475659bdd4d5d1d1a7898a5d8" name="Symfony/Component/DependencyInjection/Tests/Fixtures/includes/ProjectExtension.php" role="php"/>
+   <file md5sum="f38316643924184c25c2d323eb2115c8" name="Symfony/Component/DependencyInjection/Tests/Fixtures/includes/foo.php" role="php"/>
+   <file md5sum="03e3476e465bd05e72a8dbfdb22aee3f" name="Symfony/Component/DependencyInjection/Tests/Fixtures/includes/createphar.php" role="php"/>
+   <file md5sum="12b0f8b20d0c69661ae9abb347917232" name="Symfony/Component/DependencyInjection/Tests/Fixtures/includes/classes.php" role="php"/>
+   <file md5sum="5eda7f5d745f7686812c80927819c499" name="Symfony/Component/DependencyInjection/Tests/Fixtures/graphviz/services10.dot" role="php"/>
+   <file md5sum="5bf12610e2c2a95c5506a1b92ee929f6" name="Symfony/Component/DependencyInjection/Tests/Fixtures/graphviz/services10-1.dot" role="php"/>
+   <file md5sum="8b8948d39c6f35cf7e9ac4f41044548b" name="Symfony/Component/DependencyInjection/Tests/Fixtures/graphviz/services9.dot" role="php"/>
+   <file md5sum="02cffa6095e3a31d691a5bdcdbe7c227" name="Symfony/Component/DependencyInjection/Tests/Fixtures/graphviz/services1.dot" role="php"/>
+   <file md5sum="a0ccfd20143be600667c0e98fb665071" name="Symfony/Component/DependencyInjection/Tests/Fixtures/containers/interfaces2.php" role="php"/>
+   <file md5sum="f06eb418f0f04a719312f0e4ca232e9d" name="Symfony/Component/DependencyInjection/Tests/Fixtures/containers/interfaces1.php" role="php"/>
+   <file md5sum="1acdceda33fce9015eff3bf7d156135b" name="Symfony/Component/DependencyInjection/Tests/Fixtures/containers/container12.php" role="php"/>
+   <file md5sum="1ff966b209cd577bd0d6bb36d7e649e4" name="Symfony/Component/DependencyInjection/Tests/Fixtures/containers/container11.php" role="php"/>
+   <file md5sum="6422feace05a5ed96c42ed848d10006c" name="Symfony/Component/DependencyInjection/Tests/Fixtures/containers/container10.php" role="php"/>
+   <file md5sum="a3aa39cba7aaa7513f7444c102d8c27a" name="Symfony/Component/DependencyInjection/Tests/Fixtures/containers/container9.php" role="php"/>
+   <file md5sum="72445959201a9d4a67ec8e0f9e6cb7c1" name="Symfony/Component/DependencyInjection/Tests/Fixtures/containers/container8.php" role="php"/>
+   <file md5sum="609d00fd5b72a0f642a81fb14bd20cb7" name="Symfony/Component/DependencyInjection/Tests/Dumper/YamlDumperTest.php" role="php"/>
+   <file md5sum="bd1cf8dc438e23237170cfa6e82a4043" name="Symfony/Component/DependencyInjection/Tests/Dumper/XmlDumperTest.php" role="php"/>
+   <file md5sum="1217e192de4d97c4867a8ff86f6ecbff" name="Symfony/Component/DependencyInjection/Tests/Dumper/PhpDumperTest.php" role="php"/>
+   <file md5sum="94c23a5d47a04126fa29d2e4b963b07d" name="Symfony/Component/DependencyInjection/Tests/Dumper/GraphvizDumperTest.php" role="php"/>
+   <file md5sum="336734e50155690515c368df36cae9e2" name="Symfony/Component/DependencyInjection/Tests/DefinitionTest.php" role="php"/>
+   <file md5sum="0f4f3b93543f648ac3ba13ee061f43e9" name="Symfony/Component/DependencyInjection/Tests/DefinitionDecoratorTest.php" role="php"/>
+   <file md5sum="3677029c38561b108d4c1f628ebd005a" name="Symfony/Component/DependencyInjection/Tests/CrossCheckTest.php" role="php"/>
+   <file md5sum="156cb07316abdc61f2cf1e23395e37dd" name="Symfony/Component/DependencyInjection/Tests/ContainerTest.php" role="php"/>
+   <file md5sum="b0ac04b92fc6b3e0e3392e89e4e134e1" name="Symfony/Component/DependencyInjection/Tests/ContainerBuilderTest.php" role="php"/>
+   <file md5sum="13b4ec5501d3cba658a6973dcffa9799" name="Symfony/Component/DependencyInjection/Tests/Compiler/ResolveReferencesToAliasesPassTest.php" role="php"/>
+   <file md5sum="2e80931a6c9377e78657acd584123a88" name="Symfony/Component/DependencyInjection/Tests/Compiler/ResolveInvalidReferencesPassTest.php" role="php"/>
+   <file md5sum="a55eb353cdcca8ddb90d1ad9989e2178" name="Symfony/Component/DependencyInjection/Tests/Compiler/ResolveDefinitionTemplatesPassTest.php" role="php"/>
+   <file md5sum="8c0be18f31e7092c93e786abb058b2a6" name="Symfony/Component/DependencyInjection/Tests/Compiler/ReplaceAliasByActualDefinitionPassTest.php" role="php"/>
+   <file md5sum="69e56c8a628567929f063b36ab9a2e84" name="Symfony/Component/DependencyInjection/Tests/Compiler/RemoveUnusedDefinitionsPassTest.php" role="php"/>
+   <file md5sum="2acb3ebd820e194aa145e433dea5a495" name="Symfony/Component/DependencyInjection/Tests/Compiler/IntegrationTest.php" role="php"/>
+   <file md5sum="ab3c840a1ca981737579251c50d9cbb9" name="Symfony/Component/DependencyInjection/Tests/Compiler/InlineServiceDefinitionsPassTest.php" role="php"/>
+   <file md5sum="150d6c72e7fa4958c3750097d6985874" name="Symfony/Component/DependencyInjection/Tests/Compiler/CheckReferenceValidityPassTest.php" role="php"/>
+   <file md5sum="69ba981852fc6c367ce5afdda88f09bc" name="Symfony/Component/DependencyInjection/Tests/Compiler/CheckExceptionOnInvalidReferenceBehaviorPassTest.php" role="php"/>
+   <file md5sum="7e26e2e1050b5bacba7b6f4c78b5e586" name="Symfony/Component/DependencyInjection/Tests/Compiler/CheckDefinitionValidityPassTest.php" role="php"/>
+   <file md5sum="2708785b98571bcae6fff9727fc6901f" name="Symfony/Component/DependencyInjection/Tests/Compiler/CheckCircularReferencesPassTest.php" role="php"/>
+   <file md5sum="d54cef7b3cb33ee1e7042d26c584f7fe" name="Symfony/Component/DependencyInjection/Tests/Compiler/AnalyzeServiceReferencesPassTest.php" role="php"/>
+   <file md5sum="1bc3c86ba9f20a95ce8ff803dc1422ef" name="Symfony/Component/DependencyInjection/Tests/bootstrap.php" role="php"/>
+   <file md5sum="3c47bde46b89617dcd69f4ebf5056865" name="Symfony/Component/DependencyInjection/TaggedContainerInterface.php" role="php"/>
+   <file md5sum="4557e95b7958fe946737dc1eec7f8761" name="Symfony/Component/DependencyInjection/SimpleXMLElement.php" role="php"/>
+   <file md5sum="b990c20640f9a64135bcf0369f4e22a6" name="Symfony/Component/DependencyInjection/ScopeInterface.php" role="php"/>
+   <file md5sum="d464293058a891542cef77f9e14e18b4" name="Symfony/Component/DependencyInjection/Scope.php" role="php"/>
+   <file md5sum="e7b9dbd0041d8cbe945736b8c49cc84e" name="Symfony/Component/DependencyInjection/Reference.php" role="php"/>
+   <file md5sum="8b248c2c50aa7627583c090b87cf6122" name="Symfony/Component/DependencyInjection/README.md" role="doc"/>
+   <file md5sum="b3e443f0245994fbef7f8159fe31ff01" name="Symfony/Component/DependencyInjection/phpunit.xml.dist" role="php"/>
+   <file md5sum="a1d6864e44ce2807160e6ccbd8e2d730" name="Symfony/Component/DependencyInjection/ParameterBag/ParameterBagInterface.php" role="php"/>
+   <file md5sum="908cf6b583ee342d5943a0876d9a2316" name="Symfony/Component/DependencyInjection/ParameterBag/ParameterBag.php" role="php"/>
+   <file md5sum="c975b424d378e0060f13f23f218768d5" name="Symfony/Component/DependencyInjection/ParameterBag/FrozenParameterBag.php" role="php"/>
+   <file md5sum="7b2faf5e73ce778720b67e94cf6d2bba" name="Symfony/Component/DependencyInjection/Parameter.php" role="php"/>
+   <file md5sum="84ad6c23023c87779b645084e2e18964" name="Symfony/Component/DependencyInjection/Loader/YamlFileLoader.php" role="php"/>
+   <file md5sum="f32aa1135de9219b2812305e5e55e33f" name="Symfony/Component/DependencyInjection/Loader/XmlFileLoader.php" role="php"/>
+   <file md5sum="1e05046b7f45b342150ed817c20691b3" name="Symfony/Component/DependencyInjection/Loader/schema/dic/services/services-1.0.xsd" role="php"/>
+   <file md5sum="44560326d64fb2b9bef220a4f305d8ec" name="Symfony/Component/DependencyInjection/Loader/PhpFileLoader.php" role="php"/>
+   <file md5sum="682de96cf34a4ac9f93d1e5c9d2cb153" name="Symfony/Component/DependencyInjection/Loader/IniFileLoader.php" role="php"/>
+   <file md5sum="ffbef319d05878c38f032af920e27191" name="Symfony/Component/DependencyInjection/Loader/FileLoader.php" role="php"/>
+   <file md5sum="262400ebaa94fc67c3cf2c89015cc395" name="Symfony/Component/DependencyInjection/Loader/ClosureLoader.php" role="php"/>
+   <file md5sum="0b154035f36a874478bb0da0285e60c9" name="Symfony/Component/DependencyInjection/LICENSE" role="doc"/>
+   <file md5sum="78118376c3e263f9eb58313ee1bb6f5a" name="Symfony/Component/DependencyInjection/IntrospectableContainerInterface.php" role="php"/>
+   <file md5sum="582539d22c5bc57eb92508ef7ff10a93" name="Symfony/Component/DependencyInjection/Extension/ExtensionInterface.php" role="php"/>
+   <file md5sum="e24fb6f430fff619d24ca117e7035660" name="Symfony/Component/DependencyInjection/Extension/ConfigurationExtensionInterface.php" role="php"/>
+   <file md5sum="712c432261fa97472ff0fdf002ae0d5d" name="Symfony/Component/DependencyInjection/Exception/ServiceNotFoundException.php" role="php"/>
+   <file md5sum="be82faab091add5975bc1377832a2a03" name="Symfony/Component/DependencyInjection/Exception/ServiceCircularReferenceException.php" role="php"/>
+   <file md5sum="d5f064cabc9075b7c16c5b36f7e1a7f1" name="Symfony/Component/DependencyInjection/Exception/ScopeWideningInjectionException.php" role="php"/>
+   <file md5sum="237c274534cb2bc78f75fafe590e8d99" name="Symfony/Component/DependencyInjection/Exception/ScopeCrossingInjectionException.php" role="php"/>
+   <file md5sum="4e4d9c135fec917ae3fa78f25fbd7f85" name="Symfony/Component/DependencyInjection/Exception/RuntimeException.php" role="php"/>
+   <file md5sum="d3db10cd845899bbf5dd41d72f3c0e6e" name="Symfony/Component/DependencyInjection/Exception/ParameterNotFoundException.php" role="php"/>
+   <file md5sum="aa1c7bd46997837d0e6df856cd0ff03d" name="Symfony/Component/DependencyInjection/Exception/ParameterCircularReferenceException.php" role="php"/>
+   <file md5sum="792b235a45e9f4c0c7a7280580b1a2a3" name="Symfony/Component/DependencyInjection/Exception/OutOfBoundsException.php" role="php"/>
+   <file md5sum="5b78b4f59982df23deaf0242aec3d4a9" name="Symfony/Component/DependencyInjection/Exception/LogicException.php" role="php"/>
+   <file md5sum="f1b09121e6850f5271d8bd3a6837efd3" name="Symfony/Component/DependencyInjection/Exception/InvalidArgumentException.php" role="php"/>
+   <file md5sum="ec8b12c51716cf6d2ece676e8c96ef28" name="Symfony/Component/DependencyInjection/Exception/InactiveScopeException.php" role="php"/>
+   <file md5sum="d79633abb224cffc0597be170aca74ea" name="Symfony/Component/DependencyInjection/Exception/ExceptionInterface.php" role="php"/>
+   <file md5sum="7881aa76d06f7b9e4bd45dc85ae0d52e" name="Symfony/Component/DependencyInjection/Exception/BadMethodCallException.php" role="php"/>
+   <file md5sum="3a0034bf40de0d061de9d26ddd8e0e29" name="Symfony/Component/DependencyInjection/Dumper/YamlDumper.php" role="php"/>
+   <file md5sum="88fd0a1a7aa7dadfd8a606ccf185d2a2" name="Symfony/Component/DependencyInjection/Dumper/XmlDumper.php" role="php"/>
+   <file md5sum="9568538e768f467311627e2fcca25ce3" name="Symfony/Component/DependencyInjection/Dumper/PhpDumper.php" role="php"/>
+   <file md5sum="d9c8af1e1fa04aba18815cd1f548539b" name="Symfony/Component/DependencyInjection/Dumper/GraphvizDumper.php" role="php"/>
+   <file md5sum="b9dd1589f9ffac4366fd4148d9e78ade" name="Symfony/Component/DependencyInjection/Dumper/DumperInterface.php" role="php"/>
+   <file md5sum="3b295c276bb774433a45f1ee0339a299" name="Symfony/Component/DependencyInjection/Dumper/Dumper.php" role="php"/>
+   <file md5sum="e91a88348a9107e84b53e49e37ff725f" name="Symfony/Component/DependencyInjection/DefinitionDecorator.php" role="php"/>
+   <file md5sum="8f9f7e269e5533f0cc9ad5b0755c99ac" name="Symfony/Component/DependencyInjection/Definition.php" role="php"/>
+   <file md5sum="57e80213add57efbc56425f2b24f944c" name="Symfony/Component/DependencyInjection/ContainerInterface.php" role="php"/>
+   <file md5sum="9341ddbea957fb20efb30d5c45257b4a" name="Symfony/Component/DependencyInjection/ContainerBuilder.php" role="php"/>
+   <file md5sum="4e9a026c69391c06772a9d5484f9413d" name="Symfony/Component/DependencyInjection/ContainerAwareInterface.php" role="php"/>
+   <file md5sum="4318c2ce4d160e6d183edce4928db696" name="Symfony/Component/DependencyInjection/ContainerAware.php" role="php"/>
+   <file md5sum="92f2318a54332a706e9a76d12feaacb9" name="Symfony/Component/DependencyInjection/Container.php" role="php"/>
+   <file md5sum="1a71891d96896ec1131ce0579828f37a" name="Symfony/Component/DependencyInjection/composer.json" role="doc"/>
+   <file md5sum="edc95b56261a7cfdeaf1931ef0a35730" name="Symfony/Component/DependencyInjection/Compiler/ServiceReferenceGraphNode.php" role="php"/>
+   <file md5sum="0e3f4ba1f08962ec73803a78f7a8c3f2" name="Symfony/Component/DependencyInjection/Compiler/ServiceReferenceGraphEdge.php" role="php"/>
+   <file md5sum="b7a9ce532b503f9d5f62f15163088489" name="Symfony/Component/DependencyInjection/Compiler/ServiceReferenceGraph.php" role="php"/>
+   <file md5sum="69e660af3582cdacbfa328e0280a5740" name="Symfony/Component/DependencyInjection/Compiler/ResolveReferencesToAliasesPass.php" role="php"/>
+   <file md5sum="4d76516686f22715cd32736016a2894b" name="Symfony/Component/DependencyInjection/Compiler/ResolveParameterPlaceHoldersPass.php" role="php"/>
+   <file md5sum="cfd547aa1c5f9048c268c9e59e201236" name="Symfony/Component/DependencyInjection/Compiler/ResolveInvalidReferencesPass.php" role="php"/>
+   <file md5sum="b0f5d519c893f5987e2645867c488d02" name="Symfony/Component/DependencyInjection/Compiler/ResolveDefinitionTemplatesPass.php" role="php"/>
+   <file md5sum="d439d16df9fa638b06d51ac09587ed0a" name="Symfony/Component/DependencyInjection/Compiler/ReplaceAliasByActualDefinitionPass.php" role="php"/>
+   <file md5sum="1938059a13f07cc9fe755c8d2a9e58c0" name="Symfony/Component/DependencyInjection/Compiler/RepeatedPass.php" role="php"/>
+   <file md5sum="bee7b2336c610435c89fdc854101b604" name="Symfony/Component/DependencyInjection/Compiler/RepeatablePassInterface.php" role="php"/>
+   <file md5sum="82421fc37d82eeb210772fc9b5cc407d" name="Symfony/Component/DependencyInjection/Compiler/RemoveUnusedDefinitionsPass.php" role="php"/>
+   <file md5sum="77d93353f41f2505251e003a33993f31" name="Symfony/Component/DependencyInjection/Compiler/RemovePrivateAliasesPass.php" role="php"/>
+   <file md5sum="270937e454d381dae233d817e52069ec" name="Symfony/Component/DependencyInjection/Compiler/RemoveAbstractDefinitionsPass.php" role="php"/>
+   <file md5sum="dc3329dc78d9486797d55a2f48603e30" name="Symfony/Component/DependencyInjection/Compiler/PassConfig.php" role="php"/>
+   <file md5sum="1dc858a40c42cb969e5bf068bee0d4a5" name="Symfony/Component/DependencyInjection/Compiler/MergeExtensionConfigurationPass.php" role="php"/>
+   <file md5sum="d18aa0d044d4725eaacd006c55b8e366" name="Symfony/Component/DependencyInjection/Compiler/LoggingFormatter.php" role="php"/>
+   <file md5sum="c595f654cc22d5925323ae8b3a4e39ba" name="Symfony/Component/DependencyInjection/Compiler/InlineServiceDefinitionsPass.php" role="php"/>
+   <file md5sum="1292a88c9fadf67d117a659fb0bfd499" name="Symfony/Component/DependencyInjection/Compiler/CompilerPassInterface.php" role="php"/>
+   <file md5sum="a7f3622652fb862eb28c8905c34061f7" name="Symfony/Component/DependencyInjection/Compiler/Compiler.php" role="php"/>
+   <file md5sum="b556ea3204be5f6ef8dce42bba8ae42c" name="Symfony/Component/DependencyInjection/Compiler/CheckReferenceValidityPass.php" role="php"/>
+   <file md5sum="69b6713e0ee778e9b2cad497a9082151" name="Symfony/Component/DependencyInjection/Compiler/CheckExceptionOnInvalidReferenceBehaviorPass.php" role="php"/>
+   <file md5sum="bfacdfab5dded517cd9cbfac8464169e" name="Symfony/Component/DependencyInjection/Compiler/CheckDefinitionValidityPass.php" role="php"/>
+   <file md5sum="ef285e3af8aa1f332caa40b318e4b12d" name="Symfony/Component/DependencyInjection/Compiler/CheckCircularReferencesPass.php" role="php"/>
+   <file md5sum="b68e6455e52cab761894ab4f9f992df3" name="Symfony/Component/DependencyInjection/Compiler/AnalyzeServiceReferencesPass.php" role="php"/>
+   <file md5sum="697cb07c2bf5a46b1944ed7b9e75bb6a" name="Symfony/Component/DependencyInjection/CHANGELOG.md" role="php"/>
+   <file md5sum="8083d8117acb0fe0ea5dcd87cf7ffef7" name="Symfony/Component/DependencyInjection/Alias.php" role="php"/>
+   <file md5sum="33b1597c0da7b96c93be096f6655f8f7" name="Symfony/Component/DependencyInjection/.gitignore" role="php"/>
+  </dir>
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>5.3.2</min>
+   </php>
+   <pearinstaller>
+    <min>1.4.0</min>
+   </pearinstaller>
+  </required>
+  <optional>
+   <package>
+    <name>Config</name>
+    <channel>pear.symfony.com</channel>
+   </package>
+   <package>
+    <name>Yaml</name>
+    <channel>pear.symfony.com</channel>
+   </package>
+  </optional>
+ </dependencies>
+ <phprelease/>
+</package>
