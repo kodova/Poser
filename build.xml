@@ -24,10 +24,10 @@
 	</target>
 	
 	<target name="test">
-		<phpunit codecoverage="false" haltonfailure="true" haltonerror="true" bootstrap="tests/Bootstrap.php">
+		<phpunit codecoverage="false" haltonfailure="true" haltonerror="true" bootstrap="test/Bootstrap.php">
 			<formatter type="xml" usefile="true" outfile="tests/results.xml" />
 			<batchtest>
-				<fileset dir="tests">
+				<fileset dir="test">
 					<include name="**/*Test*.php"/>
 				</fileset>
 			</batchtest>

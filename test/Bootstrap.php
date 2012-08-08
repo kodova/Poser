@@ -11,8 +11,8 @@ use Symfony\Component\Config\FileLocator;
 $root =	dirname(__FILE__) . "/..";
 $paths = array(
     "$root/src",
-    "$root/tests",
-	"$root/tests/Helpers"
+    "$root/test",
+	"$root/test/Helpers"
 );
 
 $loader = new Symfony\Component\ClassLoader\UniversalClassLoader();

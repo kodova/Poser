@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="AllTests" tests="64" assertions="63" failures="0" errors="0" time="0.120609">
+    <testsuite name="ArgumentMatcherMonitorTest" file="/Users/pingod/Workspace/Poser/tests/Poser/ArgumentMatcherMonitorTest.php" tests="5" assertions="6" failures="0" errors="0" time="0.017310">
+      <testcase name="testReportMatchers" class="ArgumentMatcherMonitorTest" file="/Users/pingod/Workspace/Poser/tests/Poser/ArgumentMatcherMonitorTest.php" line="18" assertions="1" time="0.009307"/>
+      <testcase name="testPullMatchers" class="ArgumentMatcherMonitorTest" file="/Users/pingod/Workspace/Poser/tests/Poser/ArgumentMatcherMonitorTest.php" line="26" assertions="3" time="0.002119"/>
+      <testcase name="testReset" class="ArgumentMatcherMonitorTest" file="/Users/pingod/Workspace/Poser/tests/Poser/ArgumentMatcherMonitorTest.php" line="37" assertions="1" time="0.001790"/>
+      <testcase name="testValidateState" class="ArgumentMatcherMonitorTest" file="/Users/pingod/Workspace/Poser/tests/Poser/ArgumentMatcherMonitorTest.php" line="47" assertions="0" time="0.001684"/>
+      <testcase name="testNotValidateDateDueToMatchersExisting" class="ArgumentMatcherMonitorTest" file="/Users/pingod/Workspace/Poser/tests/Poser/ArgumentMatcherMonitorTest.php" line="58" assertions="1" time="0.002410"/>
+    </testsuite>
+    <testsuite name="DefaultReturnValuesTest" file="/Users/pingod/Workspace/Poser/tests/Poser/DefaultReturnValuesTest.php" tests="5" assertions="5" failures="0" errors="0" time="0.006875">
+      <testcase name="testReturnZero" class="DefaultReturnValuesTest" file="/Users/pingod/Workspace/Poser/tests/Poser/DefaultReturnValuesTest.php" line="20" assertions="1" time="0.001410"/>
+      <testcase name="testReturnNull" class="DefaultReturnValuesTest" file="/Users/pingod/Workspace/Poser/tests/Poser/DefaultReturnValuesTest.php" line="24" assertions="1" time="0.001483"/>
+      <testcase name="testReturnFalse" class="DefaultReturnValuesTest" file="/Users/pingod/Workspace/Poser/tests/Poser/DefaultReturnValuesTest.php" line="28" assertions="1" time="0.001381"/>
+      <testcase name="testReturnString" class="DefaultReturnValuesTest" file="/Users/pingod/Workspace/Poser/tests/Poser/DefaultReturnValuesTest.php" line="32" assertions="1" time="0.001311"/>
+      <testcase name="testReturnArray" class="DefaultReturnValuesTest" file="/Users/pingod/Workspace/Poser/tests/Poser/DefaultReturnValuesTest.php" line="36" assertions="1" time="0.001290"/>
+    </testsuite>
+    <testsuite name="EmptyValueAnswerTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Invocation/EmptyValueAnswerTest.php" tests="10" assertions="11" failures="0" errors="0" time="0.017812">
+      <testcase name="testAnswerWithStringType" class="EmptyValueAnswerTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Invocation/EmptyValueAnswerTest.php" line="22" assertions="1" time="0.002901"/>
+      <testcase name="testAnswerWithIntType" class="EmptyValueAnswerTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Invocation/EmptyValueAnswerTest.php" line="29" assertions="1" time="0.001329"/>
+      <testcase name="testAnswerWithNumberType" class="EmptyValueAnswerTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Invocation/EmptyValueAnswerTest.php" line="36" assertions="1" time="0.001344"/>
+      <testcase name="testAnswerWithIntegerType" class="EmptyValueAnswerTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Invocation/EmptyValueAnswerTest.php" line="43" assertions="1" time="0.001405"/>
+      <testcase name="testAnswerWithFloatType" class="EmptyValueAnswerTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Invocation/EmptyValueAnswerTest.php" line="50" assertions="1" time="0.001330"/>
+      <testcase name="testAnswerWithDoubleType" class="EmptyValueAnswerTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Invocation/EmptyValueAnswerTest.php" line="57" assertions="1" time="0.001311"/>
+      <testcase name="testAnswerWithArrayType" class="EmptyValueAnswerTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Invocation/EmptyValueAnswerTest.php" line="64" assertions="2" time="0.001526"/>
+      <testcase name="testAnswerWithNullType" class="EmptyValueAnswerTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Invocation/EmptyValueAnswerTest.php" line="72" assertions="1" time="0.001262"/>
+      <testcase name="testAnswerWithMixedType" class="EmptyValueAnswerTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Invocation/EmptyValueAnswerTest.php" line="79" assertions="1" time="0.001263"/>
+      <testcase name="testAnswerWithNullMethod" class="EmptyValueAnswerTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Invocation/EmptyValueAnswerTest.php" line="86" assertions="1" time="0.004141"/>
+    </testsuite>
+    <testsuite name="InvocationTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Invocation/InvocationTest.php" tests="8" assertions="0" failures="0" errors="0" time="0.011505">
+      <testcase name="testMatchesNotSameMock" class="InvocationTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Invocation/InvocationTest.php" line="27" assertions="0" time="0.001767"/>
+      <testcase name="testMatchesNotSameMethod" class="InvocationTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Invocation/InvocationTest.php" line="41" assertions="0" time="0.001422"/>
+      <testcase name="testMatchesNotSameArgSize" class="InvocationTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Invocation/InvocationTest.php" line="55" assertions="0" time="0.001398"/>
+      <testcase name="testMatchesWithNullMatchers" class="InvocationTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Invocation/InvocationTest.php" line="69" assertions="0" time="0.001381"/>
+      <testcase name="testMatchesWithEmptyMatchersZeroArgs" class="InvocationTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Invocation/InvocationTest.php" line="83" assertions="0" time="0.001376"/>
+      <testcase name="testMatchesWithEmptyMatchersSameArgs" class="InvocationTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Invocation/InvocationTest.php" line="95" assertions="0" time="0.001377"/>
+      <testcase name="testMatchesWithEmptyMatchersDifferentArgs" class="InvocationTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Invocation/InvocationTest.php" line="107" assertions="0" time="0.001376"/>
+      <testcase name="testMatchesWithMatchers" class="InvocationTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Invocation/InvocationTest.php" line="119" assertions="0" time="0.001408"/>
+    </testsuite>
+    <testsuite name="PoserCoreTest" file="/Users/pingod/Workspace/Poser/tests/Poser/PoserCoreTest.php" tests="1" assertions="0" failures="0" errors="0" time="0.001226">
+      <testcase name="testMockGetsAMockedObject" class="PoserCoreTest" file="/Users/pingod/Workspace/Poser/tests/Poser/PoserCoreTest.php" line="22" assertions="0" time="0.001226"/>
+    </testsuite>
+    <testsuite name="ClassDeclarationTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Proxy/Generator/ClassDeclarationTest.php" tests="5" assertions="7" failures="0" errors="0" time="0.008027">
+      <testcase name="testGetSetProperties" class="ClassDeclarationTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Proxy/Generator/ClassDeclarationTest.php" line="13" assertions="4" time="0.002463"/>
+      <testcase name="testTestName" class="ClassDeclarationTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Proxy/Generator/ClassDeclarationTest.php" line="31" assertions="0" time="0.001630"/>
+      <testcase name="testGetDeclarationWithClassName" class="ClassDeclarationTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Proxy/Generator/ClassDeclarationTest.php" line="37" assertions="1" time="0.001310"/>
+      <testcase name="testGetDeclarationWithExtends" class="ClassDeclarationTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Proxy/Generator/ClassDeclarationTest.php" line="47" assertions="1" time="0.001313"/>
+      <testcase name="testGetDeclarationWithExtendsAndImplements" class="ClassDeclarationTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Proxy/Generator/ClassDeclarationTest.php" line="59" assertions="1" time="0.001311"/>
+    </testsuite>
+    <testsuite name="ExtendedGeneratorTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Proxy/Generator/ExtendedGeneratorTest.php" tests="8" assertions="7" failures="0" errors="0" time="0.014511">
+      <testcase name="testGetClassDeclaration" class="ExtendedGeneratorTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Proxy/Generator/ExtendedGeneratorTest.php" line="15" assertions="1" time="0.002633"/>
+      <testcase name="testGetMethodsToProxy" class="ExtendedGeneratorTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Proxy/Generator/ExtendedGeneratorTest.php" line="25" assertions="0" time="0.001566"/>
+      <testcase name="testGenearteAbstract" class="ExtendedGeneratorTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Proxy/Generator/ExtendedGeneratorTest.php" line="41" assertions="1" time="0.001670"/>
+      <testcase name="testGenearteClass" class="ExtendedGeneratorTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Proxy/Generator/ExtendedGeneratorTest.php" line="51" assertions="1" time="0.002144"/>
+      <testcase name="testGenerateClassWithEmptyConstructor" class="ExtendedGeneratorTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Proxy/Generator/ExtendedGeneratorTest.php" line="61" assertions="1" time="0.001639"/>
+      <testcase name="testShouldNotGenerateDueToMockRequiringConstructorWithArgs" class="ExtendedGeneratorTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Proxy/Generator/ExtendedGeneratorTest.php" line="74" assertions="1" time="0.001879"/>
+      <testcase name="testShouldNotGenerateDueToFinalClass" class="ExtendedGeneratorTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Proxy/Generator/ExtendedGeneratorTest.php" line="85" assertions="1" time="0.001483"/>
+      <testcase name="testShouldNotGenerateDueToBeingAnInterface" class="ExtendedGeneratorTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Proxy/Generator/ExtendedGeneratorTest.php" line="95" assertions="1" time="0.001497"/>
+    </testsuite>
+    <testsuite name="GeneratorFactoryTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Proxy/Generator/GeneratorFactoryTest.php" tests="4" assertions="4" failures="0" errors="0" time="0.006179">
+      <testcase name="testGetGeneratorForInterfaceClass" class="GeneratorFactoryTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Proxy/Generator/GeneratorFactoryTest.php" line="18" assertions="1" time="0.002067"/>
+      <testcase name="testGetGeneratorForAbstractClass" class="GeneratorFactoryTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Proxy/Generator/GeneratorFactoryTest.php" line="27" assertions="1" time="0.001290"/>
+      <testcase name="testGetGeneratorForConcreteClass" class="GeneratorFactoryTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Proxy/Generator/GeneratorFactoryTest.php" line="36" assertions="1" time="0.001287"/>
+      <testcase name="testGetGeneratorForStaticMocks" class="GeneratorFactoryTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Proxy/Generator/GeneratorFactoryTest.php" line="45" assertions="1" time="0.001535"/>
+    </testsuite>
+    <testsuite name="InterfaceGeneratorTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Proxy/Generator/InterfaceGeneratorTest.php" tests="4" assertions="5" failures="0" errors="0" time="0.007117">
+      <testcase name="testGetClassDeclaration" class="InterfaceGeneratorTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Proxy/Generator/InterfaceGeneratorTest.php" line="13" assertions="1" time="0.001595"/>
+      <testcase name="testGetMethodsToProxy" class="InterfaceGeneratorTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Proxy/Generator/InterfaceGeneratorTest.php" line="24" assertions="2" time="0.002249"/>
+      <testcase name="testGenearte" class="InterfaceGeneratorTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Proxy/Generator/InterfaceGeneratorTest.php" line="37" assertions="1" time="0.001744"/>
+      <testcase name="testShouldNotGenerateDueToNonInterface" class="InterfaceGeneratorTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Proxy/Generator/InterfaceGeneratorTest.php" line="54" assertions="1" time="0.001529"/>
+    </testsuite>
+    <testsuite name="SubstituteGeneratorTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Proxy/Generator/SubstituteGeneratorTest.php" tests="6" assertions="10" failures="0" errors="0" time="0.010736">
+      <testcase name="testGetClassDeclarationWithNamespace" class="SubstituteGeneratorTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Proxy/Generator/SubstituteGeneratorTest.php" line="12" assertions="3" time="0.001608"/>
+      <testcase name="testGetClassDeclarationPearName" class="SubstituteGeneratorTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Proxy/Generator/SubstituteGeneratorTest.php" line="26" assertions="3" time="0.001575"/>
+      <testcase name="testGetMethodsToProxy" class="SubstituteGeneratorTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Proxy/Generator/SubstituteGeneratorTest.php" line="38" assertions="1" time="0.001361"/>
+      <testcase name="testGenerate" class="SubstituteGeneratorTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Proxy/Generator/SubstituteGeneratorTest.php" line="48" assertions="1" time="0.002161"/>
+      <testcase name="testGetConstants" class="SubstituteGeneratorTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Proxy/Generator/SubstituteGeneratorTest.php" line="57" assertions="1" time="0.002069"/>
+      <testcase name="testGenerateWithConstants" class="SubstituteGeneratorTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Proxy/Generator/SubstituteGeneratorTest.php" line="69" assertions="1" time="0.001962"/>
+    </testsuite>
+    <testsuite name="ProxyFactoryTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Proxy/ProxyFactoryTest.php" tests="1" assertions="0" failures="0" errors="0" time="0.001603">
+      <testcase name="testCreateProxy" class="ProxyFactoryTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Proxy/ProxyFactoryTest.php" line="10" assertions="0" time="0.001603"/>
+    </testsuite>
+    <testsuite name="StubTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Stubbing/StubTest.php" tests="1" assertions="0" failures="0" errors="0" time="0.001613">
+      <testcase name="testEmpty" class="StubTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Stubbing/StubTest.php" line="12" assertions="0" time="0.001613"/>
+    </testsuite>
+    <testsuite name="TimesTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Verification/TimesTest.php" tests="6" assertions="8" failures="0" errors="0" time="0.016094">
+      <testcase name="testConstructor" class="TimesTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Verification/TimesTest.php" line="44" assertions="0" time="0.003786"/>
+      <testcase name="testConstrctorLessThanZero" class="TimesTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Verification/TimesTest.php" line="51" assertions="1" time="0.001739"/>
+      <testcase name="testVerifyEqualInvocations" class="TimesTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Verification/TimesTest.php" line="56" assertions="1" time="0.004421"/>
+      <testcase name="testVerifyLessInvocations" class="TimesTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Verification/TimesTest.php" line="71" assertions="2" time="0.002466"/>
+      <testcase name="testVerifyMoreInvocations" class="TimesTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Verification/TimesTest.php" line="86" assertions="2" time="0.001847"/>
+      <testcase name="testVerifyNeverInvoked" class="TimesTest" file="/Users/pingod/Workspace/Poser/tests/Poser/Verification/TimesTest.php" line="101" assertions="2" time="0.001836"/>
+    </testsuite>
+  </testsuite>
+</testsuites>
