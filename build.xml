@@ -85,6 +85,20 @@
 					<element key='name' value='DependencyInjection' />
 					<element key='version' value='2.0.7' />
 				</element>
+                <element>
+                    <element key='channel' value='pear.symfony.com' />
+                    <element key='name' value='Yaml' />
+                    <element key='version' value='2.0.7' />
+                </element>
+                <element>
+                    <element key='channel' value='pear.symfony.com' />
+                    <element key='name' value='Config' />
+                    <element key='version' value='2.0.7' />
+                </element>
+                <element>
+                    <element key='channel' value='hamcrest.googlecode.com/svn/pear' />
+                    <element key='name' value='hamcrest/Hamcrest' />
+                </element>
 			</mapping>
 			<fileset dir="${build.dir}">
 				<include name="**" />
