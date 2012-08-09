@@ -24,14 +24,16 @@ class ExtendedGenerator extends AbstractGenerator {
 		if ($this->getToMock()->isFinal()) {
 			throw new GeneratorException(sprintf('Unable to create proxy for %s because its final', $toMock));
 		}
-		//ensure toMock can be exteneded
+
+		//ensure toMock can be extended
 		if ($this->getToMock()->isInterface()) {
 			throw new GeneratorException(sprintf('Unable to create proxy for %s because its not instantiable or abstract', $toMock));
 		}
 		
+
 		$constructor = $this->getToMock()->getConstructor();
-		if ($constructor != null && $constructor->getNumberOfParameters() > 0) {
-			throw new GeneratorException('An empty contructor is required to create a proxy for ' . $toMock);
+		if($constructor != null && $constructor->getNumberOfRequiredParameters() > 0){
+			throw new GeneratorException(sprintf("Unable to create proxy for %s becuase the constructor has required parameters", $toMock));
 		}
 	}
 	

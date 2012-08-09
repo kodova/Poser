@@ -13,6 +13,7 @@ class ClassDeclaration {
 	private $implements = array();
 	private $className = null;
 	private $namespace = null;
+	private $constructorArguments = array();
 	
 	public function setImplements(array $implements) {
 		$this->implements = $implements;
@@ -67,5 +68,13 @@ class ClassDeclaration {
 
 	public function setNamespace($namespace) {
 		$this->namespace = $namespace;
+	}
+
+	public function getConstructorArguments() {
+		return $this->constructorArguments;
+	}
+
+	public function setConstructorArguments($constructorArguments) {
+		$this->constructorArguments = $constructorArguments;
 	}
 }
