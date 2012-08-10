@@ -15,8 +15,8 @@ that loosely based its interfaces on the very popular Java mocking framework moc
   <email>patrick@webpt.com</email>
   <active>yes</active>
  </lead>
- <date>2012-08-07</date>
- <time>18:50:45</time>
+ <date>2012-08-09</date>
+ <time>19:04:24</time>
  <version>
   <release>0.3.0</release>
   <api>0.1.0</api>
@@ -35,6 +35,13 @@ Bug fixes
 </notes>
  <contents>
   <dir name="/">
+   <dir name="scripts" baseinstalldir="/">
+    <dir name="templates">
+     <file role="script" name="index.html"/>
+     <file role="script" name="pirum.css"/>
+    </dir>
+    <file role="script" name="prium"/>
+   </dir>
    <dir name="src" baseinstalldir="/">
     <dir name="Poser">
      <dir name="Exception">
@@ -93,6 +100,13 @@ Bug fixes
     </dir>
     <file role="php" name="Poser.php"/>
    </dir>
+   <dir name="tests" baseinstalldir="/">
+    <dir name="Helpers">
+     <dir name="Test">
+      <file role="test" name="ConstructorOptionalArgClass.php"/>
+     </dir>
+    </dir>
+   </dir>
   </dir>
  </contents>
  <dependencies>
@@ -101,7 +115,7 @@ Bug fixes
     <min>5.2.0</min>
    </php>
    <pearinstaller>
-    <min>2.0.0a1</min>
+    <min>1.9</min>
    </pearinstaller>
    <package>
     <name>ClassLoader</name>
