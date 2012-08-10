@@ -16,7 +16,7 @@ that loosely based its interfaces on the very popular Java mocking framework moc
   <active>yes</active>
  </lead>
  <date>2012-08-09</date>
- <time>19:04:24</time>
+ <time>19:45:10</time>
  <version>
   <release>0.3.0</release>
   <api>0.1.0</api>
@@ -29,9 +29,12 @@ that loosely based its interfaces on the very popular Java mocking framework moc
  <notes>Package  Poser release notes for version 0.3.0.
 - Upgraded the build system to to use pyrus
 - Removed Phing support
+- Added wiki
+- Added PHP doc to Poser object
+- Added all the matcher in Poser into global_functions.php
 
 Bug fixes
-- https://github.com/WebPT/Poser/issues/1
+- https://github.com/WebPT/Poser/issues/2
 </notes>
  <contents>
   <dir name="/">
