@@ -67,6 +67,19 @@ class ExtendedGeneratorTest extends PHPUnit_Framework_TestCase
 		
 		$this->assertTrue(is_a($obj, $toMock), "The generated object is not of type $toMock");
 	}
+
+	/**
+	 * @test
+	 */
+	public function shouldGenerateClassWithOptionalParamsInConstructor() {
+		$toMock = 'Helpers\Test\ConstructorOptionalArgClass';
+		$name = \Helpers\ClassName::getName('Generator');
+
+		$generator = new ExtendedGenerator($toMock, $name);
+		$obj = $generator->generate();
+
+		$this->assertTrue(is_a($obj, $toMock), "The generated object is not of type $toMock");
+	}
 	
 	/**
 	 * @expectedException \Poser\Proxy\Generator\GeneratorException
