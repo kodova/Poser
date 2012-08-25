@@ -1,6 +1,6 @@
 <?php
 
-set_include_path(__DIR__ . "/../vendor" . PATH_SEPARATOR . get_include_path());
+set_include_path(__DIR__ . "/../vendor/php" . PATH_SEPARATOR . get_include_path());
 require_once 'Symfony/Component/ClassLoader/UniversalClassLoader.php';
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
