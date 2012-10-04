@@ -66,7 +66,7 @@ class Poser {
 	 * Used to create a stub for a mocked object method calls. You can use this to return 
 	 * values when the default return value is not desired.
 	 * @param mixed $mockInvocation A method that has been invoked
-	 * @return \Poser\Stubbing\Stubbablen
+	 * @return \Poser\Stubbing\Stubbable
 	 */
 	public static function when($mockInvocation){
 		$core = self::getPoserCore();
