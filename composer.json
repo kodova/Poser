@@ -1,9 +1,24 @@
 {
+	"name": "kodova/poser",
+	"type": "library",
+	"description": "A php mock framework inspired by Mockito",
+	"keywords": ["mock", "test", "stub", "TDD"],
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Patrick Arnold",
+			"email": "patrick@kodova.com",
+			"homepage": "http://kodova.com",
+			"role": "Developer"
+		}
+	],
 	"require": {
-		"symfony/class-loader": "v2.1.6",
 		"symfony/config": "v2.1.6",
 		"symfony/dependency-injection": "v2.1.6",
 		"symfony/yaml": "v2.1.6",
 		"kodova/hamcrest-php": "dev-master"
+	},
+	"require-dev":{
+		"symfony/class-loader": "v2.1.6"
 	}
 }
