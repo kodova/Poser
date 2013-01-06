@@ -45,7 +45,9 @@ class Flowchart extends OutputWriter{
 	
 	public function whatToEat(){
 		$this->person->write("What should I eat?");
-		if (!$this->person->wantsBacon()){
+        $wantsBacon = $this->person->wantsBacon();
+        $this->person->write(($wantsBacon) ? "How about bacon?" : "How about chicken");
+		if (!$wantsBacon){
 			$this->write("No, You want bacon.");
 			$this->person->write("You're right I want bacon");
 		}

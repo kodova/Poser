@@ -9,7 +9,7 @@ require_once 'HickoryBacon.php';
 require_once 'House.php';
 require_once 'Pan.php';
 require_once 'Person.php';
-require_once 'Topper.php';
+require_once 'Labrador.php';
 
 $baconTotal = rand(0, 12);
 $bacon = array();
@@ -17,7 +17,7 @@ for($i =  0; $i < $baconTotal; $i++){
 	$bacon[] = new HickoryBacon();
 }
 
-$dog = new Topper();
+$dog = new Labrador();
 $cooker = new Pan();
 $house = new House($cooker, $bacon);
 $person = new Person("Duff Mann");

@@ -1,6 +1,6 @@
 <?php
 
-class Topper implements Dog{
+class Labrador implements Dog{
 	
 	/**
 	 * (non-PHPdoc)
@@ -15,7 +15,7 @@ class Topper implements Dog{
 	 * @see Dog::getName()
 	 */
 	public function getName(){
-		return "Topper";
+		return "Sodo";
 	}
 	
 }
