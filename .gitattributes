@@ -1,3 +1,3 @@
-test/ export-ignore
-scripts/ export-ignore
-examples/ export-ignore
+/test export-ignore
+/scripts export-ignore
+/examples export-ignore
