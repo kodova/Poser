@@ -9,7 +9,7 @@ require_once 'HickoryBacon.php';
 require_once 'Pan.php';
 require_once 'Topper.php';
 
-use Poser as p;
+use Kodova\Poser as p;
 
 class FlowchartTest extends PHPUnit_Framework_TestCase{
 	/**

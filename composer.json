@@ -1,0 +1,16 @@
+{
+
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "https://github.com/kodova/hamcrest-php"
+		}
+	],
+	"require": {
+		"symfony/class-loader": "v2.1.6",
+		"symfony/config": "v2.1.6",
+		"symfony/dependency-injection": "v2.1.6",
+		"symfony/yaml": "v2.1.6",
+		"kodova/hamcrest-php": "dev-master"
+	}
+}

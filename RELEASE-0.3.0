@@ -1,9 +1,0 @@
-Package  Poser release notes for version 0.3.0.
-- Upgraded the build system to to use pyrus
-- Removed Phing support
-- Added wiki
-- Added PHP doc to Poser object
-- Added all the matcher in Poser into global_functions.php
-
-Bug fixes
-- https://github.com/WebPT/Poser/issues/2

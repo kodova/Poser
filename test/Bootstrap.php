@@ -19,7 +19,7 @@ $paths = array(
 $loader = new Symfony\Component\ClassLoader\UniversalClassLoader();
 $loader->registerNamespaces(array(
 	'Symfony' => explode(PATH_SEPARATOR, get_include_path()),
-	'Poser' => $paths,
+	'Kodova\Poser' => $paths,
 	'Helpers' => $paths
 ));
 $loader->registerPrefix('Hamcrest', explode(PATH_SEPARATOR, get_include_path()));

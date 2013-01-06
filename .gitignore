@@ -4,6 +4,7 @@
 .project
 .settings/
 .buildpath
+vendor/
 *.iml
 Gen.php
 /

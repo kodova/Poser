@@ -1,17 +1,16 @@
 <?php
 
-require_once 'Symfony/Component/ClassLoader/UniversalClassLoader.php';
+require 'vendor/autoload.php';
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Loader\YamlFileLoader as YamlFileLoader;
-use Symfony\Component\DependencyInjection\Definition;
+use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\Config\FileLocator;
-use Poser\MockOptions;
-use Poser\PoserCore;
-use Poser\MockBuilder;
-use Poser\Stubbing\Stubbable;
-use Poser\Verification\Times;
-use Poser\Verification\VerifiableType;
+use Kodova\Poser\MockOptions;
+use Kodova\Poser\PoserCore;
+use Kodova\Poser\MockBuilder;
+use Kodova\Poser\Stubbing\Stubbable;
+use Kodova\Poser\Verification\Times;
+use Kodova\Poser\Verification\VerifiableType;
 use Hamcrest_Matchers as hm;
 
 /**
@@ -23,14 +22,14 @@ class Poser {
 	private static $poserCore = null;
 
 
-	/**
-	 * Creates a new instance of a mocked object that inherits from the given class. This can be interfaces,
-	 * concrete classes and abstract classes
-	 *
-	 * @param string $class The fully qualified name of the class you would like to mock.
-	 * @param Poser\MockOptions $options
-	 * @return mixed A mocked instance of the given class
-	 */
+    /**
+     * Creates a new instance of a mocked object that inherits from the given class. This can be interfaces,
+     * concrete classes and abstract classes
+     *
+     * @param string $class The fully qualified name of the class you would like to mock.
+     * @param \Kodova\Poser\MockOptions $options
+     * @return mixed A mocked instance of the given class
+     */
 	public static function mock($class, MockOptions $options = null) {
 		if($options == null){
 			return self::build($class)->mock();
@@ -55,7 +54,7 @@ class Poser {
 	 * This object can be used to configure the mock object prior to creating an instance of the mock. You should
 	 * Poser::mock() when no special configuration is needed.
 	 * @param $class
-	 * @return Poser\MockBuilder
+	 * @return MockBuilder
 	 */
 	public static function build($class){
 		$core = self::getPoserCore();
@@ -66,7 +65,7 @@ class Poser {
 	 * Used to create a stub for a mocked object method calls. You can use this to return 
 	 * values when the default return value is not desired.
 	 * @param mixed $mockInvocation A method that has been invoked
-	 * @return \Poser\Stubbing\Stubbable
+	 * @return Stubbable
 	 */
 	public static function when($mockInvocation){
 		$core = self::getPoserCore();
@@ -82,7 +81,7 @@ class Poser {
 			$loader = new Symfony\Component\ClassLoader\UniversalClassLoader();
 			$loader->registerNamespaces(array(
 				'Symfony' => explode(PATH_SEPARATOR, get_include_path()),
-				'Poser' => __DIR__
+				'Kodova\Poser' => __DIR__
 			));
 			$loader->registerPrefix("Hamcrest", explode(PATH_SEPARATOR, get_include_path()));
 			$loader->register();
@@ -96,25 +95,25 @@ class Poser {
 		return self::$poserCore;
 	}
 
-	/**
-	 * Sets the poser core to use for this poser object
-	 * @static
-	 * @param Poser\PoserCore $poserCore
-	 */
+    /**
+     * Sets the poser core to use for this poser object
+     * @static
+     * @param Kodova\Poser\PoserCore $poserCore
+     */
 	public static function setPoserCore(PoserCore $poserCore){
 		static::$poserCore = $poserCore;
 	}
 	
 
 	//-- Verification --//
-	/**
-	 * This will verify that given invocation actually occurred on a mock object. This will match the exact
-	 * invocation arguments unless matchers are used. When using matchers for arguments then you need to
-	 * supply matchers for all arguments, there is no mixing a matching.
-	 * @param $mock A mocked object to verify actions on
-	 * @param Poser\Verification\VerifiableType $times The number of times a method should have been invoked, default 1;
-	 * @return mixed A instance of the mock object
-	 */
+    /**
+     * This will verify that given invocation actually occurred on a mock object. This will match the exact
+     * invocation arguments unless matchers are used. When using matchers for arguments then you need to
+     * supply matchers for all arguments, there is no mixing a matching.
+     * @param $mock A mocked object to verify actions on
+     * @param \Kodova\Poser\Verification\VerifiableType $times The number of times a method should have been invoked, default 1;
+     * @return mixed A instance of the mock object
+     */
 	public static function verify($mock, VerifiableType $times = null){
 		if($times == null){
 			$times = self::times(1);
@@ -150,7 +149,7 @@ class Poser {
 
 	/**
 	 * Used to verify that a method was never invoked on a mock with matching arguments
-	 * @return Poser\Verification\Times
+	 * @return Times
 	 */
 	public static function never() {
 		return times(0);
