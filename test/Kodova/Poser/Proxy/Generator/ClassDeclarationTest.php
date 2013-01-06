@@ -26,7 +26,7 @@ class ClassDeclarationTest extends PHPUnit_Framework_TestCase
 	}
 	
 	/**
-	 * @expectedException \Poser\Exception\UndefinedPropertyException
+	 * @expectedException Kodova\Poser\Exception\UndefinedPropertyException
 	*/
 	public function testTestName() {
 		$this->markTestSkipped("Need to debug this");

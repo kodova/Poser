@@ -2,8 +2,6 @@
 
 namespace Kodova\Poser\Proxy\Generator;
 
-use Kodova\Poser\Exception\UndefinedPropertyException;
-
 /**
  * Represents a declaration in a object form
  */
