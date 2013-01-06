@@ -1,7 +1,5 @@
 <?php
 
-require 'vendor/autoload.php';
-
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\Config\FileLocator;
@@ -78,17 +76,9 @@ class Poser {
 	 */
 	private static function getPoserCore(){
 		if(null == self::$poserCore){
-			$loader = new Symfony\Component\ClassLoader\UniversalClassLoader();
-			$loader->registerNamespaces(array(
-				'Symfony' => explode(PATH_SEPARATOR, get_include_path()),
-				'Kodova\Poser' => __DIR__
-			));
-			$loader->registerPrefix("Hamcrest", explode(PATH_SEPARATOR, get_include_path()));
-			$loader->register();
-			
-			$container = new Symfony\Component\DependencyInjection\ContainerBuilder();
+			$container = new ContainerBuilder();
 			$configLoader = new YamlFileLoader($container, new FileLocator(__DIR__));
-			$configLoader->load('Poser/container.yml');
+			$configLoader->load('Kodova/Poser/container.yml');
 			self::$poserCore = $container->get('poserCore');
 		}
 		
@@ -103,14 +93,12 @@ class Poser {
 	public static function setPoserCore(PoserCore $poserCore){
 		static::$poserCore = $poserCore;
 	}
-	
 
-	//-- Verification --//
     /**
      * This will verify that given invocation actually occurred on a mock object. This will match the exact
      * invocation arguments unless matchers are used. When using matchers for arguments then you need to
      * supply matchers for all arguments, there is no mixing a matching.
-     * @param $mock A mocked object to verify actions on
+     * @param mixed $mock A mocked object to verify actions on
      * @param \Kodova\Poser\Verification\VerifiableType $times The number of times a method should have been invoked, default 1;
      * @return mixed A instance of the mock object
      */
@@ -172,8 +160,7 @@ class Poser {
 		self::getPoserCore()->verifyZeroInteractions($mocks);
 	}
 	
-	
-	//---- Matchers ----//
+
 	/**
 	 * Is the value an instance of a particular type?
 	 * @param $class

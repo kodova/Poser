@@ -82,7 +82,7 @@ class ExtendedGeneratorTest extends PHPUnit_Framework_TestCase
 	}
 	
 	/**
-	 * @expectedException \Poser\Proxy\Generator\GeneratorException
+	 * @expectedException \Kodova\Poser\Proxy\Generator\GeneratorException
 	*/
 	public function testShouldNotGenerateDueToMockRequiringConstructorWithArgs() {
 	    $toMock = 'Helpers\Test\ConstructorArgClass';
@@ -93,7 +93,7 @@ class ExtendedGeneratorTest extends PHPUnit_Framework_TestCase
 	}
 	
 	/**
-	 * @expectedException \Poser\Proxy\Generator\GeneratorException
+	 * @expectedException \Kodova\Poser\Proxy\Generator\GeneratorException
 	*/
 	public function testShouldNotGenerateDueToFinalClass() {
 	    $toMock = '\Helpers\Test\FinalClass';
@@ -103,10 +103,10 @@ class ExtendedGeneratorTest extends PHPUnit_Framework_TestCase
 	}
 	
 	/**
-	 * @expectedException \Poser\Proxy\Generator\GeneratorException
+	 * @expectedException \Kodova\Poser\Proxy\Generator\GeneratorException
 	*/
 	public function testShouldNotGenerateDueToBeingAnInterface() {
-		$toMock = '\Poser\Invocation\Answer';
+		$toMock = 'Kodova\Poser\Invocation\Answer';
 		$name = \Helpers\ClassName::getName('Generator');
 		
 		$generator = new ExtendedGenerator($toMock, $name);

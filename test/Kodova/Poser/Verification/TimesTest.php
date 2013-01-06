@@ -29,7 +29,7 @@ class TimesTest extends PHPUnit_Framework_TestCase{
 	
 	public function setUp() {
 		$mockingMonitor = new MockingMonitor(new ArgumentMatcherMonitor());
-		$this->invocationContainer = $this->getMockBuilder('Poser\Invocation\InvocationContainer')
+		$this->invocationContainer = $this->getMockBuilder('\Kodova\Poser\Invocation\InvocationContainer')
 										  ->setConstructorArgs(array($mockingMonitor, new MockOptions()))
 										  ->setMethods(array('getInvocations'))
 										  ->getMock();
@@ -46,7 +46,7 @@ class TimesTest extends PHPUnit_Framework_TestCase{
 	}
 	
 	/**
-	 * @expectedException Poser\Exception\PoserException
+	 * @expectedException Kodova\Poser\Exception\PoserException
 	 */
 	function testConstrctorLessThanZero(){
 		new Times(-1);
@@ -66,7 +66,7 @@ class TimesTest extends PHPUnit_Framework_TestCase{
 	}
 	
 	/**
-	 * @expectedException Poser\Exception\PoserException 
+	 * @expectedException Kodova\Poser\Exception\PoserException
 	 */
 	function testVerifyLessInvocations(){
 		$count = 5;
@@ -81,7 +81,7 @@ class TimesTest extends PHPUnit_Framework_TestCase{
 	}
 	
 	/**
-	 * @expectedException Poser\Exception\PoserException 
+	 * @expectedException Kodova\Poser\Exception\PoserException
 	 */
 	function testVerifyMoreInvocations(){
 		$count = 5;
@@ -96,7 +96,7 @@ class TimesTest extends PHPUnit_Framework_TestCase{
 	}
 	
 	/**
-	 * @expectedException Poser\Exception\PoserException 
+	 * @expectedException Kodova\Poser\Exception\PoserException
 	 */
 	function testVerifyNeverInvoked(){
 		$count = 5;

@@ -84,7 +84,7 @@ class EmptyValueAnswerTest extends PHPUnit_Framework_TestCase {
 	}
 	
 	public function testAnswerWithNullMethod(){
-		$mock = $this->getMock('Poser\Proxy\SubstituteProxy');
+		$mock = $this->getMock('Kodova\Poser\Proxy\SubstituteProxy');
 		$invocation = new Invocation($mock, 'something', array(), new SplDoublyLinkedList(), array());
 		$return = $this->underTest->answer($invocation);
 		$this->assertNull($return);

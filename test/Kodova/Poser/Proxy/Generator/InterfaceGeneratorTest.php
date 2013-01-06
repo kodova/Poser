@@ -49,10 +49,10 @@ class InterfaceGeneratorTest extends PHPUnit_Framework_TestCase
 	}
 	
 	/**
-	 * @expectedException \Poser\Proxy\Generator\GeneratorException
+	 * @expectedException \Kodova\Poser\Proxy\Generator\GeneratorException
 	 */
 	public function testShouldNotGenerateDueToNonInterface() {
-		$toMock = 'Poser\Invocation\EmptyValueAnswer';
+		$toMock = 'Kodova\Poser\Invocation\EmptyValueAnswer';
 		$name = \Helpers\ClassName::getName('InvocationImp');
 		
 		$generator = new InterfaceGenerator($toMock, $name);

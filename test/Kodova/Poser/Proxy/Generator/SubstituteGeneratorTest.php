@@ -16,7 +16,7 @@ class SubstituteGeneratorTest extends PHPUnit_Framework_TestCase  {
 		$class = $generator->getClassDeclaration();
 		
 		$this->assertEquals($name, $class->getClassName(), 'The class names to not match');
-		$this->assertEquals(array('\Poser\Proxy\SubstituteProxy'), $class->getImplements());
+		$this->assertEquals(array('\Kodova\Poser\Proxy\SubstituteProxy'), $class->getImplements());
 		$this->assertNull($class->getExtends(), 'The class should not extend anything');
 	}
 	
@@ -28,7 +28,7 @@ class SubstituteGeneratorTest extends PHPUnit_Framework_TestCase  {
 		$class = $generator->getClassDeclaration();
 		
 		$this->assertEquals($toMock, $class->getClassName(), 'The class names to not match');
-		$this->assertEquals(array('\Poser\Proxy\SubstituteProxy'), $class->getImplements());
+		$this->assertEquals(array('\Kodova\Poser\Proxy\SubstituteProxy'), $class->getImplements());
 		$this->assertNull($class->getExtends(), 'The class should not extend anything');
 	}
 

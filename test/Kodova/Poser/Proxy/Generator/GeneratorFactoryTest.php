@@ -24,7 +24,7 @@ class GeneratorFactoryTest extends PHPUnit_Framework_TestCase {
         
         $generator = $this->generatorFactory->getGenerator($toMock, $options);
         
-        $this->assertTrue(is_a($generator, '\Kodova\Poser\Proxy\Generator\InterfaceGenerator'));
+        $this->assertTrue(is_a($generator, 'Kodova\Poser\Proxy\Generator\InterfaceGenerator'));
     }
     
     public function testGetGeneratorForAbstractClass(){
@@ -33,7 +33,7 @@ class GeneratorFactoryTest extends PHPUnit_Framework_TestCase {
         
         $generator = $this->generatorFactory->getGenerator($toMock, $options);
         
-        $this->assertTrue(is_a($generator, 'Poser\Proxy\Generator\ExtendedGenerator'));
+        $this->assertTrue(is_a($generator, 'Kodova\Poser\Proxy\Generator\ExtendedGenerator'));
     }
     
     public function testGetGeneratorForConcreteClass(){
@@ -42,7 +42,7 @@ class GeneratorFactoryTest extends PHPUnit_Framework_TestCase {
         
         $generator = $this->generatorFactory->getGenerator($toMock, $options);
         
-        $this->assertTrue(is_a($generator, 'Poser\Proxy\Generator\ExtendedGenerator'));
+        $this->assertTrue(is_a($generator, 'Kodova\Poser\Proxy\Generator\ExtendedGenerator'));
     }
     
     public function testGetGeneratorForStaticMocks(){
@@ -52,6 +52,6 @@ class GeneratorFactoryTest extends PHPUnit_Framework_TestCase {
         
         $generator = $this->generatorFactory->getGenerator($toMock, $options);
         
-        $this->assertTrue(is_a($generator, 'Poser\Proxy\Generator\SubstituteGenerator'));
+        $this->assertTrue(is_a($generator, 'Kodova\Poser\Proxy\Generator\SubstituteGenerator'));
     }
 }

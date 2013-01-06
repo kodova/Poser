@@ -10,6 +10,8 @@ use Kodova\Poser\MockOptions;
 use Kodova\Poser\Stubbing\Stub;
 use Kodova\Poser\MockingMonitor;
 use Kodova\Poser\Invocation\InvocationContainer;
+use Kodova\Poser\Exception\PoserException;
+use Kodova\Poser\Invocation\ReturnAnswer;
 
 class OngoingStubbingTest extends \PHPUnit_Framework_TestCase
 {
@@ -35,7 +37,7 @@ class OngoingStubbingTest extends \PHPUnit_Framework_TestCase
 
 	protected function setUp() {
 	    $mockingMonitor = new MockingMonitor(new ArgumentMatcherMonitor());
-	    $this->invocationContainer = $this->getMockBuilder('Poser\Invocation\InvocationContainer')
+	    $this->invocationContainer = $this->getMockBuilder('Kodova\Poser\Invocation\InvocationContainer')
 		                                  ->setConstructorArgs(array($mockingMonitor, new MockOptions))
 		                                  ->setMethods(array('addStub'))
 		                                  ->getMock();
@@ -63,43 +65,35 @@ class OngoingStubbingTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @expectedException Poser\Exception\PoserException
+	 * @expectedException Kodova\Poser\Exception\PoserException
 	 */
 	public function testThenReturnShouldThrowExceptionWhenNothingGiven(){
 		$this->object->thenReturn();
 	}
 
-    /**
-     * @covers Poser\Stubbing\OngoingStubbing::thenAnswer
-     */
+
     public function testThenAnswer(){
-	    $answer = new \Poser\Invocation\ReturnAnswer(null);
+	    $answer = new ReturnAnswer(null);
         $this->invocationContainer->expects($this->any())
 	        ->method('thenAnswer')
             ->with($this->equalTo($answer));
 	    $this->object->thenAnswer($answer);
     }
 
-    /**
-     * @covers Poser\Stubbing\OngoingStubbing::then
-     */
     public function testThen() {
         // Remove the following lines when you implement this test.
-	    $answer = new \Poser\Invocation\ReturnAnswer(null);
+	    $answer = new ReturnAnswer(null);
 	    $this->invocationContainer->expects($this->any())
 		    ->method('then')
 		    ->with($this->equalTo($answer));
 	    $this->object->then($answer);
     }
 
-    /**
-     * @covers Poser\Stubbing\OngoingStubbing::thenThrow
-     */
     public function testThenThrow() {
 	    $this->invocationContainer->expects($this->any())
 		    ->method("thenThrow")
-			->with($this->isInstanceOf('Poser\Invocation\ThrowAnswer'));
+			->with($this->isInstanceOf('\Kodova\Poser\Invocation\ThrowAnswer'));
 
-		$this->object->thenThrow(new \Poser\Exception\PoserException("foo"));
+		$this->object->thenThrow(new PoserException("foo"));
     }
 }
