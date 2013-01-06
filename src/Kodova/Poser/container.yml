@@ -1,0 +1,24 @@
+services:
+    proxyFactory: 
+        class: Kodova\Poser\Proxy\ProxyFactory
+        arguments:
+            - @generatorFactory
+            - @mockingMonitor
+
+    poserCore:
+        class: Kodova\Poser\PoserCore
+        arguments: 
+            - @proxyFactory
+            - @mockingMonitor
+
+    generatorFactory:
+        class: Kodova\Poser\Proxy\Generator\GeneratorFactory
+
+    mockingMonitor:
+        class: Kodova\Poser\MockingMonitor
+        arguments:
+            - @argumentMatcherMonitor
+    
+    argumentMatcherMonitor:
+        class: Kodova\Poser\ArgumentMatcherMonitor
+        
