@@ -24,7 +24,6 @@
 	"autoload": {
 		"psr-0": {
 			"Kodova\\": "src/"
-		},
-		"files": ["src/Kodova/Poser/global_functions.php"]
+		}
     }
 }
