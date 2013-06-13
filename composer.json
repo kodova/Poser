@@ -13,10 +13,10 @@
 		}
 	],
 	"require": {
-		"symfony/config": "v2.1.6",
-		"symfony/dependency-injection": "v2.1.6",
-		"symfony/yaml": "v2.1.6",
-		"kodova/hamcrest-php": "0.3.0"
+		"symfony/config": ">=v2.1.6",
+		"symfony/dependency-injection": ">=v2.1.6",
+		"symfony/yaml": ">=v2.1.6",
+		"kodova/hamcrest-php": "0.3.*"
 	},
 	"require-dev":{
 		"symfony/class-loader": "v2.1.6"
