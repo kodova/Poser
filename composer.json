@@ -20,5 +20,11 @@
 	},
 	"require-dev":{
 		"symfony/class-loader": "v2.1.6"
-	}
+	},
+	"autoload": {
+		"psr-0": {
+			"Kodova\\": "src/"
+		},
+		"files": ["src/Kodova/Poser/global_functions.php"]
+    }
 }
