@@ -19,7 +19,7 @@ class GeneratorFactoryTest extends PHPUnit_Framework_TestCase {
     }
     
     public function testGetGeneratorForInterfaceClass(){
-        $toMock = 'Helpers\Test\InterfaceClass';
+        $toMock = 'Kodova\Poser\Helpers\Test\InterfaceClass';
         $options = new MockOptions();
         
         $generator = $this->generatorFactory->getGenerator($toMock, $options);
@@ -28,7 +28,7 @@ class GeneratorFactoryTest extends PHPUnit_Framework_TestCase {
     }
     
     public function testGetGeneratorForAbstractClass(){
-        $toMock = 'Helpers\Test\AbstractClass';
+        $toMock = 'Kodova\Poser\Helpers\Test\AbstractClass';
         $options = new MockOptions();
         
         $generator = $this->generatorFactory->getGenerator($toMock, $options);
@@ -37,7 +37,7 @@ class GeneratorFactoryTest extends PHPUnit_Framework_TestCase {
     }
     
     public function testGetGeneratorForConcreteClass(){
-        $toMock = 'Helpers\Test\MethodClass';
+        $toMock = 'Kodova\Poser\Helpers\Test\MethodClass';
         $options = new MockOptions();
         
         $generator = $this->generatorFactory->getGenerator($toMock, $options);
@@ -46,7 +46,7 @@ class GeneratorFactoryTest extends PHPUnit_Framework_TestCase {
     }
     
     public function testGetGeneratorForStaticMocks(){
-        $toMock = 'Helpers\Test\MethodClass';
+        $toMock = 'Kodova\Poser\Helpers\Test\MethodClass';
         $options = new MockOptions();
         $options->setMockStatic(true);
         

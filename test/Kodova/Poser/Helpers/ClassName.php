@@ -1,6 +1,6 @@
 <?php
 
-namespace Helpers;
+namespace Kodova\Poser\Helpers;
 
 /**
  * Used to create unique class names for testing

@@ -1,10 +1,10 @@
 <?php
 
+use Kodova\Poser\Helpers\Test\MethodClass;
+use Kodova\Poser\Reflection\ArgumentMatcherMonitor;
 use Kodova\Poser\Verification\Times;
 use Kodova\Poser\Invocation\Invocation;
-use Helpers\Test\MethodClass;
 use Kodova\Poser\MockingMonitor;
-use Kodova\Poser\ArgumentMatcherMonitor;
 use Kodova\Poser\MockOptions;
 use Kodova\Poser\Verification\TimesException;
 use Kodova\Poser\Exception\PoserException;
@@ -17,13 +17,13 @@ use Kodova\Poser\Exception\PoserException;
 class TimesTest extends PHPUnit_Framework_TestCase{
 	
 	/**
-	 * @var \Poser\Invocation\InvocationContainer 
+	 * @var Kodova\Poser\Invocation\InvocationContainer
 	 */
 	private $invocationContainer = null;
 	
 	
 	/**
-	 * @var \Poser\Invocation\Invocation 
+	 * @var Kodova\Poser\Invocation\Invocation
 	 */
 	private $invocation = null;
 	

@@ -1,6 +1,6 @@
 <?php
 
-namespace Helpers\Test;
+namespace Kodova\Poser\Helpers\Test;
 
 
 class ConstructorArgClass {

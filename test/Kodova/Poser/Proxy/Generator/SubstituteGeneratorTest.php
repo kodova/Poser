@@ -7,7 +7,7 @@ class SubstituteGeneratorTest extends PHPUnit_Framework_TestCase  {
 	
 	
 	public function testGetClassDeclarationWithNamespace() {
-		$namespace = 'Helpers\Test';
+		$namespace = 'Kodova.Poser.Helpers\Test';
 		$name = 'MethodClass';
 		$options = new MockOptions();
 	    $toMock = "$namespace\\$name";
@@ -33,7 +33,7 @@ class SubstituteGeneratorTest extends PHPUnit_Framework_TestCase  {
 	}
 
 	public function testGetMethodsToProxy() {
-	    $toMock = 'Helpers\Test\MethodClass';
+	    $toMock = 'Kodova\Poser\Helpers\Test\MethodClass';
 	    $options = new MockOptions();
 		
 		$generator = new SubstituteGenerator($toMock, $options);
@@ -43,7 +43,7 @@ class SubstituteGeneratorTest extends PHPUnit_Framework_TestCase  {
 	}
 	
 	public function testGenerate() {
-		$toMock = 'Helpers\Test\DoNotUseClass';
+		$toMock = 'Kodova\Poser\Helpers\Test\DoNotUseClass';
 		$options = new MockOptions();
 		$generator = new SubstituteGenerator($toMock, $options);
 		$obj = $generator->generate();
@@ -52,7 +52,7 @@ class SubstituteGeneratorTest extends PHPUnit_Framework_TestCase  {
 	}
 	
 	public function testGetConstants(){
-		$toMock = 'Helpers\Test\MethodClass';
+		$toMock = 'Kodova\Poser\Helpers\Test\MethodClass';
 		$const = array('TEST' => 1, 'TEST2' => 2);
 		$options = new MockOptions();
 		$options->setConstants($const);

@@ -1,6 +1,6 @@
 <?php
 
-namespace Helpers\Test;
+namespace Kodova\Poser\Helpers\Test;
 
 /**
  * Do not use this class or delete it. This class is here for one reason

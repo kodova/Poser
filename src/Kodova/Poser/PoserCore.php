@@ -2,12 +2,14 @@
 
 namespace Kodova\Poser;
 
+use Kodova\Poser\Proxy\Generator\GeneratorFactory;
+use Kodova\Poser\Reflection\ArgumentMatcherMonitor;
 use Kodova\Poser\Verification\VerificationRequest;
 use Kodova\Poser\Exception\PoserException;
 use Kodova\Poser\Verification\VerifiableType;
 use Kodova\Poser\Stubbing\Stubbable;
 use Kodova\Poser\Proxy\ProxyFactory;
-use Hamcrest_Matcher;
+use Hamcrest\Matcher;
 
 class PoserCore {
 	
@@ -23,7 +25,16 @@ class PoserCore {
 		$this->mockingMonitor = $mockingMonitor;
 	}
 
-	/**
+    public static function build()
+    {
+        $generatorFactory = new GeneratorFactory();
+        $argumentMonitor = new ArgumentMatcherMonitor();
+        $mockMonitor = new MockingMonitor($argumentMonitor);
+        $proxyFactory = new ProxyFactory($generatorFactory, $mockMonitor);
+        return new PoserCore($proxyFactory, $mockMonitor);
+    }
+
+    /**
 	 * Creates a mock for a given class
 	 *
 	 * @param string $toMock the name of the class to mock
@@ -56,10 +67,10 @@ class PoserCore {
 	}
 	
 	/**
-	 * @param Hamcrest_Matcher $matcher
+	 * @param Matcher $matcher
 	 * @return DefaultReturnValues;
 	 */
-	public function reportMatcher(Hamcrest_Matcher $matcher){
+	public function reportMatcher(Matcher $matcher){
 		return $this->mockingMonitor->getArgumentMatcherMonitor()->reportMatcher($matcher);
 	}
 

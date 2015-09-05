@@ -1,15 +1,14 @@
 <?php
 
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
-use Symfony\Component\Config\FileLocator;
+namespace Kodova\Poser;
+
 use Kodova\Poser\MockOptions;
 use Kodova\Poser\PoserCore;
 use Kodova\Poser\MockBuilder;
 use Kodova\Poser\Stubbing\Stubbable;
 use Kodova\Poser\Verification\Times;
 use Kodova\Poser\Verification\VerifiableType;
-use Hamcrest_Matchers as hm;
+use Hamcrest\Matchers as hm;
 
 /**
  * The base poser object used for working with all mocked objects. All interactions with creating, stubbing, and
@@ -76,10 +75,7 @@ class Poser {
 	 */
 	private static function getPoserCore(){
 		if(null == self::$poserCore){
-			$container = new ContainerBuilder();
-			$configLoader = new YamlFileLoader($container, new FileLocator(__DIR__));
-			$configLoader->load('Kodova/Poser/container.yml');
-			self::$poserCore = $container->get('poserCore');
+            self::$poserCore = PoserCore::build();
 		}
 		
 		return self::$poserCore;
@@ -88,7 +84,7 @@ class Poser {
     /**
      * Sets the poser core to use for this poser object
      * @static
-     * @param Kodova\Poser\PoserCore $poserCore
+     * @param \Kodova\Poser\PoserCore $poserCore
      */
 	public static function setPoserCore(PoserCore $poserCore){
 		static::$poserCore = $poserCore;

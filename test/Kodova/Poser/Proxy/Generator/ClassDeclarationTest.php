@@ -25,15 +25,6 @@ class ClassDeclarationTest extends PHPUnit_Framework_TestCase
 		$this->assertEquals($implements, $dec->getImplements());
 	}
 	
-	/**
-	 * @expectedException Kodova\Poser\Exception\UndefinedPropertyException
-	*/
-	public function testTestName() {
-		$this->markTestSkipped("Need to debug this");
-	    $dec = new ClassDeclaration();
-		$dec->isHere();
-	}
-	
 	public function testGetDeclarationWithClassName() {
 		$className = 'testClass';
 		$declaration = "class $className";

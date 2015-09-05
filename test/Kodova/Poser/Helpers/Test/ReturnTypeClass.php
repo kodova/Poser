@@ -1,8 +1,8 @@
 <?php
 
-namespace Helpers\Test;
+namespace Kodova\Poser\Helpers\Test;
 
-class ReturnTypeClass {
+class   ReturnTypeClass {
 	
 	/**
 	 *@return string 

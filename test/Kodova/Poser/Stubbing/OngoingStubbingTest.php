@@ -1,11 +1,11 @@
 <?php
 namespace Kodova\Poser\Stubbing;
 
+use Kodova\Poser\Helpers\Test\MethodClass;
+use Kodova\Poser\Reflection\ArgumentMatcherMonitor;
 use Kodova\Poser\Stubbing\OngoingStubbing;
 use SplDoublyLinkedList;
-use Helpers\Test\MethodClass;
 use Kodova\Poser\Invocation\Invocation;
-use Kodova\Poser\ArgumentMatcherMonitor;
 use Kodova\Poser\MockOptions;
 use Kodova\Poser\Stubbing\Stub;
 use Kodova\Poser\MockingMonitor;

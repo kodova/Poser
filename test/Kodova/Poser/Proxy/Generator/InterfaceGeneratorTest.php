@@ -1,6 +1,7 @@
 <?php
 	
 use Kodova\Poser\Proxy\Generator\InterfaceGenerator as InterfaceGenerator;
+use Kodova\Poser\Helpers as helpers;
 
 class InterfaceGeneratorTest extends PHPUnit_Framework_TestCase 
 {
@@ -11,7 +12,7 @@ class InterfaceGeneratorTest extends PHPUnit_Framework_TestCase
 	}
 	
 	public function testGetClassDeclaration() {
-		$toMock = 'Helpers\Test\InterfaceClass';
+		$toMock = 'Kodova\Poser\Helpers\Test\InterfaceClass';
 		$name = "InvocationImpl";
 		
 		$generator = new InterfaceGenerator($toMock, $name);
@@ -22,7 +23,7 @@ class InterfaceGeneratorTest extends PHPUnit_Framework_TestCase
 	}
 	
 	public function testGetMethodsToProxy() {
-		$toMock = 'Helpers\Test\InterfaceClass';
+		$toMock = 'Kodova\Poser\Helpers\Test\InterfaceClass';
 		$name = "InvocationImpl";
 		$class = new ReflectionClass($toMock);
 		
@@ -35,8 +36,8 @@ class InterfaceGeneratorTest extends PHPUnit_Framework_TestCase
 	}
 	
 	public function testGenearte() {
-		$toMock = 'Helpers\Test\InterfaceClass';
-		$name = \Helpers\ClassName::getName('InvocationImp');
+		$toMock = 'Kodova\Poser\Helpers\Test\InterfaceClass';
+		$name = helpers\ClassName::getName('InvocationImp');
 		
 		$generator = new InterfaceGenerator($toMock, $name);
 		
@@ -53,7 +54,7 @@ class InterfaceGeneratorTest extends PHPUnit_Framework_TestCase
 	 */
 	public function testShouldNotGenerateDueToNonInterface() {
 		$toMock = 'Kodova\Poser\Invocation\EmptyValueAnswer';
-		$name = \Helpers\ClassName::getName('InvocationImp');
+		$name = helpers\ClassName::getName('InvocationImp');
 		
 		$generator = new InterfaceGenerator($toMock, $name);
 	}

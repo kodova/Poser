@@ -1,6 +1,7 @@
 <?php
 
 use Kodova\Poser\Proxy\Generator\ExtendedGenerator as ExtendedGenerator;
+use Kodova\Poser\Helpers as helpers;
 
 class ExtendedGeneratorTest extends PHPUnit_Framework_TestCase 
 {
@@ -13,8 +14,8 @@ class ExtendedGeneratorTest extends PHPUnit_Framework_TestCase
     }
 	
 	public function testGetClassDeclaration() {
-		$toMock = 'Helpers\Test\MethodClass';
-		$name = \Helpers\ClassName::getName('Generator');
+		$toMock = 'Kodova\Poser\Helpers\Test\MethodClass';
+		$name = helpers\ClassName::getName('Generator');
 		
 		$generator = new ExtendedGenerator($toMock, $name);
 		$classDec = $generator->getClassDeclaration();
@@ -23,8 +24,8 @@ class ExtendedGeneratorTest extends PHPUnit_Framework_TestCase
 	}
 	
 	public function testGetMethodsToProxy() {
-		$toMock = 'Helpers\Test\MethodClass';
-		$name = \Helpers\ClassName::getName('Generator');
+		$toMock = 'Kodova\Poser\Helpers\Test\MethodClass';
+		$name = helpers\ClassName::getName('Generator');
 		
 		$generator = new ExtendedGenerator($toMock, $name);
 		$proxyMethods = $generator->getMethodsToProxy();
@@ -39,8 +40,8 @@ class ExtendedGeneratorTest extends PHPUnit_Framework_TestCase
 	}
 	
 	public function testGenearteAbstract() {
-		$toMock = 'Helpers\Test\AbstractClass';
-		$name = \Helpers\ClassName::getName('Generator');
+		$toMock = 'Kodova\Poser\Helpers\Test\AbstractClass';
+		$name = helpers\ClassName::getName('Generator');
 		
 		$generator = new ExtendedGenerator($toMock, $name);
 		$obj = $generator->generate();
@@ -49,8 +50,8 @@ class ExtendedGeneratorTest extends PHPUnit_Framework_TestCase
 	}
 	
 	public function testGenearteClass() {
-		$toMock = 'Helpers\Test\MethodClass';
-		$name = \Helpers\ClassName::getName('Generator');
+		$toMock = 'Kodova\Poser\Helpers\Test\MethodClass';
+		$name = helpers\ClassName::getName('Generator');
 		
 		$generator = new ExtendedGenerator($toMock, $name);
 		$obj = $generator->generate();
@@ -59,8 +60,8 @@ class ExtendedGeneratorTest extends PHPUnit_Framework_TestCase
 	}
 	
 	public function testGenerateClassWithEmptyConstructor() {
-	    $toMock = 'Helpers\Test\ConstructorNoArgClass';
-		$name = \Helpers\ClassName::getName('Generator');
+	    $toMock = 'Kodova\Poser\Helpers\Test\ConstructorNoArgClass';
+		$name = helpers\ClassName::getName('Generator');
 		
 		$generator = new ExtendedGenerator($toMock, $name);	
 		$obj = $generator->generate();
@@ -72,8 +73,8 @@ class ExtendedGeneratorTest extends PHPUnit_Framework_TestCase
 	 * @test
 	 */
 	public function shouldGenerateClassWithOptionalParamsInConstructor() {
-		$toMock = 'Helpers\Test\ConstructorOptionalArgClass';
-		$name = \Helpers\ClassName::getName('Generator');
+		$toMock = 'Kodova\Poser\Helpers\Test\ConstructorOptionalArgClass';
+		$name = helpers\ClassName::getName('Generator');
 
 		$generator = new ExtendedGenerator($toMock, $name);
 		$obj = $generator->generate();
@@ -85,8 +86,8 @@ class ExtendedGeneratorTest extends PHPUnit_Framework_TestCase
 	 * @expectedException \Kodova\Poser\Proxy\Generator\GeneratorException
 	*/
 	public function testShouldNotGenerateDueToMockRequiringConstructorWithArgs() {
-	    $toMock = 'Helpers\Test\ConstructorArgClass';
-		$name = \Helpers\ClassName::getName('Generator');
+	    $toMock = 'Kodova\Poser\Helpers\Test\ConstructorArgClass';
+		$name = helpers\ClassName::getName('Generator');
 		
 		$generator = new ExtendedGenerator($toMock, $name);	
 		$classDef = $generator->generate();
@@ -96,8 +97,8 @@ class ExtendedGeneratorTest extends PHPUnit_Framework_TestCase
 	 * @expectedException \Kodova\Poser\Proxy\Generator\GeneratorException
 	*/
 	public function testShouldNotGenerateDueToFinalClass() {
-	    $toMock = '\Helpers\Test\FinalClass';
-		$name = \Helpers\ClassName::getName('Generator');
+	    $toMock = 'Kodova\Poser\Helpers\Test\FinalClass';
+		$name = helpers\ClassName::getName('Generator');
 		
 		$generator = new ExtendedGenerator($toMock, $name);
 	}
@@ -107,7 +108,7 @@ class ExtendedGeneratorTest extends PHPUnit_Framework_TestCase
 	*/
 	public function testShouldNotGenerateDueToBeingAnInterface() {
 		$toMock = 'Kodova\Poser\Invocation\Answer';
-		$name = \Helpers\ClassName::getName('Generator');
+		$name = helpers\ClassName::getName('Generator');
 		
 		$generator = new ExtendedGenerator($toMock, $name);
 	}

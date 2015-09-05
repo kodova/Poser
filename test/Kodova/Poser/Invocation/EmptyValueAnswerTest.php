@@ -3,7 +3,7 @@
 
 use Kodova\Poser\Invocation\EmptyValueAnswer;
 use Kodova\Poser\Invocation\Invocation;
-use \Helpers\Test\ReturnTypeClass;
+use Kodova\Poser\Helpers as Helpers;
 
 class EmptyValueAnswerTest extends PHPUnit_Framework_TestCase {
 	
@@ -11,7 +11,7 @@ class EmptyValueAnswerTest extends PHPUnit_Framework_TestCase {
 	 * @var EmptyValueAnswer 
 	 */
 	private $underTest = null;
-	
+
 	public function setUp(){
 		$this->underTest = new EmptyValueAnswer();
 	}	
@@ -21,49 +21,49 @@ class EmptyValueAnswerTest extends PHPUnit_Framework_TestCase {
 	
 	public function testAnswerWithStringType(){
 		$method = 'stringMethod';
-		$invocation = new Invocation(new \Helpers\Test\ReturnTypeClass(), $method, array(), new SplDoublyLinkedList(), array());
+		$invocation = new Invocation(new Helpers\Test\ReturnTypeClass(), $method, array(), new SplDoublyLinkedList(), array());
 		$return = $this->underTest->answer($invocation);
 		$this->assertEquals('', $return);
 	}
 	
 	public function testAnswerWithIntType(){
 		$method = 'intMethod';
-		$invocation = new Invocation(new \Helpers\Test\ReturnTypeClass(), $method, array(), new SplDoublyLinkedList(), array());
+		$invocation = new Invocation(new Helpers\Test\ReturnTypeClass(), $method, array(), new SplDoublyLinkedList(), array());
 		$return = $this->underTest->answer($invocation);
 		$this->assertEquals(0, $return);
 	}
 	
 	public function testAnswerWithNumberType(){
 		$method = 'numberMethod';
-		$invocation = new Invocation(new \Helpers\Test\ReturnTypeClass(), $method, array(), new SplDoublyLinkedList(), array());
+		$invocation = new Invocation(new Helpers\Test\ReturnTypeClass(), $method, array(), new SplDoublyLinkedList(), array());
 		$return = $this->underTest->answer($invocation);
 		$this->assertEquals(0, $return);
 	}
 	
 	public function testAnswerWithIntegerType(){
 		$method = 'integerMethod';
-		$invocation = new Invocation(new \Helpers\Test\ReturnTypeClass(), $method, array(), new SplDoublyLinkedList(), array());
+		$invocation = new Invocation(new Helpers\Test\ReturnTypeClass(), $method, array(), new SplDoublyLinkedList(), array());
 		$return = $this->underTest->answer($invocation);
 		$this->assertEquals(0, $return);
 	}
 	
 	public function testAnswerWithFloatType(){
 		$method = 'floatMethod';
-		$invocation = new Invocation(new \Helpers\Test\ReturnTypeClass(), $method, array(), new SplDoublyLinkedList(), array());
+		$invocation = new Invocation(new Helpers\Test\ReturnTypeClass(), $method, array(), new SplDoublyLinkedList(), array());
 		$return = $this->underTest->answer($invocation);
 		$this->assertEquals(.1, $return);
 	}
 	
 	public function testAnswerWithDoubleType(){
 		$method = 'doubleMethod';
-		$invocation = new Invocation(new \Helpers\Test\ReturnTypeClass(), $method, array(), new SplDoublyLinkedList(), array());
+		$invocation = new Invocation(new Helpers\Test\ReturnTypeClass(), $method, array(), new SplDoublyLinkedList(), array());
 		$return = $this->underTest->answer($invocation);
 		$this->assertEquals(.1, $return);
 	}
 	
 	public function testAnswerWithArrayType(){
 		$method = 'arrayMethod';
-		$invocation = new Invocation(new \Helpers\Test\ReturnTypeClass(), $method, array(), new SplDoublyLinkedList(), array());
+		$invocation = new Invocation(new Helpers\Test\ReturnTypeClass(), $method, array(), new SplDoublyLinkedList(), array());
 		$return = $this->underTest->answer($invocation);
 		$this->assertTrue(is_array($return));
 		$this->assertEmpty($return);
@@ -71,14 +71,14 @@ class EmptyValueAnswerTest extends PHPUnit_Framework_TestCase {
 	
 	public function testAnswerWithNullType(){
 		$method = 'nullMethod';
-		$invocation = new Invocation(new \Helpers\Test\ReturnTypeClass(), $method, array(), new SplDoublyLinkedList(), array());
+		$invocation = new Invocation(new Helpers\Test\ReturnTypeClass(), $method, array(), new SplDoublyLinkedList(), array());
 		$return = $this->underTest->answer($invocation);
 		$this->assertNull($return);
 	}
 	
 	public function testAnswerWithMixedType(){
 		$method = 'mixedMethod';
-		$invocation = new Invocation(new \Helpers\Test\ReturnTypeClass(), $method, array(), new SplDoublyLinkedList(), array());
+		$invocation = new Invocation(new Helpers\Test\ReturnTypeClass(), $method, array(), new SplDoublyLinkedList(), array());
 		$return = $this->underTest->answer($invocation);
 		$this->assertNull($return);
 	}

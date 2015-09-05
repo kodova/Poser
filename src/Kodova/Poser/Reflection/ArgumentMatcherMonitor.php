@@ -1,8 +1,10 @@
 <?php
 
-namespace Kodova\Poser;
+namespace Kodova\Poser\Reflection;
 
-use Hamcrest_Matcher;
+use Hamcrest\Matcher;
+use Kodova\Poser\DefaultReturnValues;
+use Kodova\Poser\Exception\PoserException;
 use SplDoublyLinkedList;
 
 class ArgumentMatcherMonitor {
@@ -33,7 +35,7 @@ class ArgumentMatcherMonitor {
 	
 	public function validateState() {
 		if (!$this->argumentList->isEmpty()) {
-			throw new Exception\PoserException("Invalid state for argument matcher");
+			throw new PoserException("Invalid state for argument matcher");
 			/*
 				TODO need to throw a real exception
 			*/
@@ -41,10 +43,10 @@ class ArgumentMatcherMonitor {
 	}
 	
 	/**
-	 * @param Hamcrest_Matcher $matcher
+	 * @param Matcher $matcher
 	 * @return DefaultReturnValues
 	 */
-	public function reportMatcher(Hamcrest_Matcher $matcher) {
+	public function reportMatcher(Matcher $matcher) {
 		$this->argumentList->push($matcher);
 		return $this->defaultReturnValues;
 	}

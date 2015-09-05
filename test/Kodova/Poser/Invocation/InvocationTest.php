@@ -1,8 +1,7 @@
 <?php
 
 use Kodova\Poser\Invocation\Invocation;
-use Helpers\Test\MethodClass;
-use Kodova\Poser as p;
+use Kodova\Poser\Poser as p;
 
 /**
  * Description of InvocationTest
@@ -17,7 +16,6 @@ class InvocationTest extends PHPUnit_Framework_TestCase{
 	private $mock;
 	
 	public function setUp() {
-		$this->markTestSkipped("need to migrate mock objects");
 	}
 	
 	public function tearDown() {
@@ -25,13 +23,13 @@ class InvocationTest extends PHPUnit_Framework_TestCase{
 	}
 	
 	public function testMatchesNotSameMock(){
-		$mock = p::mock('Helpers\Test\MethodClass');
+		$mock = p::mock('Kodova\Poser\Helpers\Test\MethodClass');
 		$method = 'privateFoo';
 		$args = array();
 		$matchers = new SplDoublyLinkedList;
 		$invocation = new Invocation($mock, $method, $args, $matchers, array());
 		
-		$mock2 = p::mock('Helpers\Test\InterfaceClass');
+		$mock2 = p::mock('Kodova\Poser\Helpers\Test\InterfaceClass');
 		$invocation2 = new Invocation($mock2, 'foo', array(), new SplDoublyLinkedList(), array());
 		
 		$result = $invocation->matches($invocation2);
@@ -39,13 +37,13 @@ class InvocationTest extends PHPUnit_Framework_TestCase{
 	}
 	
 	public function testMatchesNotSameMethod(){
-		$mock = p::mock('Helpers\Test\MethodClass');
+		$mock = p::mock('Kodova\Poser\Helpers\Test\MethodClass');
 		$method = 'privateFoo';
 		$args = array();
 		$matchers = new SplDoublyLinkedList;
 		$invocation = new Invocation($mock, $method, $args, $matchers, array());
 		
-		$mock2 = p::mock('Helpers\Test\MethodClass');
+		$mock2 = p::mock('Kodova\Poser\Helpers\Test\MethodClass');
 		$invocation2 = new Invocation($mock2, 'mixedArgsFoo', array(), new SplDoublyLinkedList(), array());
 		
 		$result = $invocation->matches($invocation2);
@@ -53,13 +51,13 @@ class InvocationTest extends PHPUnit_Framework_TestCase{
 	}
 	
 	public function testMatchesNotSameArgSize(){
-		$mock = p::mock('Helpers\Test\MethodClass');
+		$mock = p::mock('Kodova\Poser\Helpers\Test\MethodClass');
 		$method = 'privateFoo';
 		$args = array();
 		$matchers = new SplDoublyLinkedList;
 		$invocation = new Invocation($mock, $method, $args, $matchers, array());
 		
-		$mock2 = p::mock('Helpers\Test\MethodClass');
+		$mock2 = p::mock('Kodova\Poser\Helpers\Test\MethodClass');
 		$invocation2 = new Invocation($mock2, $method, range(1, 3), new SplDoublyLinkedList(), array());
 		
 		$result = $invocation->matches($invocation2);
@@ -67,13 +65,13 @@ class InvocationTest extends PHPUnit_Framework_TestCase{
 	}
 
 	public function testMatchesWithNullMatchers(){
-		$mock = p::mock('Helpers\Test\MethodClass');
+		$mock = p::mock('Kodova\Poser\Helpers\Test\MethodClass');
 		$method = 'privateFoo';
 		$args = array();
 		$matchers = new SplDoublyLinkedList;
 		$invocation = new Invocation($mock, $method, $args, $matchers, array());
 		
-		$mock2 = p::mock('Helpers\Test\MethodClass');
+		$mock2 = p::mock('Kodova\Poser\Helpers\Test\MethodClass');
 		$invocation2 = new Invocation($mock2, $method, range(1, 3), new SplDoublyLinkedList(), array());
 		
 		$result = $invocation->matches($invocation2);
@@ -81,7 +79,7 @@ class InvocationTest extends PHPUnit_Framework_TestCase{
 	}
 	
 	public function testMatchesWithEmptyMatchersZeroArgs(){
-		$mock = p::mock('Helpers\Test\MethodClass');
+		$mock = p::mock('Kodova\Poser\Helpers\Test\MethodClass');
 		$method = 'privateFoo';
 		$args = array();
 		$matchers = new SplDoublyLinkedList();
@@ -93,7 +91,7 @@ class InvocationTest extends PHPUnit_Framework_TestCase{
 	}
 	
 	public function testMatchesWithEmptyMatchersSameArgs(){
-		$mock = p::mock('Helpers\Test\MethodClass');
+		$mock = p::mock('Kodova\Poser\Helpers\Test\MethodClass');
 		$method = 'privateFoo';
 		$args = array(1, 2);
 		$matchers = new SplDoublyLinkedList();
@@ -105,7 +103,7 @@ class InvocationTest extends PHPUnit_Framework_TestCase{
 	}
 	
 	public function testMatchesWithEmptyMatchersDifferentArgs(){
-		$mock = p::mock('Helpers\Test\MethodClass');
+		$mock = p::mock('Kodova\Poser\Helpers\Test\MethodClass');
 		$method = 'privateFoo';
 		$args = array(1, 2);
 		$matchers = new SplDoublyLinkedList();
@@ -117,7 +115,7 @@ class InvocationTest extends PHPUnit_Framework_TestCase{
 	}
 	
 	public function testMatchesWithMatchers(){
-		$mock = p::mock('Helpers\Test\MethodClass');
+		$mock = p::mock('Kodova\Poser\Helpers\Test\MethodClass');
 		$method = 'privateFoo';
 		$args = array(1, 2);
 		$matchers = new SplDoublyLinkedList();
