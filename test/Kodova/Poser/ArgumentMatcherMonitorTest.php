@@ -34,8 +34,8 @@ class ArgumentMatcherMonitorTest extends PHPUnit_Framework_TestCase {
 		$matchers = $this->argMonitor->pullMatchers();
 		$this->assertEquals(2, $matchers->count(), 'The number of matchers set don not equal the number of matchers pulled');
 		//verify the order of the matchers.
-		$this->assertTrue(is_a($matchers[0], \Hamcrest\Core\IsNull::class), 'the matchers are out of order');
-		$this->assertTrue(is_a($matchers[1], \Hamcrest\Core\IsAnything::class), 'the matchers are out of order');
+		$this->assertTrue(is_a($matchers[0], '\Hamcrest\Core\IsNull'), 'the matchers are out of order');
+		$this->assertTrue(is_a($matchers[1], '\Hamcrest\Core\IsAnything'), 'the matchers are out of order');
 	}
 	
 	public function testReset() {
